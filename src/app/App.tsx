@@ -7,11 +7,7 @@ import Wallet from "../Pages/Wallet";
 function App() {
 
   return (
-      <BrowserRouter>
-            <Routes>
-                <Route  path="/wallet" element={<Wallet/>}/>
-            </Routes>
-      </BrowserRouter>
+      <Wallet/>
   );
 }
 
