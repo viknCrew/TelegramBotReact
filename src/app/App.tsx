@@ -10,6 +10,8 @@ function App() {
       <HashRouter>
             <Routes>
                   <Route  path="/" element={<Wallet/>}/>
+                <Route  path="send" element={<div>send</div>}/>
+                <Route  path="/receive" element={<div>receive</div>}/>
             </Routes>
       </HashRouter>
   );
