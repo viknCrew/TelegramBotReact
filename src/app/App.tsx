@@ -1,14 +1,17 @@
-import React from 'react';
-// @ts-ignore
-const tg = window.Telegram.WebApp;
+import * as React from "react";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+import Wallet from "../Pages/Wallet";
+
 
 
 function App() {
+
   return (
-    <div className="" >
-
-
-    </div>
+      <BrowserRouter>
+            <Routes>
+                <Route  path="/wallet" element={<Wallet/>}/>
+            </Routes>
+      </BrowserRouter>
   );
 }
 
