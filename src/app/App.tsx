@@ -1,10 +1,20 @@
 import * as React from "react";
 import { Routes, Route, HashRouter} from "react-router-dom";
 import Wallet from "../Pages/Wallet";
-
+import {useEffect} from "react";
+// @ts-ignore
+const tg = window.Telegram.WebApp;
 
 
 function App() {
+
+    useEffect(()=>{
+        tg.ready();
+    },[])
+
+    const onClose= ()=>{
+        tg.close();
+    }
 
   return (
       <HashRouter>

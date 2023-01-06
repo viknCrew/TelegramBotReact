@@ -1,8 +1,7 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 
-// @ts-ignore
-const tg = window.Telegram.WebApp;
+
 
 
 function Wallet() {
@@ -10,6 +9,7 @@ function Wallet() {
     const up = require("../assets/VectUp.png");
     const down = require("../assets/vectDown.png");
     const metaMask = require("../assets/MetaMask_Fox.png");
+
     return (
         <div className="grid grid-col-1 gap-6 w-full mx-[10px] mr-[10px]">
             <div className='flex justify-center items-start '>
