@@ -1,22 +1,18 @@
 import * as React from "react";
 import { Routes, Route, HashRouter} from "react-router-dom";
 import Wallet from "../Pages/Wallet";
+import {useTelegram} from "../hooks/useTelegram";
 import {useEffect} from "react";
-// @ts-ignore
-const tg = window.Telegram.WebApp;
-
 
 function App() {
+    const {onToggleButton, tg,onClose} = useTelegram();
 
-    useEffect(()=>{
+    useEffect(() => {
         tg.ready();
-    },[])
+    }, [])
 
-    const onClose= ()=>{
-        tg.close();
-    }
 
-  return (
+    return (
       <HashRouter> <button
           aria-label="Close menu"
           className="h-16 w-16  absolute top-0.5 right-0.5"
@@ -40,7 +36,7 @@ function App() {
       </button>
             <Routes>
 
-                <Route  path="/" element={<Wallet/>}/>
+                <Route  index element={<Wallet/>}/>
                 <Route  path="send" element={<div>send</div>}/>
                 <Route  path="/receive" element={<div>receive</div>}/>
             </Routes>
