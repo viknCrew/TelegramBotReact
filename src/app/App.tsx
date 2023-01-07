@@ -34,9 +34,10 @@ function App() {
               />
           </svg>
       </button>
+          <Wallet/>
             <Routes>
 
-                <Route  index element={<Wallet/>}/>
+                {/*<Route  index element={<Wallet/>}/>*/}
                 <Route  path="send" element={<div>send</div>}/>
                 <Route  path="/receive" element={<div>receive</div>}/>
             </Routes>
