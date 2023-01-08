@@ -27,7 +27,7 @@ function Wallet() {
             <div className = "grid gap-6 grid-cols-2">
                 <Link to={'/send'} className='bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                     <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-                        <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
+                        <div  className='mx-auto w-[48px] h-[48px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center'>
                             <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
                                 <path d="M4.5 12L4.5 1" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M7.46153 3.96154L4.49999 1L1.53845 3.96154" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -38,7 +38,7 @@ function Wallet() {
                 </Link>
                 <Link to={'/receive'} className='bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                 <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-                    <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
+                    <div  className='mx-auto w-[48px] h-[48px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center'>
                         <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
                             <path d="M4.5 1L4.5 12" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1.53847 9.03846L4.50001 12L7.46155 9.03846" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
