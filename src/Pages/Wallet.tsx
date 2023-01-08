@@ -6,8 +6,6 @@ import {Link} from "react-router-dom";
 
 function Wallet() {
     const logo =  require("../assets/LOGO.png");
-    const up = require("../assets/VectUp.png");
-    const down = require("../assets/vectDown.png");
     const metaMask = require("../assets/MetaMask_Fox.png");
 
     return (
@@ -29,13 +27,23 @@ function Wallet() {
             <div className = "grid gap-6 grid-cols-2">
                 <Link to={'/send'} className='bg-[var(--tg-theme-link-color)] text-[#6d00f3] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                     <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-                        <img src={up} className='mx-auto w-[48px] flex justify-center'/>
+                        <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
+                            <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
+                                <path d="M4.5 12L4.5 1" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M7.46153 3.96154L4.49999 1L1.53845 3.96154" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <p className='mx-auto flex justify-cent er'> Send</p>
                     </div>
                 </Link>
                 <Link to={'/receive'} className='bg-[var(--tg-theme-link-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                 <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-                    <img src={down} className='mx-auto  w-[48px] flex justify-center'/>
+                    <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
+                        <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
+                            <path d="M4.5 1L4.5 12" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1.53847 9.03846L4.50001 12L7.46155 9.03846" stroke="#3C3C3E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <p className='mx-auto flex justify-center'> Receive</p>
                 </div>
             </Link>
@@ -47,12 +55,12 @@ function Wallet() {
                         <img src={metaMask}/>
                         <div >
                             <p className='text-lg '>Replenishment via metamask</p>
-                            <p className='text-xs text-[#d7d7d7] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
+                            <p className='text-xs text-var(--tg-theme-hint-color)] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
                         </div>
 
                     </div>
                     <div className='flex justify-between'>
-                        <p className='text-xs text-[#d7d7d7] font-thin'>December 31 at 18:43</p>
+                        <p className='text-xs text-[var(--tg-theme-hint-color)] font-thin'>December 31 at 18:43</p>
                         <p className='text-[#00FCDE] items-start'> + 20.4570015 TMY </p>
                     </div>
                 </div>
@@ -61,12 +69,12 @@ function Wallet() {
                         <img src={metaMask}/>
                         <div >
                             <p className='text-lg '>Replenishment via metamask</p>
-                            <p className='text-xs text-[#d7d7d7] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
+                            <p className='text-xs text-[var(--tg-theme-hint-color)] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
                         </div>
 
                     </div>
                     <div className='flex justify-between'>
-                        <p className='text-xs text-[#d7d7d7] font-thin'>December 31 at 18:43</p>
+                        <p className='text-xs text-[var(--tg-theme-hint-color)] font-thin'>December 31 at 18:43</p>
                         <p className='text-[#00FCDE] items-start'> + 20.4570015 TMY </p>
                     </div>
                 </div>
@@ -75,12 +83,12 @@ function Wallet() {
                         <img src={metaMask}/>
                         <div >
                             <p className='text-lg '>Replenishment via metamask</p>
-                            <p className='text-xs text-[#d7d7d7] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
+                            <p className='text-xs text-[var(--tg-theme-hint-color)] font-thin'>xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423</p>
                         </div>
 
                     </div>
                     <div className='flex justify-between'>
-                        <p className='text-xs text-[#d7d7d7] font-thin'>December 31 at 18:43</p>
+                        <p className='text-xs text-[var(--tg-theme-hint-color)] font-thin'>December 31 at 18:43</p>
                         <p className='text-[#00FCDE] items-start'> + 20.4570015 TMY </p>
                     </div>
                 </div>
