@@ -2,6 +2,7 @@
   "name": "tg-web-react-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://nikolinc.github.io/TelegramBotReact/",
   "main": "tailwind.config.js",
   "dependencies": {
     "@tailwindcss/forms": "^0.5.3",

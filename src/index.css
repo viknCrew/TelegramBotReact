@@ -17,11 +17,11 @@ body{
     margin: 0;
     pading:0;
     background-image: url("../src/assets/bg.png");
-    /*background-color: var(--tg-theme-bg-color);*/
-    background-color: #282829;
+    background-color: var(--tg-theme-bg-color);
+    /*background-color: #282829;*/
 
-    /*color:var(--tg-theme-text-color);*/
-    color:#fff;
+    color:var(--tg-theme-text-color);
+    /*color:#fff;*/
 }
 
 button{
