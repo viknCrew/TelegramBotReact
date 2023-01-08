@@ -13,11 +13,11 @@ function Wallet() {
     return (
         <div className="grid grid-col-1 gap-6 w-full mx-[10px] mr-[10px]">
             <div className='flex justify-center items-start '>
-                <div className='bg-[#6D00F3] w-[250PX]  h-[200px] rounded-b-full flex justify-center items-center shadow-lg'>
+                <div className='bg-[var(--tg-theme-link-color)] w-[250PX]  h-[200px] rounded-b-full flex justify-center items-center shadow-lg'>
                     <img src={logo}/>
                 </div>
             </div>
-            <div className="Wallet w-full h-[150px] bg-[#3C3C3E] rounded-xl shadow-lg">
+            <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg">
                 <div className='flex justify-center items-start mt-[15px] font-black text-2xl'>Wallet</div>
                 <div className='text-[#d7d7d7] font-smail text-xs ml-[30px]'>xc6D3720f6286C5173C94523b8b02d549c9933662</div>
                 <div className ='flex items-center ml-[30px]'>
@@ -27,22 +27,22 @@ function Wallet() {
                 <p className = "text-[#d7d7d7] text-sm ml-[30px]">$ 30.3202 USDT</p>
             </div>
             <div className = "grid gap-6 grid-cols-2">
-                <Link to={'/send'} className='bg-[#3c3c3c] text-[#6d00f3] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
+                <Link to={'/send'} className='bg-[var(--tg-theme-link-color)] text-[#6d00f3] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                     <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
                         <img src={up} className='mx-auto w-[48px] flex justify-center'/>
                         <p className='mx-auto flex justify-cent er'> Send</p>
                     </div>
                 </Link>
-                <Link to={'/receive'} className='bg-[#3c3c3c] text-[#6d00f3] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
+                <Link to={'/receive'} className='bg-[var(--tg-theme-link-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                 <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
                     <img src={down} className='mx-auto  w-[48px] flex justify-center'/>
                     <p className='mx-auto flex justify-center'> Receive</p>
                 </div>
             </Link>
             </div>
-            <div className='bg-[#3c3c3e] rounded-xl shadow-lg w-full h-[400px] grid grid-cols-1'>
+            <div className='bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg w-full h-[400px] grid grid-cols-1'>
                 <p className='text-2xl font-bold flex justify-center mt-2]'> History</p>
-                <div className='bg-[#3c3c3e] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
+                <div className='bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
                     <div className='flex'>
                         <img src={metaMask}/>
                         <div >
@@ -56,7 +56,7 @@ function Wallet() {
                         <p className='text-[#00FCDE] items-start'> + 20.4570015 TMY </p>
                     </div>
                 </div>
-                <div className='bg-[#3c3c3e] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
+                <div className='bg-var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
                     <div className='flex'>
                         <img src={metaMask}/>
                         <div >
@@ -70,7 +70,7 @@ function Wallet() {
                         <p className='text-[#00FCDE] items-start'> + 20.4570015 TMY </p>
                     </div>
                 </div>
-                <div className='bg-[#3c3c3e] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
+                <div className='bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4'>
                     <div className='flex'>
                         <img src={metaMask}/>
                         <div >
