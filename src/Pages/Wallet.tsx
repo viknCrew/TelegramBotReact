@@ -40,7 +40,7 @@ function Wallet() {
                 <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
                     <div  className='mx-auto w-[48px] h-[48px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center'>
                         <svg className='fill-[var(--tg-theme-secondary-bg-color)]'  xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
-                            <path d="M4.5 1L4.5 12" stroke="#var(--tg-theme-secondary-bg-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.5 1L4.5 12" stroke="var(--tg-theme-secondary-bg-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M1.53847 9.03846L4.50001 12L7.46155 9.03846" stroke="var(--tg-theme-secondary-bg-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
