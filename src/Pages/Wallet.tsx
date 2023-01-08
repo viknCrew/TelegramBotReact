@@ -25,7 +25,7 @@ function Wallet() {
                 <p className = "text-[#d7d7d7] text-sm ml-[30px]">$ 30.3202 USDT</p>
             </div>
             <div className = "grid gap-6 grid-cols-2">
-                <Link to={'/send'} className='bg-[var(--tg-theme-link-color)] text-[#6d00f3] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
+                <Link to={'/send'} className='bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                     <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
                         <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
                             <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
@@ -36,7 +36,7 @@ function Wallet() {
                         <p className='mx-auto flex justify-cent er'> Send</p>
                     </div>
                 </Link>
-                <Link to={'/receive'} className='bg-[var(--tg-theme-link-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
+                <Link to={'/receive'} className='bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md'>
                 <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
                     <div  className='mx-auto w-[48px] bg-[var(--tg-theme-button-color)] flex justify-center'>
                         <svg className='fill-[var(--tg-theme-button-text-color)]' xmlns="http://www.w3.org/2000/svg" width="9" height="13" viewBox="0 0 9 13" fill="none">
