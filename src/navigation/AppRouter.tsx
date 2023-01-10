@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/send",
-    element: <Send/>,
+    element: <Send />,
     errorElement: <ErrorPage />,
   },
   {
