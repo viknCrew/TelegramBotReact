@@ -4,8 +4,15 @@ import { balance, Web3, web3 } from "../store/coinStore";
 
 export default function Send() {
   const { user, initDataUnsafe } = useTelegram();
+  if (!user)
+    return (
+      <>
+        <div>user null</div>
+      </>
+    );
   console.log("web3", web3);
   console.log("Web3", Web3);
+  console.log("balance", balance);
   return (
     <div className="mx-8 grid lg:grid-cols-3  grid-cols-1">
       <div>
