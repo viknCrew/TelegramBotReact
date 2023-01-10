@@ -1,14 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useTelegram } from "../hooks/useTelegram";
 
 function Wallet() {
-  const { user, queryId, initData, initDataUnsafe, tg } = useTelegram();
-  console.log("tg", tg);
-  console.log("user", user);
-  console.log("queryId", queryId);
-  console.log("initData", initData);
-  console.log("initDataUnsafe", initDataUnsafe);
+
   const logo = require("../assets/LOGO.png");
   const metaMask = require("../assets/MetaMask_Fox.png");
 
