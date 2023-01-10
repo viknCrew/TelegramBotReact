@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 import { balance, Web3, web3 } from "../store/coinStore";
 
