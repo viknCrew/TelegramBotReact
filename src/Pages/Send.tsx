@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
-import { Web3, web3 } from "../store/coinStore";
+import { balance, Web3, web3 } from "../store/coinStore";
 
-function Send() {
-  const { user,initDataUnsafe,} = useTelegram();
-  console.log('web3',web3);
-  console.log('Web3',Web3);
-  return(
-    <div className = "mx-8 grid grid-cols-3">
+export default function Send() {
+  const { user, initDataUnsafe } = useTelegram();
+  console.log("web3", web3);
+  console.log("Web3", Web3);
+  return (
+    <div className="mx-8 grid lg:grid-cols-3  grid-cols-1">
       <div>
-        <p>User</p> 
+        <p>User</p>
         <div className="flex  justify-between">
           <p>First name :</p>
           {user.first_name}
@@ -33,7 +33,7 @@ function Send() {
         </div>
       </div>
       <div>
-        <p>initDataUnsafe</p> 
+        <p>initDataUnsafe</p>
         <div className="flex  justify-between">
           <p>auth_date :</p>
           {initDataUnsafe.auth_date}
@@ -56,7 +56,11 @@ function Send() {
           <p>Web3</p>
           {Web3}
         </div>
+        <div className="flex  justify-between">
+          <p>Balance</p>
+          {balance}
+        </div>
       </div>
     </div>
-  )
+  );
 }
