@@ -1,30 +1,28 @@
+import { IInitDataUnsafe, IUser } from "../types/telegram";
 
 // @ts-ignore
 const tg = window.Telegram.WebApp;
 export function useTelegram() {
+  const onClose = () => {
+    tg.close();
+  };
 
-    const onClose = () => {
-        tg.close()
+  const user: IUser = tg.initDataUnsafe?.user;
+  const initDataUnsafe: IInitDataUnsafe = tg.initDataUnsafe;
+
+  const onToggleButton = () => {
+    if (tg.MainButton.isVisible) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
     }
+  };
 
-    const initData = tg.initData || '';
-    const initDataUnsafe = tg.initDataUnsafe || {};
-
-    const onToggleButton = () => {
-        if(tg.MainButton.isVisible) {
-            tg.MainButton.hide();
-        } else {
-            tg.MainButton.show();
-        }
-    }
-
-    return {
-        onClose,
-        onToggleButton,
-        tg,
-        user: tg.initDataUnsafe?.user,
-        queryId: tg.initDataUnsafe?.query_id,
-        initData,
-        initDataUnsafe,
-    }
+  return {
+    onClose,
+    onToggleButton,
+    tg,
+    user,
+    initDataUnsafe,
+  };
 }
