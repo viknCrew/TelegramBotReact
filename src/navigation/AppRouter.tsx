@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Wallet from "../pages/Wallet";
 import ErrorPage from "../component/error-page";
+import Send from "../pages/Send";
 
 export const router = createBrowserRouter([
   {
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/send",
-    element: <div>send</div>,
+    element: <Send/>,
     errorElement: <ErrorPage />,
   },
   {
