@@ -1,7 +1,6 @@
 
-export interface errorType{
+export interface IError{
     data:string,
-
     status:number,
     statusText:string
 }
