@@ -7,7 +7,7 @@ function Wallet() {
 
   return (
     <div className="flex justify-center">
-      <div className="grid grid-col-1 mt-10 gap-6 w-[90] ">
+      <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
             Wallet
