@@ -8,9 +8,6 @@ export default function Receive() {
   const { tg } = useTelegram();
   // console.log("tg.bg_color", tg.colorScheme().bg_color);
   // console.log("tg.text_color", tg.colorScheme().text_color);
-  console.log("tg", tg);
-  console.log("tg.backgroundColor", tg.backgroundColor);
-  console.log("tg.headerColor", tg.headerColor);
 
   async function copyPageUrl() {
     try {
@@ -28,14 +25,25 @@ export default function Receive() {
       <div className="grid grid-cols-1  h-[150px] w-full ">
         <div className="text-xl font-bold  text-center">Receive TMY</div>
         <div className="flex justify-center items-center my-10">
-          <QRCode
-            value="https://github.com/Nikolinc?tab=repositories"
-            logoImage={coin}
-            eyeRadius={10}
-            logoWidth={50}
-            // bgColor={tg.colorScheme().bg_color}
-            // fgColor={tg.colorScheme().text_color}
-          />
+          {tg.colorScheme === "dark" ? (
+            <QRCode
+              value="https://github.com/Nikolinc?tab=repositories"
+              logoImage={coin}
+              eyeRadius={10}
+              logoWidth={50}
+              bgColor={tg.backgroundColor}
+              fgColor={"#fff"}
+            />
+          ) : (
+            <QRCode
+              value="https://github.com/Nikolinc?tab=repositories"
+              logoImage={coin}
+              eyeRadius={10}
+              logoWidth={50}
+              bgColor={tg.backgroundColor}
+              fgColor={"#000"}
+            />
+          )}
         </div>
         <button
           className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
@@ -50,7 +58,7 @@ export default function Receive() {
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
         <Link
           to="/"
-          className="rounded-t-xl text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] "
+          className="rounded-t-xl text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-center text-[var(--tg-theme-link-color)] "
         >
           Go Back Home
         </Link>
