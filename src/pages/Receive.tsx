@@ -1,5 +1,6 @@
 import * as React from "react";
 import { QRCode } from "react-qrcode-logo";
+import { Link } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Receive() {
@@ -16,7 +17,7 @@ export default function Receive() {
       );
       tg.showAlert("link copied");
     } catch (err) {
-      tg.showAlert("Не удалось скопировать: ", err);
+      tg.showAlert("Не удалось скопировать: " + err);
     }
   }
 
@@ -45,6 +46,12 @@ export default function Receive() {
           </p>
         </button>
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
+        <Link
+          to="/"
+          className="inline-block px-5 py-3 mt-6 text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] rounded hover:bg-indigo-700 focus:outline-none focus:ring"
+        >
+          Go Back Home
+        </Link>
       </div>
     </div>
   );
