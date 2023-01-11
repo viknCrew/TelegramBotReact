@@ -5,9 +5,10 @@ import { useTelegram } from "../hooks/useTelegram";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
-
+  console.log("tg.bg_color", tg.bg_color);
+  console.log("tg.text_color", tg.text_color);
   return (
-    <div className="flex justify-center pt-10 h-[100vh] bg-[#343434]">
+    <div className="flex justify-center pt-10 h-[100vh] bg-[--tg-theme-bg-color]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
         <div className="text-xl font-bold  text-center">Receive TMY</div>
         <div className="flex justify-center items-center my-10">
