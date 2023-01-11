@@ -56,12 +56,14 @@ export default function Receive() {
           </p>
         </button>
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
-        <Link
-          to="/"
-          className="rounded-t-xl text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-center text-[var(--tg-theme-link-color)] "
-        >
-          Go Back Home
-        </Link>
+        <div className="flex justify-center">
+          <Link
+            to="/"
+            className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-center text-[var(--tg-theme-link-color)] "
+          >
+            Go Back Home
+          </Link>
+        </div>
       </div>
     </div>
   );
