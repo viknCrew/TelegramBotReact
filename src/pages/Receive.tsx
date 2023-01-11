@@ -9,7 +9,8 @@ export default function Receive() {
   // console.log("tg.bg_color", tg.colorScheme().bg_color);
   // console.log("tg.text_color", tg.colorScheme().text_color);
   console.log("tg", tg);
-  console.log("tg.colorScheme()", tg.colorScheme());
+  console.log("tg.backgroundColor", tg.backgroundColor);
+  console.log("tg.headerColor", tg.headerColor);
 
   async function copyPageUrl() {
     try {
