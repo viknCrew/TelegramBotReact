@@ -7,19 +7,19 @@ function Wallet() {
 
   return (
     <div className="flex justify-center">
-      <div className="grid grid-col-1 mt-10 gap-6 w-96 mx-[10px]">
+      <div className="grid grid-col-1 mt-10 gap-6 w-[90] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
             Wallet
           </div>
-          <div className="text-[#d7d7d7] font-smail text-xs ml-[30px]">
+          <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
             xc6D3720f6286C5173C94523b8b02d549c9933662
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
             <p className="font-medium text-lg">20.4570015 TMY ≈</p>
           </div>
-          <p className="text-[#d7d7d7] text-sm ml-[30px]">$ 30.3202 USDT</p>
+          <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">$ 30.3202 USDT</p>
         </div>
         <div className="grid gap-6 grid-cols-2">
           <Link
@@ -99,7 +99,7 @@ function Wallet() {
               <img src={metaMask} />
               <div>
                 <p className="text-lg ">Replenishment via metamask</p>
-                <p className="text-xs text-var(--tg-theme-hint-color)] font-thin">
+                <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
                   xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
                 </p>
               </div>
