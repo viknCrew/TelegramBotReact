@@ -7,7 +7,7 @@ function Wallet() {
 
   return (
     <div className="flex justify-center">
-      <div className="grid grid-col-1 mt-10 gap-6 w-[90] ">
+      <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
             Wallet
@@ -27,7 +27,7 @@ function Wallet() {
             className="bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md"
           >
             <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-              <div className="mx-auto w-[48px] h-[48px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center">
+              <div className="mx-auto w-[28px] h-[28px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center">
                 <svg
                   className="fill-[var(--tg-theme-secondary-bg-color)]"
                   xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ function Wallet() {
             className="bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md"
           >
             <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-              <div className="mx-auto w-[48px] h-[48px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center">
+              <div className="mx-auto w-[28px] h-[28px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center">
                 <svg
                   className="fill-[var(--tg-theme-secondary-bg-color)]"
                   xmlns="http://www.w3.org/2000/svg"
