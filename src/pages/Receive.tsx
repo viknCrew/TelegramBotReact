@@ -6,8 +6,8 @@ import { useTelegram } from "../hooks/useTelegram";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
-  console.log("tg.bg_color", tg.colorScheme().bg_color);
-  console.log("tg.text_color", tg.colorScheme().text_color);
+  // console.log("tg.bg_color", tg.colorScheme().bg_color);
+  // console.log("tg.text_color", tg.colorScheme().text_color);
   console.log("tg.colorScheme()", tg.colorScheme());
 
   async function copyPageUrl() {
@@ -31,8 +31,8 @@ export default function Receive() {
             logoImage={coin}
             eyeRadius={10}
             logoWidth={50}
-            bgColor={tg.colorScheme().bg_color}
-            fgColor={tg.colorScheme().text_color}
+            // bgColor={tg.colorScheme().bg_color}
+            // fgColor={tg.colorScheme().text_color}
           />
         </div>
         <button
