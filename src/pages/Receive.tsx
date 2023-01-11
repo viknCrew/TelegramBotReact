@@ -5,7 +5,7 @@ export default function Receive() {
   const coin = require("../assets/Coin.png");
 
   return (
-    <div className="flex justify-center items-center w-[90%] bg-[#343434]">
+    <div className="flex justify-center pt-10 h-[100vh] bg-[#343434]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
         <div className="text-xl font-bold  text-center">Receive TMY</div>
         <div className="flex justify-center items-center my-10">
@@ -14,7 +14,7 @@ export default function Receive() {
             logoImage={coin}
             eyeRadius={10}
             logoWidth={50}
-            bgColor="#343434"
+            bgColor="#333"
             fgColor="#fff"
           />
         </div>
@@ -27,14 +27,12 @@ export default function Receive() {
           }
         >
           <p>
-            xc6D3720f6286C5173C
+            xc6D3720f6286C5173C9
             <wbr />
-            94523b8b02d549c9933662
+            4523b8b02d549c9933662
           </p>
         </button>
-        <p className="font-normal text-center ">
-          Your wallet address
-        </p>
+        <p className="font-normal text-center mt-5 ">Your wallet address</p>
       </div>
     </div>
   );
