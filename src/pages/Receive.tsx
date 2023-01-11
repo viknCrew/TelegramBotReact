@@ -6,9 +6,9 @@ import { useTelegram } from "../hooks/useTelegram";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
-  console.log("tg.bg_color", tg.bg_color);
-  console.log("tg.text_color", tg.text_color);
-  console.log("tg", tg);
+  console.log("tg.bg_color", tg.colorScheme().bg_color);
+  console.log("tg.text_color", tg.colorScheme().text_color);
+  console.log("tg.colorScheme()", tg.colorScheme());
 
   async function copyPageUrl() {
     try {
@@ -31,8 +31,8 @@ export default function Receive() {
             logoImage={coin}
             eyeRadius={10}
             logoWidth={50}
-            bgColor={tg.bg_color}
-            fgColor={tg.text_color}
+            bgColor={tg.colorScheme().bg_color}
+            fgColor={tg.colorScheme().text_color}
           />
         </div>
         <button
@@ -48,7 +48,7 @@ export default function Receive() {
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
         <Link
           to="/"
-          className="inline-block px-5 py-3 mt-6 text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] rounded hover:bg-indigo-700 focus:outline-none focus:ring"
+          className="rounded-t-xl text-sm font-medium bg-[var(--tg-theme-secondary-bg-color)] text-[var(--tg-theme-link-color)] "
         >
           Go Back Home
         </Link>
