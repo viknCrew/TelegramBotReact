@@ -4,9 +4,8 @@ import { QRCode } from "react-qrcode-logo";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
 
-
   return (
-    <div className="flex justify-center items-center w-[90%]">
+    <div className="flex justify-center items-center w-[90%] bg-[#343434]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
         <div className="text-xl font-bold  text-center">Receive TMY</div>
         <div className="flex justify-center items-center my-10">
@@ -33,7 +32,7 @@ export default function Receive() {
             94523b8b02d549c9933662
           </p>
         </button>
-        <p className="font-normal text-center text-[var(--tg-theme-hint-color)]">
+        <p className="font-normal text-center ">
           Your wallet address
         </p>
       </div>
