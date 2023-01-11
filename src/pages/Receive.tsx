@@ -7,6 +7,19 @@ export default function Receive() {
   const { tg } = useTelegram();
   console.log("tg.bg_color", tg.bg_color);
   console.log("tg.text_color", tg.text_color);
+  console.log("tg", tg);
+
+  async function copyPageUrl() {
+    try {
+      await navigator.clipboard.writeText(
+        "xc6D3720f6286C5173C94523b8b02d549c9933662"
+      );
+      tg.showAlert("link copied");
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: ", err);
+    }
+  }
+
   return (
     <div className="flex justify-center pt-10 h-[100vh] bg-[--tg-theme-bg-color]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
@@ -23,12 +36,7 @@ export default function Receive() {
         </div>
         <button
           className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
-          onClick={() => {
-            navigator.clipboard.writeText(
-              "xc6D3720f6286C5173C94523b8b02d549c9933662"
-            );
-            tg.showAlert("link copied");
-          }}
+          onClick={() => copyPageUrl()}
         >
           <p>
             xc6D3720f6286C5173C9
