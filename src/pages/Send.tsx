@@ -3,68 +3,38 @@ import { useTelegram } from "../hooks/useTelegram";
 import { balance, Web3, web3 } from "../store/coinStore";
 
 export default function Send() {
-  const { user, initDataUnsafe } = useTelegram();
-  if (!user)
-    return (
-      <>
-        <div>user null</div>
-      </>
-    );
-  console.log("web3", web3);
-  console.log("Web3", Web3);
-  console.log("balance", balance);
   return (
-    <div className="mx-8 grid lg:grid-cols-3  grid-cols-1">
-      <div>
-        <p>User</p>
-        <div className="flex  justify-between">
-          <p>First name :</p>
-          {user.first_name}
-        </div>
-        <div className="flex  justify-between">
-          <p>id :</p>
-          {user.id}
-        </div>
-        <div className="flex  justify-between">
-          <p>language_code :</p>
-          {user.language_code}
-        </div>
-        <div className="flex  justify-between">
-          <p>last_name</p>
-          {user.last_name}
-        </div>
-        <div className="flex  justify-between">
-          <p>username:</p>
-          {user.username}
-        </div>
-      </div>
-      <div>
-        <p>initDataUnsafe</p>
-        <div className="flex  justify-between">
-          <p>auth_date :</p>
-          {initDataUnsafe.auth_date}
-        </div>
-        <div className="flex  justify-between">
-          <p>hash :</p>
-          {initDataUnsafe.hash}
-        </div>
-        <div className="flex  justify-between">
-          <p>query_id:</p>
-          {initDataUnsafe.query_id}
-        </div>
-      </div>
-      <div>
-        <div className="flex  justify-between">
-          <p>web3</p>
-          {web3}
-        </div>
-        <div className="flex  justify-between">
-          <p>Web3</p>
-          {Web3}
-        </div>
-        <div className="flex  justify-between">
-          <p>Balance</p>
-          {balance}
+    <div className="flex justify-center mt-10">
+      <div className="mx-12 grid  grid-cols-1  w-[90%]">
+        <div className="relative">
+          <label htmlFor="UserEmail" className="sr-only">
+            {" "}
+            Wallet Address{" "}
+          </label>
+
+          <input
+            type="text"
+            id="UserEmail"
+            placeholder="flea@rhcp.com"
+            className="w-full rounded-md border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm"
+          />
+          <div className="pointer-events-none absolute inset-y-0 right-7 grid w-10 place-content-center ">
+            <button className="flex gap-3 text-[var(--tg-theme-link-color)]">
+              Insert
+              <svg
+                className="fill-[var(--tg-theme-link-color)]"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                id="mdi-qrcode-scan"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M4,4H10V10H4V4M20,4V10H14V4H20M14,15H16V13H14V11H16V13H18V11H20V13H18V15H20V18H18V20H16V18H13V20H11V16H14V15M16,15V18H18V15H16M4,20V14H10V20H4M6,6V8H8V6H6M16,6V8H18V6H16M6,16V18H8V16H6M4,11H6V13H4V11M9,11H13V15H11V13H9V11M11,6H13V10H11V6M2,2V6H0V2A2,2 0 0,1 2,0H6V2H2M22,0A2,2 0 0,1 24,2V6H22V2H18V0H22M2,18V22H6V24H2A2,2 0 0,1 0,22V18H2M22,22V18H24V22A2,2 0 0,1 22,24H18V22H22Z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </div>
