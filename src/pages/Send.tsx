@@ -3,23 +3,30 @@ import { useTelegram } from "../hooks/useTelegram";
 import { balance, Web3, web3 } from "../store/coinStore";
 
 export default function Send() {
+  const { tg } = useTelegram();
   return (
     <div className="flex justify-center mt-10">
       <div className="mx-12 grid  grid-cols-1  w-[90%]">
         <div className="relative">
           <label htmlFor="UserEmail" className="sr-only">
             {" "}
-            Wallet Address{" "}
+            Wallet address{" "}
           </label>
 
           <input
             type="text"
             id="UserEmail"
-            placeholder="flea@rhcp.com"
-            className="w-full rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm"
+            placeholder="Wallet address"
+            className="w-full rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
           />
-          <div className="pointer-events-none absolute inset-y-0 right-7 grid w-10 place-content-center ">
-            <button className="flex gap-3 text-[var(--tg-theme-link-color)]">
+          <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
+            <button
+              className="flex gap-3 text-[var(--tg-theme-link-color)] "
+              onClick={() => {
+                tg.showScanQrPopup();
+                console.log("click on button");
+              }}
+            >
               Insert
               <svg
                 className="fill-[var(--tg-theme-link-color)]"
@@ -36,7 +43,7 @@ export default function Send() {
             </button>
           </div>
         </div>
-        <div className="w-[90%] mt-4">
+        <div className="w-[90%] mt-4 ">
           <span className="flex gap-7 text-sm  text-[var(--tg-theme-link-color)]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
