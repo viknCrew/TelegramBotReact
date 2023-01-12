@@ -7,7 +7,6 @@ function Wallet() {
   const metaMask = require("../assets/MetaMask_Fox.png");
   const { tg } = useTelegram();
   console.log("tg", tg);
-  console.log("contacts.getContacts", tg.contacts.getContacts);
 
   return (
     <div className="flex justify-center">
