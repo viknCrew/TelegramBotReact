@@ -1,9 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 
 function Wallet() {
   const logo = require("../assets/LOGO.png");
   const metaMask = require("../assets/MetaMask_Fox.png");
+  const { tg } = useTelegram();
+  console.log("tg", tg);
+  console.log("contacts.getContacts", tg.contacts.getContacts);
 
   return (
     <div className="flex justify-center">
@@ -19,7 +23,9 @@ function Wallet() {
             <img src={logo} className="w-[25px]" />
             <p className="font-medium text-lg">20.4570015 TMY ≈</p>
           </div>
-          <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">$ 30.3202 USDT</p>
+          <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
+            $ 30.3202 USDT
+          </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
           <Link
