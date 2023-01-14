@@ -3,7 +3,7 @@ import { useTelegram } from "../hooks/useTelegram";
 import { balance, Web3, web3 } from "../store/coinStore";
 
 export default function Send() {
-  const { tg, showScanQrPopup } = useTelegram();
+  const { tg } = useTelegram();
   return (
     <div className="flex justify-center mt-10">
       <div className="mx-12 grid  grid-cols-1  w-[90%]">
@@ -22,7 +22,7 @@ export default function Send() {
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
-              onClick={() => showScanQrPopup}
+              onClick={() => tg.showScanQrPopup("Scan QR")}
             >
               Insert
               <svg
