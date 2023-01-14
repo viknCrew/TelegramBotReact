@@ -22,7 +22,7 @@ export default function Send() {
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
-              //onClick={}
+              onClick={() => tg.showScanQrPopup("Test")}
             >
               Insert
               <svg
