@@ -3,7 +3,7 @@ import { useTelegram } from "../hooks/useTelegram";
 import { balance, Web3, web3 } from "../store/coinStore";
 
 export default function Send() {
-  const { tg, showScanQrPopup } = useTelegram();
+  const { tg } = useTelegram();
   return (
     <div className="flex justify-center mt-10">
       <div className="mx-12 grid  grid-cols-1  w-[90%]">
@@ -22,7 +22,7 @@ export default function Send() {
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
-              onClick={() => showScanQrPopup}
+              //onClick={}
             >
               Insert
               <svg
@@ -51,6 +51,9 @@ export default function Send() {
               <path d="M5 13.896q1.125-.771 2.385-1.136 1.261-.364 2.615-.364 1.375 0 2.646.375T15 13.896q.688-.854 1.021-1.834.333-.979.333-2.062 0-2.625-1.864-4.49Q12.625 3.646 10 3.646q-2.646 0-4.5 1.864Q3.646 7.375 3.646 10q0 1.062.323 2.042.323.979 1.031 1.854Zm5-2.292q-1.292 0-2.198-.896-.906-.896-.906-2.187 0-1.292.906-2.188.906-.895 2.198-.895 1.292 0 2.198.895.906.896.906 2.188 0 1.291-.906 2.187-.906.896-2.198.896Zm0 6.792q-1.729 0-3.26-.656-1.532-.657-2.678-1.802-1.145-1.146-1.802-2.678-.656-1.531-.656-3.281 0-1.729.656-3.25.657-1.521 1.802-2.666Q5.208 2.917 6.74 2.26q1.531-.656 3.281-.656 1.729 0 3.25.656 1.521.657 2.667 1.803 1.145 1.145 1.802 2.677.656 1.531.656 3.26 0 1.729-.656 3.26-.657 1.532-1.802 2.678-1.146 1.145-2.678 1.802-1.531.656-3.26.656Zm0-2.042q1.021 0 1.948-.312.927-.313 1.802-.938-.917-.521-1.812-.781-.896-.261-1.938-.261-1.042 0-1.948.25-.906.25-1.802.792.875.625 1.802.938.927.312 1.948.312Zm0-6.416q.583 0 .99-.417.406-.417.406-1t-.406-1q-.407-.417-.99-.417t-.99.417q-.406.417-.406 1t.406 1q.407.417.99.417Zm0-1.417Zm.021 6.583Z" />
             </svg>
             <p>Select contact in Telegram</p>
+          </span>
+          <span className="flex gap-7 text-sm  text-[var(--tg-theme-link-color)]">
+            <p>{tg.version}</p>
           </span>
         </div>
       </div>
