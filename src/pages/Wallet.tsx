@@ -7,7 +7,7 @@ import { $UsertStore, $WalletStore, UserEffect } from "../store/userStire";
 import CheckBalance from "../store/coinStore";
 import checkWebAppSignature from "../service/getToken";
 
-function Wallet() {
+export default function Wallet() {
   const logo = require("../assets/LOGO.png");
   const userWallet = useUnit($UsertStore);
   const WalletStore = useUnit($WalletStore);
