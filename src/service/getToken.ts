@@ -1,7 +1,18 @@
 import HmacSHA256 from "crypto-js/hmac-sha256";
 import Hex from "crypto-js/enc-hex";
 
-export default function checkWebAppSignature(token: string, initData: string) {
+export default async function checkWebAppSignature(
+  token: string,
+  initData: string
+) {
+  const checkString = Object.keys(initData)
+    .filter((key: any) => key !== "hash")
+    .map((key: any) => `${key}=${initData[key]}`)
+    .sort()
+    .join("\n");
+
+  console.log("computed string:", checkString);
+
   const q = new URLSearchParams(initData);
   // Extract the hash
   const hash = q.get("hash");
