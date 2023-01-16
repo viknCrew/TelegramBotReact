@@ -12,6 +12,8 @@ export default function checkWebAppSignature(token: string, initData: string) {
 
   var secret_key = HmacSHA256(token, "WebAppData").toString(Hex);
   var key = HmacSHA256(data_chack_string, secret_key).toString(Hex);
+  console.log("secret_key", secret_key);
+  console.log("key", key);
 
   return key === hash;
 }
