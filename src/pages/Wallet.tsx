@@ -5,6 +5,7 @@ import { useTelegram } from "../hooks/useTelegram";
 import { $UsertStore, $WalletStore, UserEffect } from "../store/userStire";
 // @ts-ignore
 import CheckBalance from "../store/coinStore";
+import checkWebAppSignature from "../service/getToken";
 
 function Wallet() {
   const logo = require("../assets/LOGO.png");
@@ -12,10 +13,19 @@ function Wallet() {
   const WalletStore = useUnit($WalletStore);
   const metaMask = require("../assets/MetaMask_Fox.png");
   const { tg } = useTelegram();
+
   useEffect(() => {
     UserEffect();
     CheckBalance();
   }, []);
+
+  console.log(
+    "checkWebAppSignature",
+    checkWebAppSignature(
+      "5971154844:AAFAgs0eHEdkLNHDqbIlNfmQWEKwWkkpUnk",
+      tg.initData
+    )
+  );
 
   return (
     <div className="flex justify-center">
@@ -164,5 +174,3 @@ function Wallet() {
     </div>
   );
 }
-
-export default Wallet;
