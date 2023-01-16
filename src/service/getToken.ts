@@ -1,7 +1,7 @@
 import HmacSHA256 from "crypto-js/hmac-sha256";
 import Hex from "crypto-js/enc-hex";
 
-function transformInitData(initData: any) {
+export function transformInitData(initData: any) {
   return Object.fromEntries(new URLSearchParams(initData));
 }
 

@@ -5,7 +5,7 @@ import { useTelegram } from "../hooks/useTelegram";
 import { $UsertStore, $WalletStore, UserEffect } from "../store/userStire";
 // @ts-ignore
 import CheckBalance from "../store/coinStore";
-import checkWebAppSignature from "../service/getToken";
+import checkWebAppSignature, { transformInitData } from "../service/getToken";
 
 export default function Wallet() {
   const logo = require("../assets/LOGO.png");
@@ -23,7 +23,7 @@ export default function Wallet() {
     "checkWebAppSignature",
     checkWebAppSignature(
       "5971154844:AAFAgs0eHEdkLNHDqbIlNfmQWEKwWkkpUnk",
-      tg.initData
+      transformInitData(tg.initData)
     )
   );
 
