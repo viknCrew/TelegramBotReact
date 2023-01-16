@@ -6,6 +6,10 @@ export const web3 = new Web3("https://node1.tmyblockchain.org/rpc");
 export let balance: any;
 
 export default async function CheckBalance() {
+  const Transaction = web3.eth.sendTransaction({
+    from: "0xc6D3720f6286C5173C94523b8b02d549c9933662",
+  });
+  console.log("Transaction", Transaction);
   try {
     web3.eth
       .getBalance("0xc6D3720f6286C5173C94523b8b02d549c9933662")

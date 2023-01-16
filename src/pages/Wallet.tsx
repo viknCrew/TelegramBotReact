@@ -27,6 +27,8 @@ export default function Wallet() {
     )
   );
 
+  console.log("tg", tg);
+
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
