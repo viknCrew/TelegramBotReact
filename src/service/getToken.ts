@@ -26,6 +26,7 @@ export default async function checkWebAppSignature(
     true,
     ["sign"]
   );
+
   const secret = await crypto.subtle.sign(
     "HMAC",
     secretKey,
@@ -48,6 +49,10 @@ export default async function checkWebAppSignature(
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
 
+  console.log("secretKey:", secretKey);
+  console.log("secret:", secret);
+  console.log("signatureKey", signatureKey);
+  console.log("signature:", signature);
   console.log("original hash:", initData.hash);
   console.log("computed hash:", hex);
 
