@@ -9,6 +9,7 @@ export default async function checkWebAppSignature(
   token: string,
   initData: any
 ) {
+  console.log("data", initData);
   const encoder = new TextEncoder();
   const checkString = Object.keys(initData)
     .filter((key: any) => key !== "hash")
