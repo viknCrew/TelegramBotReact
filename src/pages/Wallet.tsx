@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useUnit } from "effector-react";
 import { useTelegram } from "../hooks/useTelegram";
+import { $UsertStore, $WalletStore, UserEffect } from "../store/userStire";
+// @ts-ignore
+import CheckBalance from "../store/coinStore";
 
 function Wallet() {
   const logo = require("../assets/LOGO.png");
+  const userWallet = useUnit($UsertStore);
+  const WalletStore = useUnit($WalletStore);
   const metaMask = require("../assets/MetaMask_Fox.png");
   const { tg } = useTelegram();
-  console.log("tg", tg);
+  useEffect(() => {
+    UserEffect();
+    CheckBalance();
+  }, []);
 
   return (
     <div className="flex justify-center">
@@ -20,7 +29,7 @@ function Wallet() {
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
-            <p className="font-medium text-lg">20.4570015 TMY ≈</p>
+            <p className="font-medium text-lg"> {WalletStore} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
             $ 30.3202 USDT
