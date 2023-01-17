@@ -2,20 +2,28 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useUnit } from "effector-react";
 import { useTelegram } from "../hooks/useTelegram";
-import { $UsertStore, $WalletStore, UserEffect } from "../store/userStire";
+import {
+  $trancsationStore,
+  $UsertStore,
+  $WalletStore,
+  pageLoaded,
+  UserEffect,
+} from "../store/userStire";
 // @ts-ignore
 import CheckBalance from "../store/coinStore";
 import checkWebAppSignature, { transformInitData } from "../service/getToken";
+import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
   const logo = require("../assets/LOGO.png");
   const userWallet = useUnit($UsertStore);
+  const trancsationStore = useUnit($trancsationStore);
   const WalletStore = useUnit($WalletStore);
   const metaMask = require("../assets/MetaMask_Fox.png");
   const { tg } = useTelegram();
 
   useEffect(() => {
-    UserEffect();
+    pageLoaded();
     CheckBalance();
   }, []);
 
@@ -27,6 +35,7 @@ export default function Wallet() {
     )
   );
 
+  console.log("trancsationStore", trancsationStore);
   console.log("tg", tg);
 
   return (
@@ -115,62 +124,49 @@ export default function Wallet() {
             </div>
           </Link>
         </div>
-        <div className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg w-full h-[400px] grid grid-cols-1">
-          <p className="text-2xl font-bold flex justify-center mt-2]">
-            {" "}
-            History
-          </p>
-          <div className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4">
-            <div className="flex">
-              <img src={metaMask} />
-              <div>
-                <p className="text-lg ">Replenishment via metamask</p>
-                <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                  xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                December 31 at 18:43
-              </p>
-              <p className="text-[#00FCDE] items-start"> + 20.4570015 TMY </p>
-            </div>
-          </div>
-          <div className="bg-var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4">
-            <div className="flex">
-              <img src={metaMask} />
-              <div>
-                <p className="text-lg ">Replenishment via metamask</p>
-                <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                  xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                December 31 at 18:43
-              </p>
-              <p className="text-[#00FCDE] items-start"> + 20.4570015 TMY </p>
-            </div>
-          </div>
-          <div className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4">
-            <div className="flex">
-              <img src={metaMask} />
-              <div>
-                <p className="text-lg ">Replenishment via metamask</p>
-                <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                  xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
-                </p>
-              </div>
-            </div>
-            <div className="flex justify-between">
-              <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                December 31 at 18:43
-              </p>
-              <p className="text-[#00FCDE] items-start"> + 20.4570015 TMY </p>
-            </div>
-          </div>
+        <p className="text-2xl font-bold flex justify-center mt-2]"> History</p>
+        <div className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto gap-3 grid grid-cols-1">
+          {trancsationStore.map((tran) => {
+            let walet: any;
+            let header: string;
+            let color: string;
+            let value: string;
+
+            if (tran.status === statusTransation.send) {
+              walet = require("../assets/Send.png");
+              header = "Send to: ";
+              color = "#FF3A3A";
+              value = `- ${tran.value}`;
+            } else {
+              walet = require("../assets/Receiving.png");
+              header = "Receiving from: ";
+              color = "#00FCDE";
+              value = `+ ${tran.value}`;
+            }
+
+            return (
+              <Link
+                to={`/trancsation/:${tran.blockNumber}`}
+                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4"
+              >
+                <div className="flex">
+                  <img src={walet} style={{ height: 40 }} className="m-4" />
+                  <div>
+                    <p className="text-lg ">{header}</p>
+                    <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
+                      xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
+                    </p>
+                  </div>
+                </div>
+                <div className="flex justify-between">
+                  <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
+                    {tran.timeStamp}
+                  </p>
+                  <p className={`text-[${color}] items-start`}> {value} TMY </p>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       </div>
     </div>
