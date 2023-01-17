@@ -2,33 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 @layer components {
-    .no-spinner {
-        -moz-appearance: textfield;
-    }
+  .no-spinner {
+    -moz-appearance: textfield;
+  }
 
-    .no-spinner::-webkit-outer-spin-button,
-    .no-spinner::-webkit-inner-spin-button {
-        margin: 0;
-        -webkit-appearance: none;
-    }
-}
-
-body{
+  .no-spinner::-webkit-outer-spin-button,
+  .no-spinner::-webkit-inner-spin-button {
     margin: 0;
-    pading:0;
-    background-image: url("../src/assets/bg.png");
-    background-color: var(--tg-theme-bg-color);
-    /*background-color: #282829;*/
-
-    color:var(--tg-theme-text-color);
-    /*color:#fff;*/
+    -webkit-appearance: none;
+  }
 }
 
-button{
-    background-color: var(--tg-theme-button-color);
-    color:var(--tg-theme-button-text-color);
+body {
+  margin: 0;
+  pading: 0;
+  background-image: url("../src/assets/bg.png");
+  background-color: var(--tg-theme-secondary-bg-color);
+  /*background-color: #282829;*/
+
+  color: var(--tg-theme-text-color);
+  /*color:#fff;*/
 }
 
-Link, a{
-    color:var(--tg-theme-link-color);
+button {
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+}
+
+Link,
+a {
+  color: var(--tg-theme-link-color);
 }

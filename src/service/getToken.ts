@@ -9,15 +9,12 @@ export default async function checkWebAppSignature(
   token: string,
   initData: any
 ) {
-  console.log("data", initData);
   const encoder = new TextEncoder();
   const checkString = Object.keys(initData)
     .filter((key: any) => key !== "hash")
     .map((key: any) => `${key}=${initData[key]}`)
     .sort()
     .join("\n");
-
-  console.log("computed string:", checkString);
 
   const secretKey = await crypto.subtle.importKey(
     "raw",
@@ -49,6 +46,8 @@ export default async function checkWebAppSignature(
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
 
+  console.log("data", initData);
+  console.log("computed string:", checkString);
   console.log("secretKey:", secretKey);
   console.log("secret:", secret);
   console.log("signatureKey", signatureKey);
