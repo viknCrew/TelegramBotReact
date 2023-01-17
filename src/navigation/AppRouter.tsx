@@ -11,6 +11,11 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
+    path: "/trancsation/:tId",
+    element:<div>/trancsation/:tId</div>,
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/send",
     element: <Send />,
     errorElement: <ErrorPage />,
