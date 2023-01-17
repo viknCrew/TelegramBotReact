@@ -131,30 +131,33 @@ export default function Wallet() {
             let header: string;
             let color: string;
             let value: string;
+            let FromTo: string;
 
             if (tran.status === statusTransation.send) {
               walet = require("../assets/Send.png");
               header = "Send to: ";
               color = "#FF3A3A";
               value = `- ${tran.value}`;
+              FromTo = tran.to;
             } else {
               walet = require("../assets/Receiving.png");
               header = "Receiving from: ";
               color = "#00FCDE";
               value = `+ ${tran.value}`;
+              FromTo = tran.from;
             }
 
             return (
               <Link
                 to={`/trancsation/:${tran.blockNumber}`}
-                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-full h-[100px] grid grid-cols-1 px-4"
+                className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[90%] h-[100px] grid grid-cols-1 px-4"
               >
                 <div className="flex">
-                  <img src={walet} style={{ height: 40 }} className="m-4" />
+                  <img src={walet} style={{ height: 30 }} className="m-4" />
                   <div>
                     <p className="text-lg ">{header}</p>
                     <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                      xbc5EFF393893a0AFDd0e7b89FA0DD2DC7d913423
+                      {FromTo}
                     </p>
                   </div>
                 </div>
