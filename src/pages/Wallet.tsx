@@ -150,7 +150,7 @@ export default function Wallet() {
 
               return (
                 <Link
-                  to={`/trancsation/:${tran.blockNumber}`}
+                  to={`/trancsation/${tran.Hash}`}
                   className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4"
                 >
                   <div className="flex">
