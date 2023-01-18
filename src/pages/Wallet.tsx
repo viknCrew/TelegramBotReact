@@ -125,51 +125,56 @@ export default function Wallet() {
           </Link>
         </div>
         <p className="text-2xl font-bold flex justify-center mt-2]"> History</p>
-        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto gap-3 grid grid-cols-1">
-          {trancsationStore.map((tran) => {
-            let walet: any;
-            let header: string;
-            let color: string;
-            let value: string;
-            let FromTo: string;
+        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
+          <div className=" gap-3 grid grid-cols-1">
+            {trancsationStore.map((tran) => {
+              let walet: any;
+              let header: string;
+              let color: string;
+              let value: string;
+              let FromTo: string;
 
-            if (tran.status === statusTransation.send) {
-              walet = require("../assets/Send.png");
-              header = "Send to: ";
-              color = "#FF3A3A";
-              value = `- ${tran.value}`;
-              FromTo = tran.to;
-            } else {
-              walet = require("../assets/Receiving.png");
-              header = "Receiving from: ";
-              color = "#00FCDE";
-              value = `+ ${tran.value}`;
-              FromTo = tran.from;
-            }
+              if (tran.status === statusTransation.send) {
+                walet = require("../assets/Send.png");
+                header = "Send to: ";
+                color = "#FF3A3A";
+                value = `- ${tran.value}`;
+                FromTo = tran.to;
+              } else {
+                walet = require("../assets/Receiving.png");
+                header = "Receiving from: ";
+                color = "#00FCDE";
+                value = `+ ${tran.value}`;
+                FromTo = tran.from;
+              }
 
-            return (
-              <Link
-                to={`/trancsation/:${tran.blockNumber}`}
-                className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[90%] h-[100px] grid grid-cols-1 px-4"
-              >
-                <div className="flex">
-                  <img src={walet} style={{ height: 30 }} className="m-4" />
-                  <div>
-                    <p className="text-lg ">{header}</p>
-                    <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                      {FromTo}
+              return (
+                <Link
+                  to={`/trancsation/:${tran.blockNumber}`}
+                  className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4"
+                >
+                  <div className="flex">
+                    <img src={walet} style={{ height: 30 }} className="m-4" />
+                    <div>
+                      <p className="text-lg ">{header}</p>
+                      <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
+                        {FromTo}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex justify-between">
+                    <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
+                      {tran.timeStamp}
+                    </p>
+                    <p className={`text-[${color}] items-start`}>
+                      {" "}
+                      {value} TMY{" "}
                     </p>
                   </div>
-                </div>
-                <div className="flex justify-between">
-                  <p className="text-xs text-[var(--tg-theme-hint-color)] font-thin">
-                    {tran.timeStamp}
-                  </p>
-                  <p className={`text-[${color}] items-start`}> {value} TMY </p>
-                </div>
-              </Link>
-            );
-          })}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
