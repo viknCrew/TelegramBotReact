@@ -3,6 +3,7 @@ import Wallet from "../pages/Wallet";
 import ErrorPage from "../component/error-page";
 import Send from "../pages/Send";
 import Receive from "../pages/Receive";
+import Trancsation from "../pages/transation";
 
 export const router = createBrowserRouter([
   {
@@ -11,8 +12,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/trancsation/:tId",
-    element:<div>/trancsation/:tId</div>,
+    path: "/trancsation/:id",
+    element: <Trancsation />,
     errorElement: <ErrorPage />,
   },
   {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/receive",
-    element: <Receive/>,
+    element: <Receive />,
     errorElement: <ErrorPage />,
   },
 ]);
