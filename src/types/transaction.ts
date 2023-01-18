@@ -1,6 +1,7 @@
 
 export interface ITransation{
   blockHash:string,
+  Hash:string,
   blockNumber:string,  
   gas:string,
   from:string,
@@ -16,3 +17,4 @@ export enum statusTransation{
 }
   
 export  type statusType = statusTransation.receiving | statusTransation.send;
+
