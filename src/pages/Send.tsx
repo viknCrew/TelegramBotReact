@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
   const { tg } = useTelegram();
+  const [text, setText] = useState("");
+
+  tg.onEvent("qrTextReceived", () => {
+    setText(tg.onEvent.evqrTextReceived);
+  });
+
   return (
     <div className="flex justify-center mt-10">
       <div className="mx-12 grid  grid-cols-1  w-[90%]">
@@ -17,11 +23,14 @@ export default function Send() {
             id="UserEmail"
             placeholder="Wallet address"
             className="w-full rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
+            value={text}
           />
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
-              onClick={() => tg.showScanQrPopup("Scan QR")}
+              onClick={() => {
+                tg.showScanQrPopup("Scan QR");
+              }}
             >
               Insert
               <svg
