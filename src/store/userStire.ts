@@ -78,6 +78,7 @@ const trancsationEffect = createEffect({
 
       return {
         blockHash: tran.blockHash,
+        Hash: tran.hash,
         blockNumber: tran.blockNumber,
         gas: tran.gas,
         from: tran.from,
