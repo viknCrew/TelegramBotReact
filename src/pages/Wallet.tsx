@@ -106,7 +106,7 @@ export default function Wallet() {
                 >
                   <path
                     d="M4.5 1L4.5 12"
-                    stroke="var(var(--tg-theme-bg-color)"
+                    stroke="var(--tg-theme-bg-color)"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
