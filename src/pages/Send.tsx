@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
-  const { tg } = useTelegram();
-  const [text, setText] = useState("");
+  const { tg, onQrTextReceived } = useTelegram();
+  const [text, setText] = useState<any | null>(null);
 
-  tg.onEvent("qrTextReceived", () => {
-    setText(tg.onEvent.evqrTextReceived);
-  });
+  useEffect(() => {
+    setText(onQrTextReceived);
+  }, []);
 
   return (
     <div className="flex justify-center mt-10">
