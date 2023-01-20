@@ -29,7 +29,7 @@ export default function Send() {
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
               onClick={() => {
-                tg.showScanQrPopup("Scan QR");
+                tg.showScanQrPopup("Scan QR").then(tg.showAlert);
               }}
             >
               Insert

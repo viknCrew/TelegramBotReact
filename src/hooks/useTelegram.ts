@@ -29,36 +29,6 @@ const DemoApp = {
 };
 
 export function useTelegram() {
-  // @ts-ignore
-  tg.showScanQrPopup = function (params, callback) {
-    let text = "";
-    let popup_params = {};
-
-    if (typeof params.text !== "undefined") {
-      // @ts-ignore
-      text = strTrim(params.text);
-    }
-    // @ts-ignore
-    webAppScanQrPopupOpened = {
-      callback: callback,
-    };
-    tg.postEvent("web_app_open_scan_qr_popup", false, text);
-  };
-  tg.closeScanQrPopup = function () {
-    // @ts-ignore
-    if (!versionAtLeast("6.4")) {
-      // @ts-ignore
-      console.error(
-        "[Telegram.WebApp] Method closeScanQrPopup is not supported in version " +
-          tg.webAppVersion
-      );
-      throw Error("WebAppMethodUnsupported");
-    }
-    // @ts-ignore
-    webAppScanQrPopupOpened = false;
-    tg.postEvent("web_app_close_scan_qr_popup", false);
-  };
-
   var webAppScanQrPopupOpened = false;
   // @ts-ignore
   function onQrTextReceived(eventType, eventData) {
