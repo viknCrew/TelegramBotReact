@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useTelegram } from "../hooks/useTelegram";
+import { createPromptQrCodeScan } from "../hooks/useScanQrPopup";
 
 export default function Send() {
-  const { tg, onQrTextReceived } = useTelegram();
+  // @ts-ignore
+  const tg = window.Telegram.WebApp;
   const [text, setText] = useState<any | null>(null);
-
-  useEffect(() => {
-    setText(onQrTextReceived);
-  }, []);
 
   return (
     <div className="flex justify-center mt-10">
@@ -29,7 +26,7 @@ export default function Send() {
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
               onClick={() => {
-                tg.showScanQrPopup("Scan QR").then(tg.showAlert);
+                createPromptQrCodeScan("Scan QR");
               }}
             >
               Insert
