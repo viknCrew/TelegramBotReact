@@ -26,8 +26,9 @@ export default function Send() {
             <a
               className="flex gap-3 text-[var(--tg-theme-link-color)] "
               onClick={() => {
-                createPromptQrCodeScan("Scan QR");
-              }}
+                tg.showScanQrPopup({ text: "Scan QR" }, (result:any) => {
+                    tg.showAlert(result);
+              })}}
             >
               Insert
               <svg
