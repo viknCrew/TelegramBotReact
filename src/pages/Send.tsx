@@ -29,7 +29,7 @@ export default function Send() {
                 tg.showScanQrPopup({ text: "Scan QR" }, (result: any) => {
                   if (result) {
                     tg.closeScanQrPopup();
-                    tg.showAlert(result);
+                    setText(result);
                   }
                 });
               }}
