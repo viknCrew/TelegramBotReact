@@ -1,10 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { createPromptQrCodeScan } from "../hooks/useScanQrPopup";
+import React, { useCallback, useEffect, useState } from "react";
+import { redirect } from "react-router-dom";
 
 export default function Send() {
   // @ts-ignore
   const tg = window.Telegram.WebApp;
   const [text, setText] = useState<any | null>(null);
+  const onSendData = useCallback(() => {
+      return redirect("/remittance");
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
+
+  useEffect(() => {
+    tg.MainButton.setParams({
+      text: "Transfer tokens",
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!text) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+    }
+  }, [text]);
 
   return (
     <div className="flex justify-center mt-10">
