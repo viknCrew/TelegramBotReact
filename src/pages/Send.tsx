@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Send() {
   // @ts-ignore
   const tg = window.Telegram.WebApp;
-  const [text, setText] = useState<any | null>(null);
+  const [text, setText] = useState<string>("");
+  const navigate = useNavigate();
   const onSendData = useCallback(() => {
-      return redirect("/remittance");
+    navigate("/remittance");;
   }, []);
 
   useEffect(() => {
@@ -45,6 +46,7 @@ export default function Send() {
             placeholder="Wallet address"
             className="w-full rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
             value={text}
+            onChange={(e) => setText(e.target.value)}
           />
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
