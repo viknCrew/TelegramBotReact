@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
   // @ts-ignore
-  const tg = window.Telegram.WebApp;
+  const { tg } = useTelegram();
   const [text, setText] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -88,7 +89,7 @@ export default function Send() {
               </span>
             </div>
             <input
-              type="text"
+              type="number"
               maxLength={6}
               name="price"
               id="price"
