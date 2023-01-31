@@ -13,8 +13,11 @@ import {
 import CheckBalance from "../store/coinStore";
 import checkWebAppSignature, { transformInitData } from "../service/getToken";
 import { statusTransation } from "../types/transaction";
+import { useEncryption } from "../hooks/useEncryption";
 
 export default function Wallet() {
+  const publicKey = useEncryption();
+  console.log("publicKey", publicKey);
   const logo = require("../assets/LOGO.png");
   const userWallet = useUnit($UsertStore);
   const trancsationStore = useUnit($trancsationStore);

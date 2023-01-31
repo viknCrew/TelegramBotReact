@@ -1,6 +1,9 @@
 import axios from "axios";
+import { useTelegram } from "./useTelegram";
 
-const server = "https://bot.tmychain.org";
+const server = "https://bot.tmychain.org/api/Wallet/getPublicKey";
+
+const {tg} = useTelegram();
 
 const instance = axios.create({
   baseURL: `${server}`,
@@ -13,7 +16,7 @@ export async function request<Done>(config: any): Promise<Done> {
 export function useEncryption() {
   const publicKey = getPublicKey();
   const crypto = require("crypto");
-  const data = "my secret data";
+  const data = tg.initData;
 
   const encryptedData = crypto.publicEncrypt(
     {
@@ -25,11 +28,15 @@ export function useEncryption() {
     Buffer.from(data)
   );
 
-  // The encrypted data is in the form of bytes, so we print it in base64 format
-  // so that it's displayed in a more readable form
   console.log("encypted data: ", encryptedData.toString("base64"));
+
+  return encryptedData.toString("base64")
 }
 
-function getPublicKey() {
-  return;
+async function getPublicKey() {
+  const answer = await request({
+    method: "GET", });
+
+  return answer  
+  
 }
