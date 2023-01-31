@@ -3,7 +3,13 @@ import React, { useEffect, useState } from "react";
 export default function Send() {
   // @ts-ignore
   const tg = window.Telegram.WebApp;
-  const [text, setText] = useState<any | null>(null);
+  const [text, setText] = useState<string>("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const limit: number = 6;
+    const value: string = e.target.value.replace(/\D/g, "");
+    setText(value.slice(0, limit));
+  };
 
   return (
     <div className="flex justify-center mt-10">
@@ -83,15 +89,18 @@ export default function Send() {
             </div>
             <input
               type="text"
+              maxLength={6}
               name="price"
               id="price"
-              className="block w-full rounded-md border-gray-300  pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm pl-12 text-[var(--tg-theme-button-color)]"
+              className="w-full border-none focus:border-none text-3xl bg-[var(--tg-theme-secondary-bg-color)] pr-12 sm:text-sm pl-12 text-[var(--tg-theme-button-color)] flex flex-grow-1s"
               placeholder="0.00"
+              value={text}
+              onChange={handleChange}
             />
             <div className="absolute inset-y-0 right-0 flex items-center">
               <div
                 id="currency"
-                className="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
+                className="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
               >
                 TMY
               </div>
