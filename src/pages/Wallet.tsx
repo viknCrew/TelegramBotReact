@@ -14,12 +14,12 @@ import CheckBalance from "../store/coinStore";
 import checkWebAppSignature, { transformInitData } from "../service/getToken";
 import { statusTransation } from "../types/transaction";
 import { useEncryption } from "../hooks/useEncryption";
+import { $wallet, walletEvent } from "../store/walletStore";
 
 export default function Wallet() {
-  const publicKey = useEncryption();
-  console.log("publicKey", publicKey);
   const logo = require("../assets/LOGO.png");
-  const userWallet = useUnit($UsertStore);
+  const wallet = useUnit($wallet);
+  console.log(wallet);
   const trancsationStore = useUnit($trancsationStore);
   const WalletStore = useUnit($WalletStore);
   const metaMask = require("../assets/MetaMask_Fox.png");
@@ -28,17 +28,9 @@ export default function Wallet() {
   useEffect(() => {
     pageLoaded();
     CheckBalance();
+    walletEvent(tg.initDataUnsafe.user.id);
   }, []);
 
-  console.log(
-    "checkWebAppSignature",
-    checkWebAppSignature(
-      "5971154844:AAFAgs0eHEdkLNHDqbIlNfmQWEKwWkkpUnk",
-      transformInitData(tg.initData)
-    )
-  );
-
-  console.log("trancsationStore", trancsationStore);
   console.log("tg", tg);
 
   return (
