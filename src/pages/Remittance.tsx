@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
-  // @ts-ignore
   const { tg } = useTelegram();
   const [text, setText] = useState<string>("");
 

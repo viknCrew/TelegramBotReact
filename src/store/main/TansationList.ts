@@ -1,45 +1,13 @@
 import axios from "axios";
-import {
-  combine,
-  createEffect,
-  createEvent,
-  createStore,
-  sample,
-} from "effector";
-import { useTelegram } from "../hooks/useTelegram";
+import { createEffect, createEvent, createStore, sample } from "effector";
+import { web3 } from "../../service/getWeb3";
 import {
   ITransation,
   statusTransation,
   statusType,
-} from "../types/transaction";
-import { IUserWalet } from "../types/wallet";
+} from "../../types/transaction";
 
-const { tg } = useTelegram();
 const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
-const Web3 = require("web3");
-const web3 = new Web3("https://node1.tmyblockchain.org/rpc");
-export const WalletEvent = createEvent<number>();
-export const $WalletStore = createStore(0).on(WalletEvent, (state, msg) => msg);
-export const UserEffect = createEffect({
-  handler: async () => {
-    const res = await axios.post(
-      `http://localhost:5000/api/Wallet/getWallet`,
-
-      {
-        headers: { userId: 701469067 },
-      }
-    );
-
-    return res;
-  },
-});
-export const $UsertStore = createStore<IUserWalet>({
-  telegramId: 0,
-  username: "",
-  mnemonic: "",
-  address: "",
-  password: "",
-}).on(UserEffect, (state, msg) => msg);
 
 const trancsationEffect = createEffect({
   handler: async () => {
@@ -92,16 +60,22 @@ const trancsationEffect = createEffect({
     return Transations;
   },
 });
-export const $trancsationStore = createStore<ITransation[]>([]).on(
+
+const $trancsationStore = createStore<ITransation[]>([]).on(
   trancsationEffect.doneData,
   (_, answer) => answer
 );
 
-export const pageLoaded = createEvent();
+const pageLoaded = createEvent();
 
-export const $loading = combine(
-  [trancsationEffect.pending, UserEffect.pending],
-  ([с1, с2]) => с1 || с2
-);
+const $loading = trancsationEffect.pending;
 
-sample({ clock: pageLoaded, target: [UserEffect, trancsationEffect] });
+sample({ clock: pageLoaded, target: [trancsationEffect] });
+
+export const TransationList = () => {
+  return {
+    store: $trancsationStore,
+    event: pageLoaded,
+    loader: $loading,
+  };
+};

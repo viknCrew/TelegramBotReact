@@ -2,17 +2,18 @@ import { useUnit } from "effector-react";
 import React, { useEffect, useState } from "react";
 import { Params, useParams } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
-import { $Tran, TranEffect, TranEvent } from "../store/tramsayionStore";
+import { GlobalStore } from "../store";
 import { ITransation, statusTransation } from "../types/transaction";
 
 export default function Trancsation() {
   const params = useParams();
-  const tran: ITransation = useUnit($Tran);
-
+  const { Transaction } = GlobalStore();
+  const TransationStote = Transaction();
+  const tran: ITransation = useUnit(TransationStote.store);
   const { tg } = useTelegram();
 
   useEffect(() => {
-    TranEffect(params.id);
+    TransationStote.event(params.id);
   }, []);
 
   async function copyPageUrl(myWallet: string) {

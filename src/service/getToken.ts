@@ -1,4 +1,3 @@
-
 export function transformInitData(initData: any) {
   return Object.fromEntries(new URLSearchParams(initData));
 }

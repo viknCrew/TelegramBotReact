@@ -1,5 +1,4 @@
 import axios from "axios";
-import { Console } from "console";
 import {
   combine,
   createEffect,
@@ -7,13 +6,8 @@ import {
   createStore,
   sample,
 } from "effector";
-import { useTelegram } from "../hooks/useTelegram";
-import {
-  ITransation,
-  statusTransation,
-  statusType,
-} from "../types/transaction";
-import { web3 } from "./coinStore";
+import { web3 } from "../../service/getWeb3";
+import { statusTransation, statusType } from "../../types/transaction";
 
 const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
 
@@ -66,9 +60,25 @@ export const TranEffect = createEffect({
 
 export const TranEvent = createEvent<any>();
 
-sample({ clock: TranEvent, target: [TranEvent, TranEffect] });
-
 export const $Tran = createStore<any>(0).on(
   TranEffect.doneData,
   (_, answer) => answer
 );
+
+const $loader = TranEffect.pending;
+
+const canRequest = combine([$loader], ([loading]) => !loading);
+
+sample({
+  clock: TranEvent,
+  filter: canRequest,
+  target: TranEffect,
+});
+
+export const Transaction = () => {
+  return {
+    store: $Tran,
+    event: TranEvent,
+    loader: $loader,
+  };
+};

@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
-  // @ts-ignore
-  const tg = window.Telegram.WebApp;
+  const { tg } = useTelegram();
   const [text, setText] = useState<string>("");
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
-    navigate("/remittance");;
+    navigate("/remittance");
   }, []);
 
   useEffect(() => {

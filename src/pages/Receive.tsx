@@ -6,7 +6,6 @@ import { useTelegram } from "../hooks/useTelegram";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
-  
 
   async function copyPageUrl() {
     try {

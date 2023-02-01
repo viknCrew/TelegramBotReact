@@ -1,37 +1,21 @@
+import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useUnit } from "effector-react";
-import { useTelegram } from "../hooks/useTelegram";
-import {
-  $trancsationStore,
-  $UsertStore,
-  $WalletStore,
-  pageLoaded,
-  UserEffect,
-} from "../store/userStire";
-// @ts-ignore
-import CheckBalance from "../store/coinStore";
-import checkWebAppSignature, { transformInitData } from "../service/getToken";
+import { GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
-import { useEncryption } from "../hooks/useEncryption";
-import { $wallet, walletEvent } from "../store/walletStore";
 
 export default function Wallet() {
   const logo = require("../assets/LOGO.png");
-  const wallet = useUnit($wallet);
-  console.log(wallet);
-  const trancsationStore = useUnit($trancsationStore);
-  const WalletStore = useUnit($WalletStore);
-  const metaMask = require("../assets/MetaMask_Fox.png");
-  const { tg } = useTelegram();
+  const { balance, TransationList } = GlobalStore();
+  const balanceStore = balance();
+  const transationListStore = TransationList();
+  const trancsationStore = useUnit(transationListStore.store);
+  const balanceWallet = useUnit(balanceStore.store);
 
   useEffect(() => {
-    pageLoaded();
-    CheckBalance();
-    walletEvent(tg.initDataUnsafe.user.id);
+    balanceStore.event();
+    transationListStore.event();
   }, []);
-
-  console.log("tg", tg);
 
   return (
     <div className="flex justify-center">
@@ -45,7 +29,7 @@ export default function Wallet() {
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
-            <p className="font-medium text-lg"> {WalletStore} TMY ≈</p>
+            <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
             $ 30.3202 USDT
@@ -122,7 +106,7 @@ export default function Wallet() {
         <p className="text-2xl font-bold flex justify-center mt-2]"> History</p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className=" gap-3 grid grid-cols-1">
-            {trancsationStore.map((tran) => {
+            {trancsationStore.map((tran: any) => {
               let walet: any;
               let header: string;
               let color: string;
