@@ -2,7 +2,6 @@ import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
-import checkWebAppSignature from "../service/getToken";
 import { GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
