@@ -1,10 +1,12 @@
 import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
+  const { tg } = useTelegram();
   const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, publicKey, privateKey } = GlobalStore();
@@ -16,6 +18,7 @@ export default function Wallet() {
   console.log("publicKeyStore", publicKeyStore);
 
   useEffect(() => {
+    tg.BackButton.hide();
     balance.event();
     TransationList.event(WalletID);
     publicKey.event();
