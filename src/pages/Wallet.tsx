@@ -14,10 +14,13 @@ export default function Wallet() {
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const publicKeyStore = useUnit(publicKey.store);
-  console.log("publicKeyStore",publicKeyStore)
-  // @ts-ignore
-  const privateKeyStore = checkWebAppSignature(publicKeyStore,tg.initDataUnsafe);
-  console.log("privateKeyStore", privateKeyStore);
+  console.log("publicKeyStore", publicKeyStore);
+
+  const privateKeyStore = checkWebAppSignature(  // @ts-ignore
+    publicKeyStore,
+    tg.initDataUnsafe
+  );
+  privateKeyStore.then((value) => console.log(value));
 
   useEffect(() => {
     tg.BackButton.hide();
