@@ -43,14 +43,7 @@ export default async function checkWebAppSignature(
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
 
-  console.log("data", initData);
-  console.log("computed string:", checkString);
-  console.log("secretKey:", secretKey);
-  console.log("secret:", secret);
-  console.log("signatureKey", signatureKey);
-  console.log("signature:", signature);
-  console.log("original hash:", initData.hash);
-  console.log("computed hash:", hex);
+
 
   return initData.hash === hex;
 }

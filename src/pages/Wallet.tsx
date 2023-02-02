@@ -2,6 +2,7 @@ import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import checkWebAppSignature from "../service/getToken";
 import { GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
@@ -13,17 +14,16 @@ export default function Wallet() {
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const publicKeyStore = useUnit(publicKey.store);
-  const privateKeyStore = useUnit(privateKey.store);
+  console.log("publicKeyStore",publicKeyStore)
+  // @ts-ignore
+  const privateKeyStore = checkWebAppSignature(publicKeyStore,tg.initDataUnsafe);
   console.log("privateKeyStore", privateKeyStore);
-  console.log("publicKeyStore", publicKeyStore);
 
   useEffect(() => {
     tg.BackButton.hide();
     balance.event();
     TransationList.event(WalletID);
     publicKey.event();
-    // // @ts-ignore
-    // privateKey.event(publicKeyStore);
   }, []);
 
   return (
