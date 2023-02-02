@@ -5,16 +5,15 @@ import { GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
+  const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList } = GlobalStore();
-  const balanceStore = balance();
-  const transationListStore = TransationList();
-  const trancsationStore = useUnit(transationListStore.store);
-  const balanceWallet = useUnit(balanceStore.store);
+  const trancsationStore = useUnit(TransationList.store);
+  const balanceWallet = useUnit(balance.store);
 
   useEffect(() => {
-    balanceStore.event();
-    transationListStore.event();
+    balance.event();
+    TransationList.event(WalletID);
   }, []);
 
   return (

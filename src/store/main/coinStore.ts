@@ -36,10 +36,8 @@ const $loader = getBalance.pending;
 
 const canRequest = combine([$loader], ([loading]) => !loading);
 
-export const balance = () => {
-  return {
-    store: $balanceStore,
-    event: getBalance,
-    loader: $loader,
-  };
+export const balance = {
+  store: $balanceStore,
+  event: getBalance,
+  loader: $loader,
 };

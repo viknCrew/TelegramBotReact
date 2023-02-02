@@ -41,10 +41,8 @@ sample({
   target: publicKeyEffect,
 });
 
-export const publicKey = () => {
-  return {
-    store: $publicKey,
-    event: publicKeyEvent,
-    loader: $loader,
-  };
+export const publicKey = {
+  store: $publicKey,
+  event: publicKeyEvent,
+  loader: $loader,
 };

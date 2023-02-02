@@ -44,10 +44,8 @@ sample({
   target: walletEffect,
 });
 
-export const Wallet = () => {
-  return {
-    store: $wallet,
-    event: walletEvent,
-    loader: $loaderWallet,
-  };
+export const Wallet = {
+  store: $wallet,
+  event: walletEvent,
+  loader: $loaderWallet,
 };

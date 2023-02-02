@@ -75,10 +75,8 @@ sample({
   target: TranEffect,
 });
 
-export const Transaction = () => {
-  return {
-    store: $Tran,
-    event: TranEvent,
-    loader: $loader,
-  };
+export const Transaction = {
+  store: $Tran,
+  event: TranEvent,
+  loader: $loader,
 };

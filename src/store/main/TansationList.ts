@@ -1,64 +1,78 @@
 import axios from "axios";
 import { createEffect, createEvent, createStore, sample } from "effector";
-import { web3 } from "../../service/getWeb3";
 import {
   ITransation,
   statusTransation,
   statusType,
 } from "../../types/transaction";
 
-const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
+const instance = axios.create({
+  baseURL: `https://2.tmyscan.com/api`,
+});
 
-const trancsationEffect = createEffect({
-  handler: async () => {
-    const res = await axios.get(
-      `https://2.tmyscan.com/api?module=account&action=txlist&address=${WalletID}`,
-      {
-        params: {
-          offset: 10,
-        },
-      }
-    );
+export async function request<Done>(config: any): Promise<Done> {
+  return instance(config).then((response) => response.data);
+}
 
-    const Transations = res.data.result.map((tran: any) => {
-      let tStatus: statusType;
+const trancsationEffect = createEffect(async (WalletID: string) => {
+  const answer: any = await request({
+    method: "GET",
+    params: {
+      module: "account",
+      action: "txlist",
+      offset: 10,
+      address: WalletID,
+    },
+  });
 
+  const promises: any[] = answer.result;
+
+  const transform = (tran: any) => {
+    const Web3 = require("web3");
+    const web3 = new Web3("https://node1.tmyblockchain.org/rpc");
+    let tStatus: statusType;
+
+    try {
       if (web3.utils.toChecksumAddress(tran.to) === WalletID) {
         tStatus = statusTransation.receiving;
       } else {
         tStatus = statusTransation.send;
       }
+    } catch {
+      tStatus = statusTransation.undefined;
+    }
 
-      let options: any = {
-        weekday: "long",
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      };
+    let options: any = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
 
-      options.timeZone = "UTC";
-      options.timeZoneName = "short";
+    options.timeZone = "UTC";
+    options.timeZoneName = "short";
 
-      const date = new Date(Number(tran.timeStamp + "000")).toLocaleDateString(
-        "en-US",
-        options
-      );
+    const date = new Date(Number(tran.timeStamp + "000")).toLocaleDateString(
+      "en-US",
+      options
+    );
 
-      return {
-        blockHash: tran.blockHash,
-        Hash: tran.hash,
-        blockNumber: tran.blockNumber,
-        gas: tran.gas,
-        from: tran.from,
-        to: tran.to,
-        timeStamp: date,
-        value: web3.utils.fromWei(tran.value),
-        status: tStatus,
-      };
-    });
+    return {
+      blockHash: tran.blockHash,
+      Hash: tran.hash,
+      blockNumber: tran.blockNumber,
+      gas: tran.gas,
+      from: tran.from,
+      to: tran.to,
+      timeStamp: date,
+      value: web3.utils.fromWei(tran.value),
+      status: tStatus,
+    };
+  };
 
-    return Transations;
-  },
+  const Transations: ITransation[] = await Promise.all(promises);
+
+  return Transations.map(transform);
 });
 
 const $trancsationStore = createStore<ITransation[]>([]).on(
@@ -66,16 +80,15 @@ const $trancsationStore = createStore<ITransation[]>([]).on(
   (_, answer) => answer
 );
 
-const pageLoaded = createEvent();
+const pageLoaded = createEvent<string>();
 
 const $loading = trancsationEffect.pending;
 
 sample({ clock: pageLoaded, target: [trancsationEffect] });
 
-export const TransationList = () => {
-  return {
+export const TransationList = {
     store: $trancsationStore,
     event: pageLoaded,
     loader: $loading,
   };
-};
+

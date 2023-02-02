@@ -8,12 +8,11 @@ import { ITransation, statusTransation } from "../types/transaction";
 export default function Trancsation() {
   const params = useParams();
   const { Transaction } = GlobalStore();
-  const TransationStote = Transaction();
-  const tran: ITransation = useUnit(TransationStote.store);
+  const tran: ITransation = useUnit(Transaction.store);
   const { tg } = useTelegram();
 
   useEffect(() => {
-    TransationStote.event(params.id);
+    Transaction.event(params.id);
   }, []);
 
   async function copyPageUrl(myWallet: string) {
