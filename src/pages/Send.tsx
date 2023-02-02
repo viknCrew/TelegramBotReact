@@ -1,25 +1,29 @@
+
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import { GlobalStore } from "../store";
 
 export default function Send() {
   const { tg } = useTelegram();
+  const { translationAddress } = GlobalStore();
   const [text, setText] = useState<string>("");
+
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
     navigate("/remittance");
   }, []);
 
-  const onBack = useCallback(()=>{
+  const onBack = useCallback(() => {
     navigate("/");
-  },[])
+  }, []);
 
   useEffect(() => {
+    translationAddress.event(text);
     tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Transfer tokens",
     });
-
   }, []);
 
   useEffect(() => {

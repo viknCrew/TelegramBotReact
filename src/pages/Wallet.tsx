@@ -22,8 +22,8 @@ export default function Wallet() {
     balance.event();
     TransationList.event(WalletID);
     publicKey.event();
-    // @ts-ignore
-    privateKey.event(publicKeyStore);
+    // // @ts-ignore
+    // privateKey.event(publicKeyStore);
   }, []);
 
   return (
