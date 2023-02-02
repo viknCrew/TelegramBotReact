@@ -7,13 +7,20 @@ import { statusTransation } from "../types/transaction";
 export default function Wallet() {
   const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
   const logo = require("../assets/LOGO.png");
-  const { balance, TransationList } = GlobalStore();
+  const { balance, TransationList, publicKey, privateKey } = GlobalStore();
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
+  const publicKeyStore = useUnit(publicKey.store);
+  console.log("publicKeyStore", publicKeyStore);
 
   useEffect(() => {
     balance.event();
     TransationList.event(WalletID);
+    publicKey.event();
+    if (publicKeyStore != "") {
+      // @ts-ignore
+      privateKey.event(publicKeyStore);
+    }
   }, []);
 
   return (

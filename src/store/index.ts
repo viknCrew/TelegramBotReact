@@ -1,8 +1,9 @@
-import Wallet from "../pages/Wallet"
-import { balance } from "./main/coinStore"
-import { publicKey } from "./main/publicKeyStore"
-import { TransationList } from "./main/TansationList"
-import { Transaction } from "./main/tramsayionStore"
+import { balance } from "./main/coinStore";
+import { privateKey } from "./main/privateKeyStore";
+import { publicKey } from "./main/publicKeyStore";
+import { TransationList } from "./main/TansationList";
+import { Transaction } from "./main/tramsayionStore";
+import { WalletStore } from "./main/walletStore";
 
 export const GlobalStore = () => {
   return {
@@ -10,6 +11,7 @@ export const GlobalStore = () => {
     publicKey,
     TransationList,
     Transaction,
-    Wallet
-  }
-}
+    WalletStore,
+    privateKey,
+  };
+};
