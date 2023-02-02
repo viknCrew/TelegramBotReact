@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Send() {
@@ -10,6 +11,21 @@ export default function Send() {
     const value: string = e.target.value.replace(/\D/g, "");
     setText(value.slice(0, limit));
   };
+  const navigate = useNavigate();
+  const onBack = useCallback(() => {
+    navigate("/send");
+  }, []);
+
+  useEffect(() => {
+    tg.BackButton.show();
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
 
   return (
     <div className="flex justify-center mt-10">

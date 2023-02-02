@@ -13,6 +13,7 @@ export default function Wallet() {
   const publicKeyStore = useUnit(publicKey.store);
   const privateKeyStore = useUnit(privateKey.store);
   console.log("privateKeyStore", privateKeyStore);
+  console.log("publicKeyStore", publicKeyStore);
 
   useEffect(() => {
     balance.event();

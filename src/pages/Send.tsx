@@ -10,18 +10,31 @@ export default function Send() {
     navigate("/remittance");
   }, []);
 
+  const onBack = useCallback(()=>{
+    navigate("/");
+  },[])
+
+  useEffect(() => {
+    tg.BackButton.show();
+    tg.MainButton.setParams({
+      text: "Transfer tokens",
+    });
+
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
+
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
   }, [onSendData]);
-
-  useEffect(() => {
-    tg.MainButton.setParams({
-      text: "Transfer tokens",
-    });
-  }, []);
 
   useEffect(() => {
     if (!text) {

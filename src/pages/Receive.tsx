@@ -1,6 +1,7 @@
 import * as React from "react";
+import { useCallback, useEffect } from "react";
 import { QRCode } from "react-qrcode-logo";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 
 export default function Receive() {
@@ -17,6 +18,22 @@ export default function Receive() {
       tg.showAlert("Не удалось скопировать: " + err);
     }
   }
+
+  const navigate = useNavigate();
+  const onBack = useCallback(() => {
+    navigate("/");
+  }, []);
+
+  useEffect(() => {
+    tg.BackButton.show();
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
 
   return (
     <div className="flex justify-center pt-10 h-[100vh] bg-[--tg-theme-bg-color]">
