@@ -1,18 +1,20 @@
+import { useUnit } from "effector-react";
 import * as React from "react";
 import { useCallback, useEffect } from "react";
 import { QRCode } from "react-qrcode-logo";
 import { Link, useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import { GlobalStore } from "../store";
 
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
+  const { WalletStore } = GlobalStore();
+  const walet = useUnit(WalletStore.store);
 
   async function copyPageUrl() {
     try {
-      await navigator.clipboard.writeText(
-        "xc6D3720f6286C5173C94523b8b02d549c9933662"
-      );
+      await navigator.clipboard.writeText(walet);
       tg.showAlert("link copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
@@ -26,6 +28,7 @@ export default function Receive() {
 
   useEffect(() => {
     tg.BackButton.show();
+    WalletStore.event();
   }, []);
 
   useEffect(() => {
@@ -42,7 +45,7 @@ export default function Receive() {
         <div className="flex justify-center items-center my-10">
           {tg.colorScheme === "dark" ? (
             <QRCode
-              value="https://github.com/Nikolinc?tab=repositories"
+              value={walet}
               logoImage={coin}
               eyeRadius={10}
               logoWidth={50}
@@ -51,7 +54,7 @@ export default function Receive() {
             />
           ) : (
             <QRCode
-              value="https://github.com/Nikolinc?tab=repositories"
+              value={walet}
               logoImage={coin}
               eyeRadius={10}
               logoWidth={50}
@@ -64,11 +67,7 @@ export default function Receive() {
           className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
           onClick={() => copyPageUrl()}
         >
-          <p>
-            xc6D3720f6286C5173C9
-            <wbr />
-            4523b8b02d549c9933662
-          </p>
+          <p>{walet}</p>
         </button>
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
         <div className="flex justify-center">
