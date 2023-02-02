@@ -11,16 +11,15 @@ export default function Wallet() {
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const publicKeyStore = useUnit(publicKey.store);
-  console.log("publicKeyStore", publicKeyStore);
+  const privateKeyStore = useUnit(privateKey.store);
+  console.log("privateKeyStore", privateKeyStore);
 
   useEffect(() => {
     balance.event();
     TransationList.event(WalletID);
     publicKey.event();
-    if (publicKeyStore != "") {
-      // @ts-ignore
-      privateKey.event(publicKeyStore);
-    }
+    // @ts-ignore
+    privateKey.event(publicKeyStore);
   }, []);
 
   return (
