@@ -10,7 +10,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Wallet />,
-    errorElement: <ErrorPage />,
+    // errorElement: <ErrorPage />,
   },
   {
     path: "/trancsation/:id",
