@@ -8,19 +8,14 @@ import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
   const { tg } = useTelegram();
+  console.log("tg", tg);
   const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
   const logo = require("../assets/LOGO.png");
-  const { balance, TransationList, publicKey, privateKey } = GlobalStore();
+  const { balance, TransationList, publicKey } = GlobalStore();
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const publicKeyStore = useUnit(publicKey.store);
-  console.log("publicKeyStore", publicKeyStore);
-
-  const privateKeyStore = checkWebAppSignature(  // @ts-ignore
-    publicKeyStore,
-    tg.initDataUnsafe
-  );
-  privateKeyStore.then((value) => console.log(value));
+  console.log("tg", tg);
 
   useEffect(() => {
     tg.BackButton.hide();
