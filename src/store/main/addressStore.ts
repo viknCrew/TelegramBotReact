@@ -20,16 +20,14 @@ export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);
 }
 
-const data = JSON.stringify(tg.initData);
-
-const id = tg.initDataUnsafe.user.id;
-
 const walletEffect = createEffect(async () => {
+  const data = JSON.stringify(tg.initData);
+  const id = tg.initDataUnsafe.user.id;
 
-  console.log("tg",tg);
-  console.log("data",data);
-  console.log("id",id);
-  
+  console.log("tg", tg);
+  console.log("data", data);
+  console.log("id", id);
+
   const answer: any = await request({
     method: "post",
     headers: {
@@ -39,7 +37,7 @@ const walletEffect = createEffect(async () => {
     data: data,
   });
 
-  console.log("answer",answer);
+  console.log("answer", answer);
   return answer;
 });
 

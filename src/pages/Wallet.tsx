@@ -9,9 +9,10 @@ export default function Wallet() {
   const { tg } = useTelegram();
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore } = GlobalStore();
+  const address = useUnit(AddressStore.store);
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
-  const address = useUnit(AddressStore.store);
+
   console.log("address", address);
 
   useEffect(() => {
