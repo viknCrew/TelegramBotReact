@@ -9,8 +9,8 @@ import { GlobalStore } from "../store";
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
-  const { WalletStore } = GlobalStore();
-  const walet = useUnit(WalletStore.store);
+  const { AddressStore } = GlobalStore();
+  const walet = useUnit(AddressStore.store);
 
   async function copyPageUrl() {
     try {
@@ -28,7 +28,7 @@ export default function Receive() {
 
   useEffect(() => {
     tg.BackButton.show();
-    WalletStore.event();
+    AddressStore.event();
   }, []);
 
   useEffect(() => {

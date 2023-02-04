@@ -9,18 +9,17 @@ export default function Wallet() {
   const { tg } = useTelegram();
   const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
   const logo = require("../assets/LOGO.png");
-  const { balance, TransationList, WalletStore } = GlobalStore();
+  const { balance, TransationList, AddressStore } = GlobalStore();
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
-  const walet = useUnit(WalletStore.store);
-  console.log("tg", tg);
-  console.log("wallet", walet);
+  const address = useUnit(AddressStore.store);
+  console.log("address", address);
 
   useEffect(() => {
     tg.BackButton.hide();
     balance.event();
     TransationList.event(WalletID);
-    WalletStore.event();
+    AddressStore.event();
   }, []);
 
   return (
@@ -31,7 +30,7 @@ export default function Wallet() {
             Wallet
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            {walet}
+            xc6D3720f6286C5173C94523b8b02d549c9933662
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
