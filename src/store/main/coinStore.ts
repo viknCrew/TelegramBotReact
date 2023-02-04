@@ -7,23 +7,23 @@ import {
 } from "effector";
 import { web3 } from "../../service/getWeb3";
 
-const getBalance = createEffect(async (address:string) => {
+const getBalance = createEffect(async (address: string) => {
+  const WalletID = web3.utils.toChecksumAddress(address);
   let balance: any;
+
   try {
-    web3.eth
-      .getBalance(address)
-      .then((balanceInWei: any) => {
-        balance = web3.utils.fromWei(balanceInWei);
-        WriteBalance(balance);
-      });
+    web3.eth.getBalance(WalletID).then((balanceInWei: any) => {
+      balance = web3.utils.fromWei(balanceInWei);
+      WriteBalance(balance);
+    });
   } catch (error) {
     balance = error;
   }
 });
 
-const WriteBalance = createEvent<string>();
+const WriteBalance = createEvent<any>();
 
-const $balanceStore = createStore<string>("").on(
+export const $balanceStore = createStore<any>("").on(
   WriteBalance,
   (_, answer) => answer
 );

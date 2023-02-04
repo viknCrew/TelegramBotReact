@@ -6,8 +6,7 @@ import { GlobalStore } from "../store";
 
 export default function Send() {
   const { tg } = useTelegram();
-  const { translationAddress, balance, AddressStore } = GlobalStore();
-  const wallet = useUnit(AddressStore.store);
+  const { translationAddress, balance } = GlobalStore();
   const balanceWallet = useUnit(balance.store);
   const address = useUnit(translationAddress.store);
   const [text, setText] = useState<string>("");
@@ -23,9 +22,11 @@ export default function Send() {
   }, []);
 
   useEffect(() => {
-    AddressStore.event();
     tg.BackButton.show();
-    balance.event(wallet);
+  }, []);
+
+  useEffect(() => {
+    balance.event(address);
   }, []);
 
   useEffect(() => {

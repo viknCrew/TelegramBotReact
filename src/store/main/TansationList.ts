@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createEffect, createEvent, createStore, sample } from "effector";
+import { web3 } from "../../service/getWeb3";
 import {
   ITransation,
   statusTransation,
@@ -14,7 +15,11 @@ export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);
 }
 
-const trancsationEffect = createEffect(async (WalletID: string) => {
+const trancsationEffect = createEffect(async (address: string) => {
+  const WalletID = web3.utils.toChecksumAddress(address);
+
+  console.log("WalletID", WalletID);
+
   const answer: any = await request({
     method: "GET",
     params: {
@@ -80,15 +85,14 @@ const $trancsationStore = createStore<ITransation[]>([]).on(
   (_, answer) => answer
 );
 
-const pageLoaded = createEvent<string>();
+const pageLoaded = createEvent<any>();
 
 const $loading = trancsationEffect.pending;
 
 sample({ clock: pageLoaded, target: [trancsationEffect] });
 
 export const TransationList = {
-    store: $trancsationStore,
-    event: pageLoaded,
-    loader: $loading,
-  };
-
+  store: $trancsationStore,
+  event: pageLoaded,
+  loader: $loading,
+};

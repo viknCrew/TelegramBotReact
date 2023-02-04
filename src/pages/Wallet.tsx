@@ -9,18 +9,22 @@ export default function Wallet() {
   const { tg } = useTelegram();
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore } = GlobalStore();
-  const address = useUnit(AddressStore.store);
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
-
+  const address = useUnit(AddressStore.store);
   console.log("address", address);
 
   useEffect(() => {
-    AddressStore.event();
     tg.BackButton.hide();
+    AddressStore.event();
     balance.event(address);
     TransationList.event(address);
   }, []);
+
+  useEffect(() => {
+    balance.event(address);
+    TransationList.event(address);
+  }, [address]);
 
   return (
     <div className="flex justify-center">
@@ -30,7 +34,7 @@ export default function Wallet() {
             Wallet
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            {address}
+            xc6D3720f6286C5173C94523b8b02d549c9933662
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />

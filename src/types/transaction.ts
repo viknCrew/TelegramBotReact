@@ -20,8 +20,3 @@ export type statusType =
   | statusTransation.receiving
   | statusTransation.send
   | statusTransation.undefined;
-
-export interface ITransationStore {
-  id: any;
-  WalletID: string;
-}

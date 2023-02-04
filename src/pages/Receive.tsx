@@ -4,13 +4,14 @@ import { useCallback, useEffect } from "react";
 import { QRCode } from "react-qrcode-logo";
 import { Link, useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
 
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
   const { AddressStore } = GlobalStore();
-  const walet = useUnit(AddressStore.store);
+  const walet = web3.utils.toChecksumAddress( useUnit(AddressStore.store));
 
   async function copyPageUrl() {
     try {
