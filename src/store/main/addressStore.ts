@@ -25,6 +25,11 @@ const data = JSON.stringify(tg.initData);
 const id = tg.initDataUnsafe.user.id;
 
 const walletEffect = createEffect(async () => {
+
+  console.log("tg",tg);
+  console.log("data",data);
+  console.log("id",id);
+  
   const answer: any = await request({
     method: "post",
     headers: {
@@ -34,6 +39,7 @@ const walletEffect = createEffect(async () => {
     data: data,
   });
 
+  console.log("answer",answer);
   return answer;
 });
 
