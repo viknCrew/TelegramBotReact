@@ -7,15 +7,11 @@ import {
 } from "effector";
 import { web3 } from "../../service/getWeb3";
 
-const getBalance = createEffect(async () => {
+const getBalance = createEffect(async (address:string) => {
   let balance: any;
-  const Transaction = web3.eth.sendTransaction({
-    from: "0xc6D3720f6286C5173C94523b8b02d549c9933662",
-  });
-
   try {
     web3.eth
-      .getBalance("0xc6D3720f6286C5173C94523b8b02d549c9933662")
+      .getBalance(address)
       .then((balanceInWei: any) => {
         balance = web3.utils.fromWei(balanceInWei);
         WriteBalance(balance);
@@ -25,9 +21,9 @@ const getBalance = createEffect(async () => {
   }
 });
 
-const WriteBalance = createEvent<any>();
+const WriteBalance = createEvent<string>();
 
-const $balanceStore = createStore<any>("").on(
+const $balanceStore = createStore<string>("").on(
   WriteBalance,
   (_, answer) => answer
 );

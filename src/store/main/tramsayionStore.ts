@@ -7,12 +7,14 @@ import {
   sample,
 } from "effector";
 import { web3 } from "../../service/getWeb3";
-import { statusTransation, statusType } from "../../types/transaction";
+import { ITransationStore, statusTransation, statusType } from "../../types/transaction";
 
-const WalletID = "0x0786e7225fE1aaf37e1a5359544CBC8755E1c6aB";
+
 
 export const TranEffect = createEffect({
-  handler: async (id: any) => {
+  handler: async (params: ITransationStore) => {
+    const { id, WalletID } = params;
+
     const res = await axios.get(
       `https://2.tmyscan.com/api?module=transaction&action=gettxinfo&txhash=${id}`
     );
@@ -58,9 +60,9 @@ export const TranEffect = createEffect({
   },
 });
 
-export const TranEvent = createEvent<any>();
+export const TranEvent = createEvent<ITransationStore>();
 
-export const $Tran = createStore<any>(0).on(
+export const $Tran = createStore<any>({}).on(
   TranEffect.doneData,
   (_, answer) => answer
 );
@@ -77,6 +79,6 @@ sample({
 
 export const Transaction = {
   store: $Tran,
-  event: TranEvent,
+  event: TranEffect,
   loader: $loader,
 };

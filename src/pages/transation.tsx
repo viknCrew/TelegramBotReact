@@ -3,17 +3,29 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Params, useNavigate, useParams } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
-import { ITransation, statusTransation } from "../types/transaction";
+import {
+  ITransation,
+  ITransationStore,
+  statusTransation,
+} from "../types/transaction";
 
 export default function Trancsation() {
   const params = useParams();
-  const { Transaction } = GlobalStore();
+  // @ts-ignore
+  const id: string = params.id;
+  const { Transaction, AddressStore } = GlobalStore();
+  const address: string = useUnit(AddressStore.store);
   const tran: ITransation = useUnit(Transaction.store);
   const { tg } = useTelegram();
   const navigate = useNavigate();
   const onBack = useCallback(() => {
     navigate("/");
   }, []);
+  const param: ITransationStore = {
+    id,
+    // @ts-ignore
+    address,
+  };
 
   let walet: any;
   let WalletHeader: string;
@@ -51,8 +63,9 @@ export default function Trancsation() {
   }
 
   useEffect(() => {
+    AddressStore.event();
     tg.BackButton.show();
-    Transaction.event(params.id);
+    Transaction.event(param);
   }, []);
 
   useEffect(() => {
