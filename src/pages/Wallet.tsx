@@ -13,9 +13,8 @@ export default function Wallet() {
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const walet = useUnit(WalletStore.store);
-  console.log("wallet",walet);
-  
-
+  console.log("tg", tg);
+  console.log("wallet", walet);
 
   useEffect(() => {
     tg.BackButton.hide();
