@@ -1,7 +1,13 @@
 export default function Tick(props: { size: number }) {
   return (
     <div
-      className={` mx-8 w-[${props.size}] h-[${props.size}] m-auto inline-block`}
+      style={{
+        width: props.size,
+        height: props.size,
+        margin: "auto",
+        display: "inline-block",
+      }}
+      className=" mx-8 "
     >
       <style>
         {`
@@ -12,7 +18,7 @@ export default function Tick(props: { size: number }) {
           max-height: 250px;
         }
           .circle {
-          stroke: var(--tg-theme-button-color);
+          stroke: green;
           fill: none;
           stroke-width: 3.8;
           stroke-linecap: round;
@@ -26,7 +32,7 @@ export default function Tick(props: { size: number }) {
         }
           .tick {
           fill: none;
-          stroke: var(--tg-theme-button-color);
+          stroke: green;
           stroke-width: 3.8px;
           stroke-linecap: round;
           /* Stroke-dasharray property */
@@ -45,7 +51,7 @@ export default function Tick(props: { size: number }) {
         }
       `}
       </style>
-      <svg viewBox="0 0 36 36" className="circular-chart mr-3">
+      <svg viewBox="0 0 36 36" className="circular-chart mr-3 ">
         <path
           className="circle"
           strokeDasharray="92, 100"
