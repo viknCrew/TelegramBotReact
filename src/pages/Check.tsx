@@ -42,7 +42,7 @@ export default function Check() {
   }
 
   return (
-    <div className="flex justify-center w-full h-[98vh] ">
+    <div className="flex justify-center w-full h-[98vh] bg-[var(--tg-theme-bg-color)] rounded-xl">
       <div className="grid grid-cols-1 ">
         <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center ">
           <div className="grid col-span-1">
@@ -75,7 +75,7 @@ export default function Check() {
         <div className="flex justify-center">
           <Link
             to="/"
-            className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
+            className="rounded-xl my-1 mx-6 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] "
           >
             Go Back Home
           </Link>
