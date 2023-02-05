@@ -43,7 +43,7 @@ export default function Check() {
 
   return (
     <div className="flex justify-center w-full h-[98vh] rounded-xl">
-      <div className="grid grid-cols-1 w-96 ">
+      <div className="grid grid-cols-1 w-80 ">
         <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center ">
           <div className="grid col-span-1">
             {" "}
