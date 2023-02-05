@@ -1,5 +1,5 @@
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useCallback, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Tick from "../component/Tick";
 import { useTelegram } from "../hooks/useTelegram";
 
@@ -12,10 +12,25 @@ export default function Check() {
   const { tg } = useTelegram();
   const wallet = "0xc6D3720f6286C5173C94523b8b02d549c9933662";
   const amount = "999999.2";
-
+  const navigate = useNavigate();
   useEffect(() => {
     tg.MainButton.hide();
   }, []);
+
+  const onBack = useCallback(() => {
+    navigate("/");
+  }, []);
+
+  useEffect(() => {
+    tg.BackButton.show();
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
 
   async function copyPageUrl() {
     try {
@@ -56,14 +71,14 @@ export default function Check() {
               {`- ${amount} TMY`}
             </p>
           </div>
-          <div className="flex justify-center">
-            <Link
-              to="/"
-              className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
-            >
-              Go Back Home
-            </Link>
-          </div>
+        </div>
+        <div className="flex justify-center">
+          <Link
+            to="/"
+            className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
+          >
+            Go Back Home
+          </Link>
         </div>
       </div>
     </div>
