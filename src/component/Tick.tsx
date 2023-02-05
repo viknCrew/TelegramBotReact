@@ -7,8 +7,50 @@ export default function Tick(props: { size: number }) {
         margin: "auto",
         display: "inline-block",
       }}
-      className=" mx-8 ">
-
+      className=" mx-8 "
+    >
+      <style>
+        {`
+          .circular-chart {
+          display: inline-block;
+          margin: 10px auto;
+          max-width: 80%;
+          max-height: 250px;
+        }
+          .circle {
+          stroke: green;
+          fill: none;
+          stroke-width: 3.8;
+          stroke-linecap: round;
+          animation: progress 1s ease-out ${true ? "forwards" : "infinite"};
+          // transform-origin: center;
+        }
+          @keyframes progress {
+          0% {
+            stroke-dasharray: 0, 100;
+        }
+        }
+          .tick {
+          fill: none;
+          stroke: green;
+          stroke-width: 3.8px;
+          stroke-linecap: round;
+          /* Stroke-dasharray property */
+          stroke-dasharray: 50px;
+          stroke-dashoffset: 50px;
+          animation: move 0.3s ease-out forwards;
+          -webkit-animation-delay: 0.3s;
+          -moz-animation-delay: 0.3s;
+          -o-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+        }
+          @keyframes move {
+          100% {
+            stroke-dashoffset: 0;
+        }
+        }
+      `}
+      </style>
       <svg viewBox="0 0 36 36" className="circular-chart mr-3 ">
         <path
           className="circle"
