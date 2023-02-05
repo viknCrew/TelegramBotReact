@@ -51,6 +51,14 @@ export default function Send() {
   }, [text]);
 
   useEffect(() => {
+    if (Number(text) > Number(balanceWallet)) {
+      tg.MainButton.setParams({ is_active: false });
+    } else {
+      tg.MainButton.setParams({ is_active: true });
+    }
+  }, [text]);
+
+  useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
@@ -142,7 +150,11 @@ export default function Send() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className="w-full border-none focus:border-none text-3xl bg-[var(--tg-theme-secondary-bg-color)] pr-12 sm:text-sm pl-12 text-[var(--tg-theme-button-color)] flex flex-grow-1s"
+                className={`w-full border-none focus:border-none text-3xl bg-[var(--tg-theme-secondary-bg-color)] pr-12 sm:text-sm pl-12 ${
+                  tg.MainButton.isActive
+                    ? "text-[var(--tg-theme-button-color)]"
+                    : "text-[#FF3A3A]"
+                }  flex flex-grow-1s`}
                 placeholder="0.00"
                 value={text}
                 onChange={handleChange}
