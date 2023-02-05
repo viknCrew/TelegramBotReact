@@ -17,12 +17,18 @@ export default function Send() {
     setText(value.slice(0, limit));
   };
   const navigate = useNavigate();
+  const onSendData = useCallback(() => {
+    navigate("/check");
+  }, []);
   const onBack = useCallback(() => {
     navigate("/send");
   }, []);
 
   useEffect(() => {
     tg.BackButton.show();
+    tg.MainButton.setParams({
+      text: "Send",
+    });
   }, []);
 
   useEffect(() => {
@@ -43,6 +49,13 @@ export default function Send() {
       tg.MainButton.show();
     }
   }, [text]);
+
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData]);
 
   return (
     <div className="flex justify-center mt-10 h-[90vh]">
