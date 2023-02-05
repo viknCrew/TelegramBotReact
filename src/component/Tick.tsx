@@ -7,7 +7,7 @@ export default function Tick(props: { size: number }) {
         margin: "auto",
         display: "inline-block",
       }}
-      className=" mx-8 "
+      className=""
     >
       <style>
         {`
@@ -49,7 +49,7 @@ export default function Tick(props: { size: number }) {
         }
       `}
       </style>
-      <svg viewBox="0 0 36 36" className="circular-chart mr-3">
+      <svg viewBox="0 0 36 36" className="circular-chart">
         <path
           className="circle"
           stroke="var(--tg-theme-button-color)"

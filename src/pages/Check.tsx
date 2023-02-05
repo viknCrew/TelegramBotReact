@@ -14,7 +14,7 @@ export default function Check() {
   const amount = "999999.2";
 
   useEffect(() => {
-    tg.MainButton.show();
+    tg.MainButton.hide();
   }, []);
 
   async function copyPageUrl() {
@@ -55,14 +55,14 @@ export default function Check() {
             <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 ">
               {`- ${amount} TMY`}
             </p>
-            <div className="flex justify-center">
-              <Link
-                to="/"
-                className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
-              >
-                Go Back Home
-              </Link>
-            </div>
+          </div>
+          <div className="flex justify-center">
+            <Link
+              to="/"
+              className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
+            >
+              Go Back Home
+            </Link>
           </div>
         </div>
       </div>
