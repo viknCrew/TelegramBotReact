@@ -43,7 +43,7 @@ export default function Check() {
 
   return (
     <div className="flex justify-center w-full h-[98vh] rounded-xl">
-      <div className="grid grid-cols-1 w-96 bg-[var(--tg-theme-bg-color)]">
+      <div className="grid grid-cols-1 w-96 ">
         <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center ">
           <div className="grid col-span-1">
             {" "}
@@ -64,13 +64,10 @@ export default function Check() {
             <Tick size={200} />
           </div>
         </div>
-        <div className=" flex justify-center w-full">
-          <div className="grid grid-cols-1">
-            {" "}
-            <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 ">
-              {`- ${amount} TMY`}
-            </p>
-          </div>
+        <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-24">
+          <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 h-8 ">
+            {`- ${amount} TMY`}
+          </p>
         </div>
         <div className="flex justify-center">
           <Link
