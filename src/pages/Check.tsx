@@ -11,7 +11,7 @@ function placeInCenter(str: string, substr: string) {
 export default function Check() {
   const { tg } = useTelegram();
   const wallet = "0xc6D3720f6286C5173C94523b8b02d549c9933662";
-  const amount = "0.2";
+  const amount = "999999.2";
 
   useEffect(() => {
     tg.MainButton.show();
@@ -49,18 +49,20 @@ export default function Check() {
             <Tick size={200} />
           </div>
         </div>
-        <div className="">
-          {" "}
-          <p className="text-center text-lg font-medium flex justify-center text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-auto ">
-            {`- ${amount} TMY`}
-          </p>
-          <div className="flex justify-center">
-            <Link
-              to="/"
-              className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
-            >
-              Go Back Home
-            </Link>
+        <div className=" flex justify-center w-full">
+          <div className="grid grid-cols-1">
+            {" "}
+            <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 ">
+              {`- ${amount} TMY`}
+            </p>
+            <div className="flex justify-center">
+              <Link
+                to="/"
+                className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
+              >
+                Go Back Home
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -18,7 +18,6 @@ export default function Tick(props: { size: number }) {
           max-height: 250px;
         }
           .circle {
-          stroke: green;
           fill: none;
           stroke-width: 3.8;
           stroke-linecap: round;
@@ -32,7 +31,6 @@ export default function Tick(props: { size: number }) {
         }
           .tick {
           fill: none;
-          stroke: green;
           stroke-width: 3.8px;
           stroke-linecap: round;
           /* Stroke-dasharray property */
@@ -51,9 +49,10 @@ export default function Tick(props: { size: number }) {
         }
       `}
       </style>
-      <svg viewBox="0 0 36 36" className="circular-chart mr-3 ">
+      <svg viewBox="0 0 36 36" className="circular-chart mr-3">
         <path
           className="circle"
+          stroke="var(--tg-theme-button-color)"
           strokeDasharray="92, 100"
           d="M18 2.0845
         a 15.9155 15.9155 0 0 1 0 31.831
@@ -62,12 +61,15 @@ export default function Tick(props: { size: number }) {
         />
         <path
           className="tick"
+          stroke="var(--tg-theme-button-color)"
           id="svg_2"
           d="m80.5,196.4375l60.5,10.5625l111,-112"
           transform="translate(4, -5)"
+          fill=""
         />
         <path
           className="tick"
+          stroke="var(--tg-theme-button-color)"
           id="svg_3"
           d="m3.063615,19.054611l10.56037,10.568181l17.248714,-17.373705"
           transform="translate(4, -5)"
