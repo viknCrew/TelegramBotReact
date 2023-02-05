@@ -13,18 +13,6 @@
   }
 }
 
-@keyframes progress {
-  0% {
-    stroke-dasharray: 0, 100;
-  }
-}
-
-@keyframes move {
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
 body {
   margin: 0;
   pading: 0;
@@ -63,31 +51,6 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
-
-.circ {
-  opacity: 0;
-  stroke-dasharray: 130;
-  stroke-dashoffset: 130;
-  -webkit-transition: all 1s;
-  -moz-transition: all 1s;
-  -ms-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-}
-.tick {
-  stroke-dasharray: 50;
-  stroke-dashoffset: 50;
-  -webkit-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -moz-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -ms-transition: stroke-dashoffset 1s 0.5s ease-out;
-  -o-transition: stroke-dashoffset 1s 0.5s ease-out;
-  transition: stroke-dashoffset 1s 0.5s ease-out;
-}
-.drawn + svg .path {
-  opacity: 1;
-  stroke-dashoffset: 0;
-}
-
 .circular-chart {
   display: inline-block;
   margin: 10px auto;
@@ -95,18 +58,22 @@ input[type="number"] {
   max-height: 250px;
 }
 .circle {
-  stroke: var(--tg-theme-button-color);
+  stroke: green;
   fill: none;
   stroke-width: 3.8;
   stroke-linecap: round;
   animation: progress 1s ease-out $ {
-    true? "forwards" : "infinite";
+    true?"forwards" : "infinite";
   }
 }
-
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0, 100;
+  }
+}
 .tick {
   fill: none;
-  stroke: var(--tg-theme-button-color);
+  stroke: green;
   stroke-width: 3.8px;
   stroke-linecap: round;
   /* Stroke-dasharray property */
@@ -117,4 +84,9 @@ input[type="number"] {
   -moz-animation-delay: 0.3s;
   -o-animation-delay: 0.3s;
   animation-delay: 0.3s;
+}
+@keyframes move {
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
