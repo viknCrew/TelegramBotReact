@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Tick from "../component/Tick";
 import { useTelegram } from "../hooks/useTelegram";
@@ -12,6 +13,10 @@ export default function Check() {
   const wallet = "0xc6D3720f6286C5173C94523b8b02d549c9933662";
   const amount = "0.2";
 
+  useEffect(() => {
+    tg.MainButton.show();
+  }, []);
+
   async function copyPageUrl() {
     try {
       await navigator.clipboard.writeText(wallet);
@@ -24,14 +29,17 @@ export default function Check() {
   return (
     <div className="flex justify-center w-full h-[98vh] ">
       <div className="grid grid-cols-1 ">
-        <div className="text-center my-8 bg-[var(--tg-theme-bg-color)]">
-          <div className="">Tokens transferred to the wallet</div>
-          <button
-            className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
-            onClick={() => copyPageUrl()}
-          >
-            <p>{placeInCenter(wallet, " ")}</p>
-          </button>
+        <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center ">
+          <div className="grid col-span-1">
+            {" "}
+            <div className="">Tokens transferred to the wallet</div>
+            <button
+              className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
+              onClick={() => copyPageUrl()}
+            >
+              <p>{placeInCenter(wallet, " ")}</p>
+            </button>
+          </div>
         </div>
         <div className="">
           <div
@@ -43,9 +51,9 @@ export default function Check() {
         </div>
         <div className="">
           {" "}
-          <div className="text-center text-lg font-medium flex justify-center text-[#FF3A3A]">
+          <p className="text-center text-lg font-medium flex justify-center text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-auto ">
             {`- ${amount} TMY`}
-          </div>
+          </p>
           <div className="flex justify-center">
             <Link
               to="/"
