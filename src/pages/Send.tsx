@@ -13,10 +13,10 @@ export default function Send() {
     navigate("/");
   }, []);
 
-  const onSendData = useCallback((text: string) => {
+  const onSendData = useCallback(() => {
     console.log("text", text);
     navigate("/remittance/" + text);
-  }, []);
+  }, [text]);
 
   useEffect(() => {
     translationAddress.event(text);
@@ -46,11 +46,11 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData(text));
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onSendData]);
+  }, [onSendData, tg]);
 
   return (
     <div className="flex justify-center mt-10">
