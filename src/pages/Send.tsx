@@ -6,14 +6,14 @@ import { GlobalStore } from "../store";
 export default function Send() {
   const { tg } = useTelegram();
   const { translationAddress } = GlobalStore();
-  const [text, setText] = useState<string>("None");
+  const [text, setText] = useState<string>("Test");
 
   const navigate = useNavigate();
   const onBack = useCallback(() => {
     navigate("/");
   }, []);
 
-  const onSendData = useCallback(() => {
+  const onSendData = useCallback((text: string) => {
     console.log("text", text);
     navigate("/remittance/" + text);
   }, []);
@@ -48,7 +48,7 @@ export default function Send() {
   useEffect(() => {
     tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
+      tg.offEvent("mainButtonClicked", onSendData(text));
     };
   }, [onSendData]);
 
