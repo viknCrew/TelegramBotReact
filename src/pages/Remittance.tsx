@@ -12,10 +12,11 @@ export default function Send() {
 
   const params = useParams();
   const { tg } = useTelegram();
-  const { balance, Modal, Transfer } = GlobalStore();
+  const { balance, Modal, Transfer, AddressStore } = GlobalStore();
 
   const balanceWallet = useUnit(balance.store);
   const address: string = String(params.address);
+  const addressStore: string = String(AddressStore.store);
   const CallModal = useUnit(Modal.store);
 
   const [text, setText] = useState<string>("");
@@ -34,6 +35,7 @@ export default function Send() {
   }, []);
 
   useEffect(() => {
+    AddressStore.event();
     tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Send",
@@ -41,7 +43,7 @@ export default function Send() {
   }, []);
 
   useEffect(() => {
-    balance.event(address);
+    balance.event(addressStore);
   }, []);
 
   useEffect(() => {
