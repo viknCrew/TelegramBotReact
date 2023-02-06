@@ -9,9 +9,6 @@ export default function Send() {
   const [text, setText] = useState<string>("");
 
   const navigate = useNavigate();
-  const onSendData = useCallback(() => {
-    navigate("/remittance/" + text);
-  }, []);
 
   const onBack = useCallback(() => {
     navigate("/");
@@ -33,11 +30,12 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
+    console.log("/remittance/" + text);
+    tg.onEvent("mainButtonClicked", () => navigate("/remittance/" + text));
     return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
+      tg.offEvent("mainButtonClicked", () => navigate("/remittance/" + text));
     };
-  }, [onSendData]);
+  }, []);
 
   useEffect(() => {
     if (!text) {
