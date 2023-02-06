@@ -33,11 +33,14 @@ export default function Check(props: IProps) {
   };
 
   useEffect(() => {
-    Transfer.event(dataTransaction);
     tg.BackButton.hide();
     tg.MainButton.hide();
     AddressStore.event();
   }, []);
+
+  useEffect(() => {
+    Transfer.event(dataTransaction);
+  }, [data, id, props.address, props.amount]);
 
   async function copyAddressTrans() {
     try {
