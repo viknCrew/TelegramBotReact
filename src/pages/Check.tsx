@@ -44,7 +44,7 @@ export default function Check() {
   return (
     <div className="flex justify-center w-full h-[98vh] rounded-xl">
       <div className="grid grid-cols-1 w-80 ">
-        <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center ">
+        <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg py-4  rounded-lg ">
           <div className="grid col-span-1">
             {" "}
             <div className="">Tokens transferred to the wallet</div>
@@ -64,7 +64,7 @@ export default function Check() {
             <Tick size={200} />
           </div>
         </div>
-        <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-24">
+        <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-24 items-center rounded-xl shadow-lg">
           <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 h-8 ">
             {`- ${amount} TMY`}
           </p>
@@ -72,7 +72,7 @@ export default function Check() {
         <div className="flex justify-center">
           <Link
             to="/"
-            className="rounded-xl my-1 mx-6 text-sm  w-56 h-8 mt-6  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] "
+            className="rounded-lg my-1 mx-6 text-sm  w-56 h-8 mt-3  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] shadow-lg"
           >
             Go Back Home
           </Link>
