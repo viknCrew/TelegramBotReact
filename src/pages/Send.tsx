@@ -13,7 +13,7 @@ export default function Send() {
     navigate("/");
   }, []);
 
-  const onSendData = useCallback((text: string) => {
+  const onSendData = useCallback(() => {
     console.log("text", text);
     navigate("/remittance/" + text);
   }, []);
@@ -46,9 +46,9 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData(text));
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", onSendData(text));
+      tg.offEvent("mainButtonClicked", onSendData);
     };
   }, [onSendData]);
 
