@@ -25,7 +25,6 @@ export const router = createBrowserRouter([
   {
     path: "/send",
     element: <Send />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/receive",
