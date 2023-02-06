@@ -10,7 +10,7 @@ export default function Send() {
 
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
-    navigate(`/remittance/${text}`);
+    navigate("/remittance/" + text);
   }, []);
 
   const onBack = useCallback(() => {
