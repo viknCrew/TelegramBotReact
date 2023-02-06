@@ -31,10 +31,9 @@ export default function Check(props: IProps) {
     amount: Number(props.amount),
     data: data,
   };
+
   useEffect(() => {
-    if (Modal) {
-      Transfer.event(dataTransaction);
-    }
+    Transfer.event(dataTransaction);
     tg.BackButton.hide();
     tg.MainButton.hide();
     AddressStore.event();
