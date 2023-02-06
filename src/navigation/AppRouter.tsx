@@ -10,22 +10,26 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Wallet />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/trancsation/:id",
     element: <Trancsation />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/remittance/:address",
     element: <Remittance />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/send",
     element: <Send />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/receive",
     element: <Receive />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
   },
 ]);

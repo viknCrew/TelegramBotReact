@@ -71,7 +71,6 @@ export default function Check(props: IProps) {
             >
               <Tick size={50} />
             </div>
-            {/* <div className="сlose">1</div> */}
           </div>
           <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
             <div className="grid col-span-1">
@@ -86,7 +85,7 @@ export default function Check(props: IProps) {
             </div>
           </div>
           <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center justify-center shadow-lg rounded-lg ">
-            <div className="grid col-span-1">
+            <div className="grid col-span-1 gap-2">
               {" "}
               <div className="">Tokens transferred to the wallet</div>
               <button

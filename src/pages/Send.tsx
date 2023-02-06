@@ -6,7 +6,7 @@ import { GlobalStore } from "../store";
 export default function Send() {
   const { tg } = useTelegram();
   const { translationAddress } = GlobalStore();
-  const [text, setText] = useState<string>("Test");
+  const [text, setText] = useState<string>("");
 
   const navigate = useNavigate();
   const onBack = useCallback(() => {
@@ -14,7 +14,6 @@ export default function Send() {
   }, []);
 
   const onSendData = useCallback(() => {
-    console.log("text", text);
     navigate("/remittance/" + text);
   }, [text]);
 
@@ -34,7 +33,6 @@ export default function Send() {
   }, [text]);
 
   function setTextInput(e: React.ChangeEvent<HTMLInputElement>) {
-    console.log(e.target.value);
     setText(e.target.value);
   }
 
