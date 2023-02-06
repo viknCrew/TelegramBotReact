@@ -46,9 +46,9 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
+    tg.onEvent("mainButtonClicked", onSendData(text));
     return () => {
-      tg.offEvent("mainButtonClicked", onSendData(text));
+      tg.offEvent("mainButtonClicked", onSendData);
     };
   }, [onSendData]);
 
