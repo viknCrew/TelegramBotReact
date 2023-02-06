@@ -76,7 +76,7 @@ export default function Send() {
 
   return (
     <>
-      <div className="absolute left-[40%] right-[40%] z-[100]">
+      <div className="absolute left-[20%] right-[20%] z-[100]">
         {CallModal && (
           <Check
             address={address}
