@@ -10,7 +10,7 @@ export default function Send() {
 
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
-    console.log("/remittance/" + text);
+    console.log("text", text);
     navigate("/remittance/" + text);
   }, []);
 
@@ -43,7 +43,7 @@ export default function Send() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, [onSendData]);
+  }, []);
 
   useEffect(() => {
     if (!text) {
