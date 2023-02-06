@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useUnit } from "effector-react";
 import { useCallback, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,7 +18,14 @@ interface IProps {
 
 export default function Check(props: IProps) {
   const navigate = useNavigate();
+  const server = "https://bot.tmychain.org/api/Wallet/getAddress";
+
   const { tg } = useTelegram();
+
+  const instance = axios.create({
+    baseURL: `${server}`,
+  });
+
   const { AddressStore, Modal, Transfer } = GlobalStore();
 
   const wallet = useUnit(AddressStore.store);
@@ -39,8 +47,25 @@ export default function Check(props: IProps) {
   }, []);
 
   useEffect(() => {
-    Transfer.event(dataTransaction);
-  }, [data, id, props.address, props.amount]);
+    async function request<Done>(config: any): Promise<Done> {
+      return instance(config).then((response) => response.data);
+    }
+
+    async () => {
+      const answer = await request({
+        method: "post",
+        headers: {
+          senderId: dataTransaction.senderId,
+          address: dataTransaction.address,
+          amount: dataTransaction.amount,
+          "Content-Type": "application/json",
+        },
+        data: dataTransaction.data,
+      });
+      console.log("answer", answer);
+      return answer;
+    };
+  }, [data, id, props.address, props.amount, instance]);
 
   async function copyAddressTrans() {
     try {
@@ -139,4 +164,7 @@ export default function Check(props: IProps) {
       </div>
     </div>
   );
+}
+function instance(config: any) {
+  throw new Error("Function not implemented.");
 }
