@@ -9,11 +9,6 @@ export default function Send() {
   const [text, setText] = useState<string>("None");
 
   const navigate = useNavigate();
-  const onSendData = useCallback(() => {
-    console.log("text", text);
-    navigate("/remittance/" + text);
-  }, []);
-
   const onBack = useCallback(() => {
     navigate("/");
   }, []);
@@ -25,6 +20,13 @@ export default function Send() {
       text: "Transfer tokens",
     });
   }, []);
+  useEffect(() => {
+    if (!text) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+    }
+  }, [text]);
 
   function setTextInput(e: React.ChangeEvent<HTMLInputElement>) {
     console.log(e.target.value);
@@ -39,19 +41,19 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    tg.onEvent("mainButtonClicked", onSendData);
+    tg.onEvent("mainButtonClicked", useCallback(() => {
+      console.log("text", text);
+      navigate("/remittance/" + text);
+    }, []));
     return () => {
-      tg.offEvent("mainButtonClicked", onSendData);
+      tg.offEvent("mainButtonClicked", useCallback(() => {
+        console.log("text", text);
+        navigate("/remittance/" + text);
+      }, []));
     };
-  }, [onSendData]);
+  }, []);
 
-  useEffect(() => {
-    if (!text) {
-      tg.MainButton.hide();
-    } else {
-      tg.MainButton.show();
-    }
-  }, [text]);
+  
 
   return (
     <div className="flex justify-center mt-10">
