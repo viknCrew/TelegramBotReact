@@ -36,7 +36,6 @@ const executeFundsTransfer = createEffect(
       },
       data: dataTransaction.data,
     });
-    console.log("answer", answer);
     return answer;
   }
 );

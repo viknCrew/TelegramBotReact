@@ -30,7 +30,7 @@ const privateKeyEffect = createEffect(async (publicKey: string ) => {
       initData: tg.initData,
     },
   });
-  console.log("answer", answer);
+  
   return answer;
 });
 

@@ -62,7 +62,6 @@ export default function Check(props: IProps) {
         },
         data: dataTransaction.data,
       });
-      console.log("answer", answer);
       return answer;
     };
   }, [data, id, props.address, props.amount, instance]);
