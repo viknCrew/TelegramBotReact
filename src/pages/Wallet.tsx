@@ -16,6 +16,7 @@ export default function Wallet() {
 
   useEffect(() => {
     tg.BackButton.hide();
+    tg.MainButton.hide();
     AddressStore.event();
     balance.event(address);
     TransationList.event(address);

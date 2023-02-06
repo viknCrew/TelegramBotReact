@@ -18,7 +18,7 @@ export default function Send() {
   const address: string = String(params.address);
   const CallModal = useUnit(Modal.store);
 
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState<string>("0");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
