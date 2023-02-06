@@ -21,7 +21,6 @@ export const router = createBrowserRouter([
   {
     path: "/remittance/:address",
     element: <Remittance />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/send",
