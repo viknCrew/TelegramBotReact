@@ -1,3 +1,4 @@
+import { log } from "console";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
@@ -9,6 +10,10 @@ export default function Send() {
   const [text, setText] = useState<string>("");
 
   const navigate = useNavigate();
+  const onSendData = useCallback(() => {
+    console.log("/remittance/" + text);
+    navigate("/remittance/" + text);
+  }, []);
 
   const onBack = useCallback(() => {
     navigate("/");
@@ -30,12 +35,11 @@ export default function Send() {
   }, [onBack]);
 
   useEffect(() => {
-    console.log("/remittance/" + text);
-    tg.onEvent("mainButtonClicked", () => navigate("/remittance/" + text));
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", () => navigate("/remittance/" + text));
+      tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     if (!text) {
