@@ -20,6 +20,10 @@ export default function Send() {
   }, []);
 
   useEffect(() => {
+    log(text);
+  }, [text]);
+
+  useEffect(() => {
     translationAddress.event(text);
     tg.BackButton.show();
     tg.MainButton.setParams({
