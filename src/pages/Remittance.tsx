@@ -23,8 +23,8 @@ export default function Send() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
-    const value: string = e.target.value.replace(/[0-9]+([,.][0-9]+)?$/g, "");
-    setText(value.slice(0, limit));
+    // const value: string = e.target.value.replace(/[0-9]+([,.][0-9]+)?$/g, "");
+    setText(e.target.value.slice(0, limit));
   };
 
   const data = JSON.stringify(tg.initData);
