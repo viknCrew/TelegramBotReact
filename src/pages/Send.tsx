@@ -1,4 +1,3 @@
-import { log } from "console";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
@@ -20,16 +19,17 @@ export default function Send() {
   }, []);
 
   useEffect(() => {
-    log(text);
-  }, [text]);
-
-  useEffect(() => {
     translationAddress.event(text);
     tg.BackButton.show();
     tg.MainButton.setParams({
       text: "Transfer tokens",
     });
   }, []);
+
+  function setTextInput(e: React.ChangeEvent<HTMLInputElement>) {
+    console.log(e.target.value);
+    setText(e.target.value);
+  }
 
   useEffect(() => {
     tg.onEvent("backButtonClicked", onBack);
@@ -68,7 +68,7 @@ export default function Send() {
             placeholder="Wallet address"
             className="w-full rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setTextInput(e)}
           />
           <div className="absolute inset-y-0 right-7 grid w-10 place-content-center cursor-pointer z-[60] ">
             <a
