@@ -18,7 +18,7 @@ export default function Send() {
   const address: string = String(params.address);
   const CallModal = useUnit(Modal.store);
 
-  const [text, setText] = useState<string>("0");
+  const [text, setText] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
@@ -76,7 +76,7 @@ export default function Send() {
 
   return (
     <>
-      <div className="absolute">
+      <div className="absolute left-[40%] right-[40%] z-[100]">
         {CallModal && (
           <Check
             address={address}
