@@ -6,7 +6,7 @@ import { GlobalStore } from "../store";
 export default function Send() {
   const { tg } = useTelegram();
   const { translationAddress } = GlobalStore();
-  const [text, setText] = useState<string>("");
+  const [text, setText] = useState<string>("None");
 
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
@@ -43,7 +43,7 @@ export default function Send() {
     return () => {
       tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   useEffect(() => {
     if (!text) {
