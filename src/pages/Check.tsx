@@ -13,16 +13,28 @@ function placeInCenter(str: string, substr: string) {
 interface IProps {
   address: string;
   amount: number;
-  transaction: string;
 }
 
 export default function Check(props: IProps) {
   const navigate = useNavigate();
   const { tg } = useTelegram();
-  const { AddressStore, Modal } = GlobalStore();
-  const wallet = useUnit(AddressStore.store);
+  const { AddressStore, Modal, Transfer } = GlobalStore();
 
+  const wallet = useUnit(AddressStore.store);
+  const transaction: string = String(useUnit(Transfer.store));
+  const data = JSON.stringify(tg.initData);
+  const id = tg.initDataUnsafe.user.id;
+
+  const dataTransaction = {
+    senderId: id,
+    address: props.address,
+    amount: Number(props.amount),
+    data: data,
+  };
   useEffect(() => {
+    if (Modal) {
+      Transfer.event(dataTransaction);
+    }
     tg.BackButton.hide();
     tg.MainButton.hide();
     AddressStore.event();
@@ -48,7 +60,7 @@ export default function Check(props: IProps) {
 
   async function copyTransaction() {
     try {
-      await navigator.clipboard.writeText(props.transaction);
+      await navigator.clipboard.writeText(transaction);
       tg.showAlert("link copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
@@ -96,7 +108,7 @@ export default function Check(props: IProps) {
               </button>
             </div>
           </div>
-          <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
+          <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  justify-center shadow-lg rounded-lg ">
             <div className="grid col-span-1">
               {" "}
               <div className="">Transaction</div>
@@ -104,7 +116,7 @@ export default function Check(props: IProps) {
                 className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
                 onClick={() => copyTransaction()}
               >
-                <p>{placeInCenter(props.transaction, " ")}</p>
+                <p>{placeInCenter(transaction, " ")}</p>
               </button>
             </div>
           </div>

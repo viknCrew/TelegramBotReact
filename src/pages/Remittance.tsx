@@ -17,7 +17,6 @@ export default function Send() {
   const balanceWallet = useUnit(balance.store);
   const address: string = String(params.address);
   const CallModal = useUnit(Modal.store);
-  const transaction: string = String(Transfer.store);
 
   const [text, setText] = useState<string>("");
 
@@ -26,25 +25,9 @@ export default function Send() {
     setText(e.target.value.slice(0, limit));
   };
 
-  const data = JSON.stringify(tg.initData);
-  const id = tg.initDataUnsafe.user.id;
-
   const onSendData = useCallback(() => {
     Modal.event(true);
   }, [text]);
-
-  useEffect(() => {
-    const dataTransaction = {
-      senderId: id,
-      address: address,
-      amount: Number(text),
-      data: data,
-    };
-
-    if (Modal) {
-      Transfer.event(dataTransaction);
-    }
-  }, [Modal]);
 
   const onBack = useCallback(() => {
     navigate("/send");
@@ -94,13 +77,7 @@ export default function Send() {
   return (
     <>
       <div className="absolute left-[20%] right-[20%] z-[100]">
-        {CallModal && (
-          <Check
-            address={address}
-            transaction={transaction}
-            amount={Number(text)}
-          />
-        )}
+        {CallModal && <Check address={address} amount={Number(text)} />}
       </div>
       <div className="flex justify-center mt-10 h-[90vh]">
         <div className="mx-12 grid  grid-cols-1  w-[90%]">
