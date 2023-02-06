@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Wallet />,
-     errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
   },
   {
     path: "/trancsation/:id",
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/remittance",
+    path: "/remittance/:address",
     element: <Remittance />,
     errorElement: <ErrorPage />,
   },

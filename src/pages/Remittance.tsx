@@ -1,6 +1,6 @@
 import { useUnit } from "effector-react";
 import React, { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
 import Check from "./Check";
@@ -9,11 +9,13 @@ export default function Send() {
   const coin = require("../assets/Coin.png");
 
   const navigate = useNavigate();
+
+  const params = useParams();
   const { tg } = useTelegram();
-  const { translationAddress, balance, Modal } = GlobalStore();
+  const { balance, Modal } = GlobalStore();
 
   const balanceWallet = useUnit(balance.store);
-  const address = useUnit(translationAddress.store);
+  const address: string = String(params.address);
   const CallModal = useUnit(Modal.store);
 
   const [text, setText] = useState<string>("");
@@ -74,13 +76,15 @@ export default function Send() {
 
   return (
     <>
-      {CallModal && (
-        <Check
-          address={address}
-          transaction="0x5b4d1cb6a0a18a344c61b5521bb4ee1a24d95b7290456d6bf6dd6c2f45500f9c"
-          amount={Number(text)}
-        />
-      )}
+      <div className="absolute">
+        {CallModal && (
+          <Check
+            address={address}
+            transaction="0x5b4d1cb6a0a18a344c61b5521bb4ee1a24d95b7290456d6bf6dd6c2f45500f9c"
+            amount={Number(text)}
+          />
+        )}
+      </div>
       <div className="flex justify-center mt-10 h-[90vh]">
         <div className="mx-12 grid  grid-cols-1  w-[90%]">
           <div className="">

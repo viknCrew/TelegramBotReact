@@ -1,4 +1,3 @@
-
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
@@ -11,7 +10,7 @@ export default function Send() {
 
   const navigate = useNavigate();
   const onSendData = useCallback(() => {
-    navigate("/remittance");
+    navigate(`/remittance/${text}`);
   }, []);
 
   const onBack = useCallback(() => {
