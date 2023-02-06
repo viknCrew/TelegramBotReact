@@ -1,38 +1,43 @@
+import { useUnit } from "effector-react";
 import { useCallback, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Tick from "../component/Tick";
 import { useTelegram } from "../hooks/useTelegram";
+import { GlobalStore } from "../store";
 
 function placeInCenter(str: string, substr: string) {
   let index = (str.length - substr.length) / 2;
   return str.substr(0, index) + substr + str.substr(index + substr.length);
 }
 
-export default function Check() {
-  const { tg } = useTelegram();
-  const wallet = "0xc6D3720f6286C5173C94523b8b02d549c9933662";
-  const amount = "999999.2";
+interface IProps {
+  address: string;
+  amount: number;
+  transaction: string;
+}
+
+export default function Check(props: IProps) {
   const navigate = useNavigate();
+  const { tg } = useTelegram();
+  const { AddressStore, Modal } = GlobalStore();
+  const wallet = useUnit(AddressStore.store);
+
   useEffect(() => {
+    tg.BackButton.hide();
     tg.MainButton.hide();
+    AddressStore.event();
   }, []);
 
-  const onBack = useCallback(() => {
-    navigate("/");
-  }, []);
+  async function copyAddressTrans() {
+    try {
+      await navigator.clipboard.writeText(props.address);
+      tg.showAlert("link copied");
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: " + err);
+    }
+  }
 
-  useEffect(() => {
-    tg.BackButton.show();
-  }, []);
-
-  useEffect(() => {
-    tg.onEvent("backButtonClicked", onBack);
-    return () => {
-      tg.offEvent("backButtonClicked", onBack);
-    };
-  }, [onBack]);
-
-  async function copyPageUrl() {
+  async function copyMyWallet() {
     try {
       await navigator.clipboard.writeText(wallet);
       tg.showAlert("link copied");
@@ -41,41 +46,80 @@ export default function Check() {
     }
   }
 
+  async function copyTransaction() {
+    try {
+      await navigator.clipboard.writeText(props.transaction);
+      tg.showAlert("link copied");
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: " + err);
+    }
+  }
+
+  async function closeModal() {
+    Modal.event(false);
+    navigate("/");
+  }
+
   return (
-    <div className="flex justify-center w-full h-[98vh] rounded-xl">
-      <div className="grid grid-cols-1 w-80 ">
-        <div className="text-center text-xl font-bold my-8 bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg py-4  rounded-lg ">
+    <div className="flex justify-center w-full h-[85vh] rounded-xl">
+      <div className="grid grid-cols-1 w-80 mt-16 bg-[var(--tg-theme-bg-color)] rounded-xl  shadow-lg">
+        <div className=" flex justify-center">
+          <div
+            className="trigger w-full
+           flex justify-center ml-2 top-[-12px] ]"
+          >
+            <Tick size={50} />
+          </div>
+          {/* <div className="сlose">1</div> */}
+        </div>
+        <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
           <div className="grid col-span-1">
             {" "}
-            <div className="">Tokens transferred to the wallet</div>
+            <div className="">Sender's address</div>
             <button
-              className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
-              onClick={() => copyPageUrl()}
+              className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10"
+              onClick={() => copyMyWallet()}
             >
               <p>{placeInCenter(wallet, " ")}</p>
             </button>
           </div>
         </div>
-        <div className="">
-          <div
-            className="trigger w-full
-           flex justify-center  p-6"
-          >
-            <Tick size={200} />
+        <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
+          <div className="grid col-span-1">
+            {" "}
+            <div className="">Tokens transferred to the wallet</div>
+            <button
+              className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
+              onClick={() => copyAddressTrans()}
+            >
+              <p>{placeInCenter(props.address, " ")}</p>
+            </button>
           </div>
         </div>
-        <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-24 items-center rounded-xl shadow-lg">
-          <p className="text-center text-lg font-medium text-[#FF3A3A] border-b-2 border-[var(--tg-theme-text-color)] w-60 h-8 ">
-            {`- ${amount} TMY`}
-          </p>
+        <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
+          <div className="grid col-span-1">
+            {" "}
+            <div className="">Transaction</div>
+            <button
+              className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
+              onClick={() => copyTransaction()}
+            >
+              <p>{placeInCenter(props.transaction, " ")}</p>
+            </button>
+          </div>
         </div>
+        <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-20 items-center rounded-xl shadow-lg text-center text-sm font-medium ">
+          Transfer amount:
+          {`  ${props.amount} TMY`}
+        </div>
+
         <div className="flex justify-center">
-          <Link
-            to="/"
-            className="rounded-lg my-1 mx-6 text-sm  w-56 h-8 mt-3  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] shadow-lg"
+          <button
+            onClick={() => closeModal()}
+            className="rounded-lg my-1 mx-6 text-sm  w-56 h-8 mt-3  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] shadow-lg flex  justify-center items-center"
           >
             Go Back Home
-          </Link>
+          </button>
         </div>
       </div>
     </div>
