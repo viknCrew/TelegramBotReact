@@ -28,7 +28,7 @@ const id = tg.initDataUnsafe.user.id;
 // const id = 701469067;
 
 const walletEffect = createEffect(async () => {
-  const answer: any = await request({
+  const answer = await request({
     method: "post",
     headers: {
       userId: id,

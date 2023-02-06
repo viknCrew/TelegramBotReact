@@ -12,23 +12,36 @@ export default function Send() {
 
   const params = useParams();
   const { tg } = useTelegram();
-  const { balance, Modal } = GlobalStore();
+  const { balance, Modal, Transfer } = GlobalStore();
 
   const balanceWallet = useUnit(balance.store);
   const address: string = String(params.address);
   const CallModal = useUnit(Modal.store);
+  const transaction: string = String(Transfer.store);
 
   const [text, setText] = useState<string>("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
-    const value: string = e.target.value.replace(/\D/g, "");
+    const value: string = e.target.value.replace(/[0-9]+([,.][0-9]+)?$/g, "");
     setText(value.slice(0, limit));
   };
 
+  const data = JSON.stringify(tg.initData);
+  const id = tg.initDataUnsafe.user.id;
+
   const onSendData = useCallback(() => {
+    const dataTransaction = {
+      senderId: id,
+      address: address,
+      amount: Number(text),
+      data: data,
+    };
+
+    Transfer.event(dataTransaction);
     Modal.event(true);
-  }, []);
+  }, [text]);
+
   const onBack = useCallback(() => {
     navigate("/send");
   }, []);
@@ -80,7 +93,7 @@ export default function Send() {
         {CallModal && (
           <Check
             address={address}
-            transaction="0x5b4d1cb6a0a18a344c61b5521bb4ee1a24d95b7290456d6bf6dd6c2f45500f9c"
+            transaction={transaction}
             amount={Number(text)}
           />
         )}

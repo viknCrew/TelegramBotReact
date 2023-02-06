@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
 
 export default function Send() {
@@ -14,7 +15,11 @@ export default function Send() {
   }, []);
 
   const onSendData = useCallback(() => {
-    navigate("/remittance/" + text);
+    if (web3.utils.isAddress(text)) {
+      navigate("/remittance/" + text);
+    } else {
+      tg.showAlert("the address you entered is not correct");
+    }
   }, [text]);
 
   useEffect(() => {
