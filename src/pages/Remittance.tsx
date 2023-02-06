@@ -23,7 +23,6 @@ export default function Send() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
-    // const value: string = e.target.value.replace(/[0-9]+([,.][0-9]+)?$/g, "");
     setText(e.target.value.slice(0, limit));
   };
 
@@ -31,6 +30,10 @@ export default function Send() {
   const id = tg.initDataUnsafe.user.id;
 
   const onSendData = useCallback(() => {
+    Modal.event(true);
+  }, [text]);
+
+  useEffect(() => {
     const dataTransaction = {
       senderId: id,
       address: address,
@@ -38,9 +41,10 @@ export default function Send() {
       data: data,
     };
 
-    Transfer.event(dataTransaction);
-    Modal.event(true);
-  }, [text]);
+    if (Modal) {
+      Transfer.event(dataTransaction);
+    }
+  }, [Modal]);
 
   const onBack = useCallback(() => {
     navigate("/send");

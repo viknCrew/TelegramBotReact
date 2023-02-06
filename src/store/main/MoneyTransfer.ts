@@ -47,18 +47,14 @@ const $hashTrancsation = createStore<string | unknown>("").on(
   executeFundsTransfer.doneData,
   (_, answer) => answer
 );
-const $loader = executeFundsTransfer.pending;
-
-const canRequest = combine([$loader], ([loading]) => !loading);
 
 sample({
   clock: executeFundsTransfer,
-  filter: canRequest,
   target: callTransfer,
 });
 
 export const Transfer = {
   store: $hashTrancsation,
   event: callTransfer,
-  loader: $loader,
+  loader: false,
 };
