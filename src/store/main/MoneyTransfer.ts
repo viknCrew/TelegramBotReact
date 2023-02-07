@@ -40,6 +40,9 @@ const executeFundsTransfer = createEffect(
   }
 );
 
+executeFundsTransfer.failData.watch((error) => {
+  console.log(`Вызов завершился с ошибкой ${error}`);
+});
 const callTransfer = createEvent<IExecuteFundsTransfer>();
 
 const $hashTrancsation = createStore<string | unknown>("").on(
@@ -54,6 +57,6 @@ sample({
 
 export const Transfer = {
   store: $hashTrancsation,
-  event: callTransfer,
+  event: executeFundsTransfer,
   loader: false,
 };

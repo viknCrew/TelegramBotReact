@@ -44,28 +44,7 @@ export default function Check(props: IProps) {
     tg.BackButton.hide();
     tg.MainButton.hide();
     AddressStore.event();
-  }, []);
-
-  useEffect(() => {
-    async function request<Done>(config: any): Promise<Done> {
-      return instance(config).then((response) => response.data);
-    }
-
-    console.log(dataTransaction);
-    async () => {
-      const answer = await request({
-        method: "post",
-        headers: {
-          senderId: dataTransaction.senderId,
-          address: dataTransaction.address,
-          amount: dataTransaction.amount,
-          "Content-Type": "application/json",
-        },
-        data: dataTransaction.data,
-      });
-      console.log("answer", answer);
-      return answer;
-    };
+    Transfer.event(dataTransaction);
   }, []);
 
   async function copyAddressTrans() {
