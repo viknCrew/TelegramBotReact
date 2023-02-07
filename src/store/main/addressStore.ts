@@ -7,6 +7,7 @@ import {
   sample,
 } from "effector";
 import { useTelegram } from "../../hooks/useTelegram";
+import { web3 } from "../../service/getWeb3";
 
 const server = "https://bot.tmychain.org/api/Wallet/getAddress";
 
@@ -37,7 +38,7 @@ const walletEffect = createEffect(async () => {
     data: data,
   });
 
-  return answer;
+  return web3.utils.toChecksumAddress(answer);
 });
 
 export const walletEvent = createEvent();
