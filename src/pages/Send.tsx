@@ -26,7 +26,7 @@ export default function Send() {
     translationAddress.event(text);
     tg.BackButton.show();
     tg.MainButton.setParams({
-      text: "Transfer tokens",
+      text: "Transfer coins",
     });
   }, []);
   useEffect(() => {

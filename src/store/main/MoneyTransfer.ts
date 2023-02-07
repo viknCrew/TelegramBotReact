@@ -26,6 +26,7 @@ async function request<Done>(config: any): Promise<Done> {
 
 const executeFundsTransfer = createEffect(
   async (dataTransaction: IExecuteFundsTransfer) => {
+    console.log("dataTransaction", dataTransaction);
     const answer = await request({
       method: "post",
       headers: {
