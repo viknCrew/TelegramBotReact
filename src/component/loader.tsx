@@ -1,7 +1,7 @@
 export default function LoaderSkeleton() {
   return (
-    <div className=" w-full  animate-pulse" role="status">
-      <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
+    <div className="w-[90%] animate-pulse" role="status">
+      <div className="grid grid-col-1 mt-10 gap-6  ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl h-[2rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-48 mb-4"></div>
           <div className="font-smail text-xs ml-[30px] h-[1rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-148 mb-4"></div>

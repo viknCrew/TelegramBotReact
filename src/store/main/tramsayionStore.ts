@@ -17,9 +17,8 @@ export const TranEffect = createEffect({
     const res = await axios.get(
       `https://2.tmyscan.com/api?module=transaction&action=gettxinfo&txhash=${id}`
     );
-    console.log("res", res);
+
     const tran = res.data.result;
-    console.log("tran", tran);
     let tStatus: statusType;
 
     if (web3.utils.toChecksumAddress(tran.to) === WalletID) {
@@ -54,7 +53,6 @@ export const TranEffect = createEffect({
       value: web3.utils.fromWei(tran.value),
       status: tStatus,
     };
-    console.log("Transations", Transations);
     return Transations;
   },
 });

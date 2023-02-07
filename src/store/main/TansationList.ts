@@ -17,9 +17,6 @@ export async function request<Done>(config: any): Promise<Done> {
 
 const trancsationEffect = createEffect(async (address: string) => {
   const WalletID = web3.utils.toChecksumAddress(address);
-
-  console.log("WalletID", WalletID);
-
   const answer: any = await request({
     method: "GET",
     params: {

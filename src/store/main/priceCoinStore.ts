@@ -21,13 +21,16 @@ const getPrice = createEffect(async () => {
   const answer = await request({
     method: "get",
   });
-
+  console.log("answer", answer);
   return answer;
 });
 
 const WritePrice = createEvent();
 
-export const $price = createStore<any>("").on(getPrice, (_, answer) => answer);
+export const $price = createStore<number | unknown>(1).on(
+  getPrice.doneData,
+  (_, answer) => answer
+);
 
 const $loader = getPrice.pending;
 
@@ -38,6 +41,6 @@ sample({
 
 export const PriseStore = {
   store: $price,
-  event: WritePrice,
+  event: getPrice,
   loader: $loader,
 };

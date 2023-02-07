@@ -14,29 +14,31 @@ export default function Wallet() {
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address = useUnit(AddressStore.store);
-  const prise = useUnit(PriseStore.store);
+  const Prise = Number(useUnit(PriseStore.store));
 
-  //l - loader
   const lBalance = useUnit(balance.loader);
+  const lPrise = useUnit(PriseStore.loader);
   const lTransationList = useUnit(TransationList.loader);
   const lAddress = useUnit(AddressStore.loader);
-  const lPrise = useUnit(PriseStore.loader);
 
   useEffect(() => {
     tg.BackButton.hide();
     tg.MainButton.hide();
-    PriseStore.event();
     AddressStore.event();
+    PriseStore.event();
+    balance.event(address);
+    TransationList.event(address);
   }, []);
 
   useEffect(() => {
+    PriseStore.event();
     balance.event(address);
     TransationList.event(address);
   }, [address]);
 
-  if (GlobalLoader([lBalance, lTransationList, lAddress])) {
+  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
     return (
-      <div className="flex justify-center w-full items-center">
+      <div className="flex justify-center w-full">
         <LoaderSkeleton />
       </div>
     );
@@ -50,14 +52,14 @@ export default function Wallet() {
             Wallet
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            {address}
+            xc6D3720f6286C5173C94523b8b02d549c9933662
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ {balanceWallet * prise} USDT
+            $ {Prise * balanceWallet} USDT
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
