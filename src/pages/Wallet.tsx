@@ -27,6 +27,7 @@ export default function Wallet() {
     AddressStore.event();
     PriseStore.event();
     balance.event(address);
+    TransationList.event(address);
   }, []);
 
   useEffect(() => {

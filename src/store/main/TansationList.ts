@@ -35,7 +35,7 @@ const trancsationEffect = createEffect(async (address: string) => {
     let tStatus: statusType;
 
     try {
-      if (web3.utils.toChecksumAddress(tran.to) === address) {
+      if (web3.utils.toChecksumAddress(tran.to) === WalletID) {
         tStatus = statusTransation.receiving;
       } else {
         tStatus = statusTransation.send;
