@@ -16,6 +16,7 @@ export default function Wallet() {
   const address = useUnit(AddressStore.store);
   const prise = useUnit(PriseStore.store);
 
+  //l - loader
   const lBalance = useUnit(balance.loader);
   const lTransationList = useUnit(TransationList.loader);
   const lAddress = useUnit(AddressStore.loader);
@@ -24,19 +25,14 @@ export default function Wallet() {
   useEffect(() => {
     tg.BackButton.hide();
     tg.MainButton.hide();
+    PriseStore.event();
     AddressStore.event();
-    balance.event(address);
-    TransationList.event(address);
   }, []);
 
   useEffect(() => {
     balance.event(address);
     TransationList.event(address);
   }, [address]);
-
-  // useEffect(() => {
-  //   PriseStore.event();
-  // }, [balanceWallet]);
 
   if (GlobalLoader([lBalance, lTransationList, lAddress])) {
     return (
@@ -61,7 +57,7 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ 3 USDT
+            $ {balanceWallet * prise} USDT
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
