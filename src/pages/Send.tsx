@@ -57,8 +57,8 @@ export default function Send() {
   }, [onSendData, tg]);
 
   return (
-    <div className="flex justify-center mt-10 w-full">
-      <div className="mx-12  flex  w-full ">
+    <div className="flex justify-between mt-10 w-full">
+      <div className="  flex  justify-center w-full ">
         <div className="relative">
           <label htmlFor="UserEmail" className="sr-only">
             {" "}
@@ -69,7 +69,7 @@ export default function Send() {
             type="text"
             id="UserEmail"
             placeholder="Wallet address"
-            className="w-[36vh] rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
+            className="w-[40vh] rounded-md bg-[var(--tg-theme-bg-color)] border-b-[var(--tg-theme-link-color)] pr-10 shadow-sm sm:text-sm z-0"
             value={text}
             onChange={(e) => setTextInput(e)}
           />
@@ -86,7 +86,6 @@ export default function Send() {
               });
             }}
           >
-            Insert
             <svg
               className="fill-[var(--tg-theme-link-color)]"
               xmlns="http://www.w3.org/2000/svg"
