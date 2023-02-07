@@ -34,6 +34,10 @@ export default function Wallet() {
     TransationList.event(address);
   }, [address]);
 
+  useEffect(() => {
+    PriseStore.event();
+  }, [balanceWallet]);
+
   if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
     return (
       <div className="flex justify-center w-full items-center">
