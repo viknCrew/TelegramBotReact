@@ -26,7 +26,7 @@ export default function Trancsation() {
   async function copyPageUrl(myWallet: string) {
     try {
       await navigator.clipboard.writeText(FromTo);
-      tg.showAlert("link copied");
+      tg.showAlert("Address copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
     }

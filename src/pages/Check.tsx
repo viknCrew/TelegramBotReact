@@ -50,7 +50,7 @@ export default function Check(props: IProps) {
   async function copyAddressTrans() {
     try {
       await navigator.clipboard.writeText(props.address);
-      tg.showAlert("link copied");
+      tg.showAlert("Address copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
     }
@@ -59,7 +59,7 @@ export default function Check(props: IProps) {
   async function copyMyWallet() {
     try {
       await navigator.clipboard.writeText(wallet);
-      tg.showAlert("link copied");
+      tg.showAlert("Address copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
     }

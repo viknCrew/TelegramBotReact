@@ -18,7 +18,7 @@ export default function Receive() {
   async function copyPageUrl() {
     try {
       await navigator.clipboard.writeText(walet);
-      tg.showAlert("link copied");
+      tg.showAlert("Address copied");
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
     }

@@ -21,7 +21,6 @@ const getPrice = createEffect(async () => {
   const answer = await request({
     method: "get",
   });
-  console.log("answer", answer);
   return answer;
 });
 
