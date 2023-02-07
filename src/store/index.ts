@@ -3,6 +3,7 @@ import { AddressStore } from "./main/addressStore";
 import { balance } from "./main/coinStore";
 import { Modal } from "./main/modalStore";
 import { Transfer } from "./main/MoneyTransfer";
+import { PriseStore } from "./main/priceCoinStore";
 import { privateKey } from "./main/privateKeyStore";
 import { publicKey } from "./main/publicKeyStore";
 import { TransationList } from "./main/TansationList";
@@ -20,6 +21,7 @@ export const GlobalStore = () => {
     translationAddress,
     Modal,
     Transfer,
+    PriseStore
   };
 };
 

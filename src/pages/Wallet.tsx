@@ -9,15 +9,17 @@ import { statusTransation } from "../types/transaction";
 export default function Wallet() {
   const { tg } = useTelegram();
   const logo = require("../assets/LOGO.png");
-  const { balance, TransationList, AddressStore } = GlobalStore();
+  const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
 
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address = useUnit(AddressStore.store);
+  const prise = useUnit(PriseStore.store);
 
   const lBalance = useUnit(balance.loader);
   const lTransationList = useUnit(TransationList.loader);
   const lAddress = useUnit(AddressStore.loader);
+  const lPrise = useUnit(PriseStore.loader);
 
   useEffect(() => {
     tg.BackButton.hide();
@@ -32,9 +34,9 @@ export default function Wallet() {
     TransationList.event(address);
   }, [address]);
 
-  if (GlobalLoader([lBalance, lTransationList, lAddress])) {
+  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center w-full items-center">
         <LoaderSkeleton />
       </div>
     );
@@ -55,7 +57,7 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ 30.3202 USDT
+            $ {balanceWallet * prise} USDT
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
