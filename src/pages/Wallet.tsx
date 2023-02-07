@@ -34,9 +34,9 @@ export default function Wallet() {
     TransationList.event(address);
   }, [address]);
 
-  useEffect(() => {
-    PriseStore.event();
-  }, [balanceWallet]);
+  // useEffect(() => {
+  //   PriseStore.event();
+  // }, [balanceWallet]);
 
   if (GlobalLoader([lBalance, lTransationList, lAddress])) {
     return (
@@ -61,7 +61,7 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            ${/* $ {balanceWallet * prise} USDT */}3 USDT
+            $ 3 USDT
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
