@@ -63,10 +63,10 @@ export default function Check(props: IProps) {
         },
         data: dataTransaction.data,
       });
-      console.log("answer",answer);
+      console.log("answer", answer);
       return answer;
     };
-  }, [props.address]);
+  }, []);
 
   async function copyAddressTrans() {
     try {
@@ -85,16 +85,6 @@ export default function Check(props: IProps) {
       tg.showAlert("Не удалось скопировать: " + err);
     }
   }
-
-  async function copyTransaction() {
-    try {
-      await navigator.clipboard.writeText(transaction);
-      tg.showAlert("link copied");
-    } catch (err) {
-      tg.showAlert("Не удалось скопировать: " + err);
-    }
-  }
-
   async function closeModal() {
     Modal.event(false);
     navigate("/");
@@ -140,12 +130,12 @@ export default function Check(props: IProps) {
             <div className="grid col-span-1">
               {" "}
               <div className="">Transaction</div>
-              <button
+              <a
                 className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
-                onClick={() => copyTransaction()}
+                href={`https://tmyscan.com/tx/${transaction}`}
               >
                 <p>{placeInCenter(transaction, " ")}</p>
-              </button>
+              </a>
             </div>
           </div>
           <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-20 items-center rounded-xl shadow-lg text-center text-sm font-medium ">
