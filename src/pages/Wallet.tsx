@@ -59,7 +59,7 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ {Prise * balanceWallet} USDT
+            $ {Prise * balanceWallet} USD
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
