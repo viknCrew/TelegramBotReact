@@ -42,7 +42,7 @@ const walletEffect = createEffect(async () => {
 
 export const walletEvent = createEvent();
 
-export const $wallet = createStore<any>({}).on(
+export const $wallet = createStore<string | unknown>("").on(
   walletEffect.doneData,
   (_, answer) => answer
 );
