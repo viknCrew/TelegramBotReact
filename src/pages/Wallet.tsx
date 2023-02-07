@@ -1,18 +1,23 @@
 import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import LoaderSkeleton from "../component/loader";
 import { useTelegram } from "../hooks/useTelegram";
-import { GlobalStore } from "../store";
+import { GlobalLoader, GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
   const { tg } = useTelegram();
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore } = GlobalStore();
+
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address = useUnit(AddressStore.store);
-  
+
+  const lBalance = useUnit(balance.loader);
+  const lTransationList = useUnit(TransationList.loader);
+  const lAddress = useUnit(AddressStore.loader);
 
   useEffect(() => {
     tg.BackButton.hide();
@@ -26,6 +31,14 @@ export default function Wallet() {
     balance.event(address);
     TransationList.event(address);
   }, [address]);
+
+  if (GlobalLoader([lBalance, lTransationList, lAddress])) {
+    return (
+      <div className="flex justify-center">
+        <LoaderSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center">

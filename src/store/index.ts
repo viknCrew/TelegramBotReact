@@ -22,3 +22,13 @@ export const GlobalStore = () => {
     Transfer,
   };
 };
+
+export const GlobalLoader = (store: boolean[]) => {
+  let loader: boolean = false;
+  for (var i = 0; i < store.length; i++) {
+    loader = loader || store[i];
+    console.log(store[i]);
+  }
+  console.log(loader);
+  return loader;
+};
