@@ -48,7 +48,7 @@ export default function Wallet() {
             Wallet
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            xc6D3720f6286C5173C94523b8b02d549c9933662
+            {address}
           </div>
           <div className="flex items-center ml-[30px]">
             <img src={logo} className="w-[25px]" />
