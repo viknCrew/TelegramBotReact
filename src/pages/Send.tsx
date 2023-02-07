@@ -67,6 +67,8 @@ export default function Send() {
           id="UserEmail"
           placeholder="Email"
           className="peer w-full h-8 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          value={text}
+          onChange={(e) => setTextInput(e)}
         />
 
         <span className="absolute  left-0 top-2 -translate-y-1/2 text-xs  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
