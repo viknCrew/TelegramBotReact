@@ -7,13 +7,13 @@ import { useTelegram } from "../hooks/useTelegram";
 import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
 
-
-
 export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
   const { AddressStore } = GlobalStore();
-  const walet = web3.utils.toChecksumAddress(useUnit(AddressStore.store));
+  const walet = web3.utils.toChecksumAddress(
+    String(useUnit(AddressStore.store))
+  );
 
   async function copyPageUrl() {
     try {
@@ -45,8 +45,6 @@ export default function Receive() {
     };
   }, [onBack]);
 
-  
-
   return (
     <div className="flex justify-center pt-10 h-[100vh] bg-[--tg-theme-bg-color]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
@@ -76,7 +74,7 @@ export default function Receive() {
           className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
           onClick={() => copyPageUrl()}
         >
-          <p>{placeInCenter(walet," ")}</p>
+          <p>{placeInCenter(walet, " ")}</p>
         </button>
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
         <div className="flex justify-center">

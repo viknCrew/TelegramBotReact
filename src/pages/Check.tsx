@@ -28,7 +28,7 @@ export default function Check(props: IProps) {
 
   const { AddressStore, Modal, Transfer } = GlobalStore();
 
-  const wallet = useUnit(AddressStore.store);
+  const wallet: string = String(useUnit(AddressStore.store));
   const transaction: string = String(useUnit(Transfer.store));
   const data = JSON.stringify(tg.initData);
   const id = tg.initDataUnsafe.user.id;
