@@ -38,7 +38,8 @@ export default function Send() {
   }, [text]);
 
   function setTextInput(e: React.ChangeEvent<HTMLInputElement>) {
-    setText(e.target.value);
+    const value = e.target.value.replace(" ", "");
+    setText(value);
   }
 
   useEffect(() => {
