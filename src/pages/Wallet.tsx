@@ -38,7 +38,7 @@ export default function Wallet() {
     PriseStore.event();
   }, [balanceWallet]);
 
-  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
+  if (GlobalLoader([lBalance, lTransationList, lAddress])) {
     return (
       <div className="flex justify-center w-full items-center">
         <LoaderSkeleton />
@@ -61,7 +61,7 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ {balanceWallet * prise} USDT
+            ${/* $ {balanceWallet * prise} USDT */}3 USDT
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
