@@ -51,6 +51,7 @@ export default function Check(props: IProps) {
       return instance(config).then((response) => response.data);
     }
 
+    console.log(dataTransaction);
     async () => {
       const answer = await request({
         method: "post",
@@ -64,7 +65,7 @@ export default function Check(props: IProps) {
       });
       return answer;
     };
-  }, [data, id, props.address, props.amount, instance]);
+  }, [props.address]);
 
   async function copyAddressTrans() {
     try {
