@@ -63,6 +63,7 @@ export default function Check(props: IProps) {
         },
         data: dataTransaction.data,
       });
+      console.log("answer",answer);
       return answer;
     };
   }, [props.address]);
