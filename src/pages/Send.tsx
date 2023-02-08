@@ -37,7 +37,7 @@ export default function Send() {
     }
   }, [text]);
 
-  function setTextInput(e: React.ChangeEvent<HTMLInputElement>) {
+  function setTextInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const value = e.target.value.replace(" ", "");
     setText(value);
   }
@@ -62,8 +62,7 @@ export default function Send() {
         htmlFor="UserEmail"
         className="relative block overflow-hidden border-b border-[var(--tg-theme-text-color)] pt-3 focus-within:border-[var(--tg-theme-link-color)] w-80"
       >
-        <input
-          type="email"
+        <textarea
           id="UserEmail"
           placeholder="Email"
           className="peer w-full h-8 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
