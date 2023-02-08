@@ -34,7 +34,7 @@ export default function Trancsation() {
 
   if (tran.status === statusTransation.send) {
     walet = require("../assets/Send.png");
-    header = `Sent to address ${tran.to}`;
+    header = `Sent to address `;
     color = "#FF3A3A";
     value = `- ${tran.value}`;
     FromTo = tran.to;
@@ -66,9 +66,12 @@ export default function Trancsation() {
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%]">
         <div className=" h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full ">
-          <div className="m-8 text-lg font-medium leading-4">
+          <div className="m-8 text-lg  font-medium leading-4">
             <img src={walet} style={{ height: 50 }} />
             <p className="my-4">{header}</p>
+            <p className="text-sm font-light text-[var(--tg-theme-hint-color)] ">
+              ${FromTo}
+            </p>
           </div>
         </div>
         <div className="h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full">
