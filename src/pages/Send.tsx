@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useUnit } from "effector-react";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -15,12 +16,34 @@ export default function Send() {
     navigate("/");
   }, []);
 
-  const onSendData = useCallback(() => {
+  const server = "https://bot.tmychain.org/api/Wallet/getAddressByNickname";
+
+  const instance = axios.create({
+    baseURL: `${server}`,
+  });
+
+  async function request<Done>(config: any): Promise<Done> {
+    return instance(config).then((response) => response.data);
+  }
+
+  const data = JSON.stringify(tg.initData);
+  const id = tg.initDataUnsafe.user.id;
+
+  const onSendData = useCallback(async () => {
     if (text.indexOf("@") > -1) {
       AddressByNiknameStore.event(text);
-      const addressByNickname = String(useUnit(AddressByNiknameStore.store));
-      navigate("/remittance/" + addressByNickname);
+      const answer = await request({
+        method: "post",
+        headers: {
+          userId: id,
+          nickname: text,
+          "Content-Type": "application/json",
+        },
+        data: data,
+      });
+      const addressByNickname = web3.utils.toChecksumAddress(answer);
       console.log("addressByNickname", addressByNickname);
+      navigate("/remittance/" + addressByNickname);
     }
 
     if (web3.utils.isAddress(text)) {
