@@ -71,8 +71,8 @@ export default function Send() {
           onChange={(e) => setTextInput(e)}
         />
 
-        <span className="absolute  left-0 top-2 -translate-y-1/2 text-xs  transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-          Address
+        <span className="absolute  left-0 top-2 -translate-y-1/2 text-xs text-[var(--tg-theme-bg-color)] transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
+          Address or @Nickname
         </span>
       </label>
 
