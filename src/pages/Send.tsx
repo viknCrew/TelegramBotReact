@@ -1,3 +1,4 @@
+import { useUnit } from "effector-react";
 import React, { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
@@ -6,7 +7,7 @@ import { GlobalStore } from "../store";
 
 export default function Send() {
   const { tg } = useTelegram();
-  const { translationAddress } = GlobalStore();
+  const { translationAddress, AddressByNiknameStore } = GlobalStore();
   const [text, setText] = useState<string>("");
 
   const navigate = useNavigate();
@@ -15,6 +16,11 @@ export default function Send() {
   }, []);
 
   const onSendData = useCallback(() => {
+    if (text.indexOf("@") > -1) {
+      AddressByNiknameStore.event(text);
+      setText(String(useUnit(AddressByNiknameStore.store)));
+    }
+
     if (web3.utils.isAddress(text)) {
       navigate("/remittance/" + text);
     } else {
