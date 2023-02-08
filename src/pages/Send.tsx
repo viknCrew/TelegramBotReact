@@ -39,7 +39,8 @@ export default function Send() {
 
   function setTextInput(e: React.ChangeEvent<HTMLTextAreaElement>) {
     const value = e.target.value.replace(" ", "");
-    setText(value);
+    const limit: number = 50;
+    setText(value.slice(0, limit));
   }
 
   useEffect(() => {
@@ -65,7 +66,7 @@ export default function Send() {
         <textarea
           id="UserEmail"
           placeholder="Email"
-          className="peer w-full h-8 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+          className="peer w-full h-10 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-sm"
           value={text}
           onChange={(e) => setTextInput(e)}
         />
