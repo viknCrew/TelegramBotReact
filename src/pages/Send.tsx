@@ -18,7 +18,9 @@ export default function Send() {
   const onSendData = useCallback(() => {
     if (text.indexOf("@") > -1) {
       AddressByNiknameStore.event(text);
-      setText(String(useUnit(AddressByNiknameStore.store)));
+      const addressByNickname = String(useUnit(AddressByNiknameStore.store));
+      navigate("/remittance/" + addressByNickname);
+      console.log("addressByNickname", addressByNickname);
     }
 
     if (web3.utils.isAddress(text)) {

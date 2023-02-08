@@ -38,9 +38,6 @@ const walletEffect = createEffect(async (nickname: string) => {
     },
     data: data,
   });
-  console.log("answer", answer);
-
-  console.log("nickname", nickname);
   return web3.utils.toChecksumAddress(answer);
 });
 
