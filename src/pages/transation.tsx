@@ -65,14 +65,13 @@ export default function Trancsation() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%]">
-        <div className=" h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full ">
-          <div className="m-8 text-lg  font-medium leading-4">
+        <div className=" h-[180px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg pb-8 w-full ">
+          <div className="m-8 text-lg  font-medium leading-4 ">
             <img src={walet} style={{ height: 50 }} />
-            <div className="flex">
-              <p className="my-4">{header}</p>
-              <p className="text-sm font-light text-[var(--tg-theme-hint-color)] ">
-                ${FromTo}
-              </p>
+
+            <p className="my-4">{header}</p>
+            <div className="text-sm font-light items-end text-[var(--tg-theme-hint-color)] ">
+              {FromTo}
             </div>
           </div>
         </div>
