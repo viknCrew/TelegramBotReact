@@ -118,12 +118,12 @@ export default function Check(props: IProps) {
             <div className="grid col-span-1">
               {" "}
               <div className="">Transaction</div>
-              <button
+              <Link
+                to={`/trancsation/${transaction}`}
                 className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
-                onClick={() => copyTransaction()}
               >
                 <p>{placeInCenter(transaction, " ")}</p>
-              </button>
+              </Link>
             </div>
           </div>
           <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-20 items-center rounded-xl shadow-lg text-center text-sm font-medium ">
