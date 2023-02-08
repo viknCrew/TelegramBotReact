@@ -56,6 +56,15 @@ export default function Check(props: IProps) {
     }
   }
 
+  async function copyTransaction() {
+    try {
+      await navigator.clipboard.writeText(transaction);
+      tg.showAlert("Address copied");
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: " + err);
+    }
+  }
+
   async function copyMyWallet() {
     try {
       await navigator.clipboard.writeText(wallet);
@@ -109,12 +118,12 @@ export default function Check(props: IProps) {
             <div className="grid col-span-1">
               {" "}
               <div className="">Transaction</div>
-              <a
+              <button
                 className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10"
-                href={`https://tmyscan.com/tx/${transaction}`}
+                onClick={() => copyTransaction()}
               >
                 <p>{placeInCenter(transaction, " ")}</p>
-              </a>
+              </button>
             </div>
           </div>
           <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-20 items-center rounded-xl shadow-lg text-center text-sm font-medium ">
