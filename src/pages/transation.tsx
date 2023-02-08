@@ -42,7 +42,7 @@ export default function Trancsation() {
     WalletHeader = "Recipient's wallet";
   } else {
     walet = require("../assets/Receiving.png");
-    header = `Receiving from: ${tran.from}`;
+    header = `Receiving from:`;
     color = "#00FCDE";
     value = `+ ${tran.value}`;
     FromTo = tran.from;
@@ -68,10 +68,12 @@ export default function Trancsation() {
         <div className=" h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full ">
           <div className="m-8 text-lg  font-medium leading-4">
             <img src={walet} style={{ height: 50 }} />
-            <p className="my-4">{header}</p>
-            <p className="text-sm font-light text-[var(--tg-theme-hint-color)] ">
-              ${FromTo}
-            </p>
+            <div className="flex">
+              <p className="my-4">{header}</p>
+              <p className="text-sm font-light text-[var(--tg-theme-hint-color)] ">
+                ${FromTo}
+              </p>
+            </div>
           </div>
         </div>
         <div className="h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full">
@@ -84,9 +86,7 @@ export default function Trancsation() {
         </div>
         <div className="w-full h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="m-8 text-lg font-medium leading-4">
-            <p className="text-[#D7D7D7] text-sm font-normal">
-              Data and time::
-            </p>
+            <p className="text-[#D7D7D7] text-sm font-normal">Data and time:</p>
             <p className="my-4">{tran.timeStamp}</p>
           </div>
         </div>
