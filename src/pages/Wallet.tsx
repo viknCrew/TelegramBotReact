@@ -23,6 +23,7 @@ export default function Wallet() {
 
   useEffect(() => {
     tg.BackButton.hide();
+    tg.expand(true);
     tg.MainButton.hide();
     AddressStore.event();
     PriseStore.event();
