@@ -34,7 +34,7 @@ export default function Trancsation() {
 
   if (tran.status === statusTransation.send) {
     walet = require("../assets/Send.png");
-    header = "Receiving from wallet: ";
+    header = `Sent to address ${tran.to}`;
     color = "#FF3A3A";
     value = `- ${tran.value}`;
     FromTo = tran.to;
@@ -42,7 +42,7 @@ export default function Trancsation() {
     WalletHeader = "Recipient's wallet";
   } else {
     walet = require("../assets/Receiving.png");
-    header = "Receiving from: ";
+    header = `Receiving from: ${tran.from}`;
     color = "#00FCDE";
     value = `+ ${tran.value}`;
     FromTo = tran.from;
