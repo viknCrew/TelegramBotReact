@@ -16,12 +16,14 @@ export default function Receive() {
   );
 
   async function copyPageUrl() {
-    try {
-      await navigator.clipboard.writeText(walet);
-      tg.showAlert("Address copied");
-    } catch (err) {
-      tg.showAlert("Не удалось скопировать: " + err);
-    }
+    await navigator.clipboard
+      .writeText(walet)
+      .then(() => {
+        tg.showAlert("Address copied");
+      })
+      .catch((err) => {
+        tg.showAlert("Не удалось скопировать: " + err);
+      });
   }
 
   function placeInCenter(str: string, substr: string) {
