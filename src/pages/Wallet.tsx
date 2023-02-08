@@ -55,7 +55,34 @@ export default function Wallet() {
             {address}
           </div>
           <div className="flex items-center ml-[30px]">
-            <img src={logo} className="w-[25px]" />
+            <div className="w-[25px]">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M11 2.19066H9.01999V6.46787L10.02 7.07823L10.998 6.46787V2.19066H11ZM0 0V2.19066H20V0H0Z"
+                  fill="var(--tg-theme-text-color)"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10 8.94026L18.186 3.78062H20V20H18.186V6.32377L10 11.4834L1.876 6.32377V20H0V3.78062H1.824L10 8.94026Z"
+                  fill="var(--tg-theme-text-color)"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.0121 14.1091L16.6641 9.83428L16.6781 12.368L11.0061 16.0112V19.9998H9.02813V16.0183L3.32013 12.3514L3.33613 9.82009L10.0121 14.1091Z"
+                  fill="var(--tg-theme-text-color)"
+                />
+              </svg>
+            </div>
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
