@@ -42,14 +42,13 @@ export default function Send() {
         data: data,
       });
       const addressByNickname = web3.utils.toChecksumAddress(answer);
-      console.log("addressByNickname", addressByNickname);
       navigate("/remittance/" + addressByNickname);
-    }
-
-    if (web3.utils.isAddress(text)) {
-      navigate("/remittance/" + text);
     } else {
-      tg.showAlert("the address you entered is not correct");
+      if (web3.utils.isAddress(text)) {
+        navigate("/remittance/" + text);
+      } else {
+        tg.showAlert("the address you entered is not correct");
+      }
     }
   }, [text]);
 
