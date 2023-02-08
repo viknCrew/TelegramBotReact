@@ -74,7 +74,7 @@ export default function Receive() {
           className="font-normal text-center text-[var(--tg-theme-link-color)] mx-10"
           onClick={() => copyPageUrl()}
         >
-          <p>{placeInCenter(walet, " ")}</p>
+          <p>{placeInCenter(walet, "\n")}</p>
         </button>
         <p className="font-normal text-center mt-5 ">Your wallet address</p>
         <div className="flex justify-center">
