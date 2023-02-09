@@ -1,5 +1,5 @@
 import { useUnit } from "effector-react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
@@ -20,6 +20,7 @@ export default function Send() {
   const CallModal = useUnit(Modal.store);
 
   const [text, setText] = useState<string>("");
+  const searchInput: React.MutableRefObject<any> = useRef<any>();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
@@ -27,6 +28,7 @@ export default function Send() {
   };
 
   const onSendData = useCallback(() => {
+    searchInput.current.blur();
     Modal.event(true);
   }, [text]);
 
@@ -162,6 +164,7 @@ export default function Send() {
                 </div>
                 <input
                   type="number"
+                  ref={searchInput}
                   maxLength={6}
                   name="price"
                   id="price"
@@ -173,6 +176,7 @@ export default function Send() {
                   placeholder="0.00"
                   value={text}
                   onChange={handleChange}
+                  autoFocus
                 />
                 <div className="absolute inset-y-0 right-0 flex items-center">
                   <div
