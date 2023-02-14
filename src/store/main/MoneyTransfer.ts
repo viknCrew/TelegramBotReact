@@ -7,10 +7,10 @@ import {
   sample,
 } from "effector";
 
-const server = "https://bot.tmychain.org/api/Wallet/sendTransaction";
+const service = "/sendTransaction";
 
 const instance = axios.create({
-  baseURL: `${server}`,
+  baseURL: `${process.env.SEVER}${service} `,
 });
 
 interface IExecuteFundsTransfer {

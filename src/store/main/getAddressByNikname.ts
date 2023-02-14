@@ -9,13 +9,14 @@ import {
 import { useTelegram } from "../../hooks/useTelegram";
 import { web3 } from "../../service/getWeb3";
 
-const server = "https://bot.tmychain.org/api/Wallet/getAddressByNickname";
+
+const service = "/getAddressByNickname";
 
 const { tg } = useTelegram();
 
 const instance = axios.create({
-  baseURL: `${server}`,
-});
+  baseURL: `${process.env.SEVER}${service} `,
+});;
 
 export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);

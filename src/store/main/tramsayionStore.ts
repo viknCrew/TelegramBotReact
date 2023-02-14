@@ -6,7 +6,6 @@ import {
   createStore,
   sample,
 } from "effector";
-import getAddress from "../../hooks/useAddress";
 import { web3 } from "../../service/getWeb3";
 import { statusTransation, statusType } from "../../types/transaction";
 

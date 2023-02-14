@@ -4,8 +4,6 @@ import { AddressByNiknameStore } from "./main/getAddressByNikname";
 import { Modal } from "./main/modalStore";
 import { Transfer } from "./main/MoneyTransfer";
 import { PriseStore } from "./main/priceCoinStore";
-import { privateKey } from "./main/privateKeyStore";
-import { publicKey } from "./main/publicKeyStore";
 import { TransationList } from "./main/TansationList";
 import { Transaction } from "./main/tramsayionStore";
 import { translationAddress } from "./main/translationAddressStore";
@@ -13,11 +11,9 @@ import { translationAddress } from "./main/translationAddressStore";
 export const GlobalStore = () => {
   return {
     balance,
-    publicKey,
     TransationList,
     Transaction,
     AddressStore,
-    privateKey,
     translationAddress,
     Modal,
     Transfer,
