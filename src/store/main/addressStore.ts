@@ -14,7 +14,7 @@ const service = "/getAddress";
 const { tg } = useTelegram();
 
 const instance = axios.create({
-  baseURL: `${process.env.SEVER}${service} `,
+  baseURL: `${process.env.REACT_APP_SEVER}${service} `,
 });
 
 export async function request<Done>(config: any): Promise<Done> {
