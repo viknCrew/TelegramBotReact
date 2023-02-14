@@ -16,10 +16,11 @@ export default function Send() {
     navigate("/");
   }, []);
 
-  const server = "https://bot.tmychain.org/api/Wallet/getAddressByNickname";
 
+  const service = "/getAddressByNickname";
+  
   const instance = axios.create({
-    baseURL: `${server}`,
+    baseURL: `${process.env.REACT_APP_SEVER}${service} `,
   });
 
   async function request<Done>(config: any): Promise<Done> {

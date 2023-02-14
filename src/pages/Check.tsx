@@ -18,16 +18,10 @@ interface IProps {
 
 export default function Check(props: IProps) {
   const navigate = useNavigate();
-  const server = "https://bot.tmychain.org/api/Wallet/getAddress";
 
   const { tg } = useTelegram();
 
-  const instance = axios.create({
-    baseURL: `${server}`,
-  });
-
   const { AddressStore, Modal, Transfer } = GlobalStore();
-
   const wallet: string = String(useUnit(AddressStore.store));
   const transaction: string = String(useUnit(Transfer.store));
   const data = JSON.stringify(tg.initData);
