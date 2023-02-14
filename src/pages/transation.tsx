@@ -1,6 +1,7 @@
 import { useUnit } from "effector-react";
 import React, { useCallback, useEffect, useState } from "react";
 import { Params, useNavigate, useParams } from "react-router-dom";
+import LoaderTransation from "../component/loaderTransation";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
 import { ITransation, statusTransation } from "../types/transaction";
@@ -61,6 +62,10 @@ export default function Trancsation() {
       tg.offEvent("backButtonClicked", onBack);
     };
   }, [onBack]);
+
+  if (useUnit(Transaction.loader)) {
+    return <LoaderTransation />;
+  }
 
   return (
     <div className="flex justify-center">
