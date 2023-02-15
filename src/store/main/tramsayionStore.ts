@@ -9,18 +9,21 @@ import {
 import { web3 } from "../../service/getWeb3";
 import { statusTransation, statusType } from "../../types/transaction";
 
-const WalletID = "0xc6D3720f6286C5173C94523b8b02d549c9933662";
+interface IParams {
+  id: string;
+  wallet: string;
+}
 
 export const TranEffect = createEffect({
-  handler: async (id: any) => {
+  handler: async (param: IParams) => {
     const res = await axios.get(
-      `https://2.tmyscan.com/api?module=transaction&action=gettxinfo&txhash=${id}`
+      `https://2.tmyscan.com/api?module=transaction&action=gettxinfo&txhash=${param.id}`
     );
 
     const tran = res.data.result;
     let tStatus: statusType;
 
-    if (web3.utils.toChecksumAddress(tran.to) === WalletID) {
+    if (web3.utils.toChecksumAddress(tran.to) === param.wallet) {
       tStatus = statusTransation.receiving;
     } else {
       tStatus = statusTransation.send;

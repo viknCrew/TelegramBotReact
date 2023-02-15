@@ -7,8 +7,10 @@ import { GlobalStore } from "../store";
 import { ITransation, statusTransation } from "../types/transaction";
 
 export default function Trancsation() {
-  const params = useParams();
-  const { Transaction } = GlobalStore();
+  const { id } = useParams();
+  const { Transaction, AddressStore } = GlobalStore();
+
+  const wallet = useUnit(AddressStore.store);
   const tran: ITransation = useUnit(Transaction.store);
   const { tg } = useTelegram();
   const navigate = useNavigate();
@@ -53,8 +55,12 @@ export default function Trancsation() {
 
   useEffect(() => {
     tg.BackButton.show();
-    Transaction.event(params.id);
+    AddressStore.event();
   }, []);
+
+  useEffect(() => {
+    Transaction.event({ id, wallet });
+  }, [wallet]);
 
   useEffect(() => {
     tg.onEvent("backButtonClicked", onBack);
