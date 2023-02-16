@@ -8,8 +8,9 @@ import { GlobalLoader, GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { tg } = useTelegram();
+  i18n.changeLanguage(tg.initDataUnsafe.user.language_code);
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
 
@@ -123,7 +124,10 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-cent er"> {t("HomePage.Send")}</p>
+              <p className="mx-auto flex justify-cent er">
+                {" "}
+                {t("HomePage.Send")}
+              </p>
             </div>
           </Link>
           <Link
@@ -156,11 +160,17 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-center"> {t("HomePage.Receive")}</p>
+              <p className="mx-auto flex justify-center">
+                {" "}
+                {t("HomePage.Receive")}
+              </p>
             </div>
           </Link>
         </div>
-        <p className="text-2xl font-bold flex justify-center mt-2]"> {t("HomePage.History")} </p>
+        <p className="text-2xl font-bold flex justify-center mt-2]">
+          {" "}
+          {t("HomePage.History")}{" "}
+        </p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className=" gap-3 grid grid-cols-1">
             <div className="h-4 w-[98%]"></div>
