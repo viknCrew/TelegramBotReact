@@ -10,8 +10,6 @@ import { statusTransation } from "../types/transaction";
 export default function Wallet() {
   const { t, i18n } = useTranslation();
   const { tg } = useTelegram();
-  i18n.changeLanguage(tg.initDataUnsafe.user.language_code);
-  const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
 
   const trancsationStore = useUnit(TransationList.store);
