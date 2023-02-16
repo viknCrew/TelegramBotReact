@@ -16,5 +16,10 @@
     "Recipient": "Кошелек получателя",
     "ReceivingFrom": "Получение от",
     "SenderWallet": "Кошелек отправителя"
+  },
+  "Receive": {
+    "ReceiveTMY": "Получить TMY",
+    "YourWallet": "Адрес вашего кошелька",
+    "GoBackHome": "Вернутья к кошельку"
   }
 }

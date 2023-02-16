@@ -10,12 +10,12 @@ import { ITransation, statusTransation } from "../types/transaction";
 export default function Trancsation() {
   const { id } = useParams();
   const { Transaction, AddressStore } = GlobalStore();
-  const { t } = useTranslation();
 
   const wallet = useUnit(AddressStore.store);
   const tran: ITransation = useUnit(Transaction.store);
   const { tg } = useTelegram();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const onBack = useCallback(() => {
     navigate("/");
   }, []);

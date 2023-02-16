@@ -16,5 +16,10 @@
     "Recipient": "Recipient's wallet",
     "ReceivingFrom": "Receiving from",
     "SenderWallet": "Sender wallet"
+  },
+  "Receive": {
+    "ReceiveTMY": "Receive TMY",
+    "YourWallet": "Your wallet address",
+    "GoBackHome":" Go Back Home"
   }
 }
