@@ -1,5 +1,10 @@
 {
   "HomePage": {
-    "Wallet": "Кошелек"
+    "Wallet": "Кошелек",
+    "Send": "Отправить",
+    "Receive": "Получить",
+    "History": "История",
+    "SendTo": "Отправил",
+    "ReceivingFrom": "Получил от"
   }
 }

@@ -1,6 +1,10 @@
 {
   "HomePage": {
-    "Wallet": "Wallet"
+    "Wallet": "Wallet",
+    "Send": "Send",
+    "Receive": "Receive",
+    "History": "History",
+    "SendTo": "Send to",
+    "ReceivingFrom": "Receiving from"
   }
 }
-  

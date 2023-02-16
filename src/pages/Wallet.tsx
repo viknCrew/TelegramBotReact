@@ -123,7 +123,7 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-cent er"> Send</p>
+              <p className="mx-auto flex justify-cent er"> {t("HomePage.Send")}</p>
             </div>
           </Link>
           <Link
@@ -156,11 +156,11 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-center"> Receive</p>
+              <p className="mx-auto flex justify-center"> {t("HomePage.Receive")}</p>
             </div>
           </Link>
         </div>
-        <p className="text-2xl font-bold flex justify-center mt-2]"> History</p>
+        <p className="text-2xl font-bold flex justify-center mt-2]"> {t("HomePage.History")} </p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className=" gap-3 grid grid-cols-1">
             <div className="h-4 w-[98%]"></div>
@@ -173,13 +173,13 @@ export default function Wallet() {
 
               if (tran.status === statusTransation.send) {
                 walet = require("../assets/Send.png");
-                header = "Send to: ";
+                header = t("HomePage.SendTo");
                 color = "#FF3A3A";
                 value = `- ${tran.value}`;
                 FromTo = tran.to;
               } else {
                 walet = require("../assets/Receiving.png");
-                header = "Receiving from: ";
+                header = t("HomePage.ReceivingFrom");
                 color = "#00FCDE";
                 value = `+ ${tran.value}`;
                 FromTo = tran.from;
