@@ -6,5 +6,15 @@
     "History": "История",
     "SendTo": "Отправил",
     "ReceivingFrom": "Получил от"
+  },
+  "TransactionPage": {
+    "NumberOfCoins": "Количество полученных монет:",
+    "DataTime": "Дата и время ",
+    "Commission": "Комиссия",
+    "NumberBlock:": "Номер блока:",
+    "SendTo": "Отправлено по адресу",
+    "Recipient": "Кошелек получателя",
+    "ReceivingFrom": "Получение от",
+    "SenderWallet": "Кошелек отправителя"
   }
 }

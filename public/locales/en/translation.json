@@ -6,5 +6,15 @@
     "History": "History",
     "SendTo": "Send to",
     "ReceivingFrom": "Receiving from"
+  },
+  "TransactionPage": {
+    "NumberOfCoins": " Number of coins received:",
+    "DataTime": "Data and time",
+    "Commission": "Commission",
+    "NumberBlock:": "Number block:",
+    "SendTo": "Sent to address",
+    "Recipient": "Recipient's wallet",
+    "ReceivingFrom": "Receiving from",
+    "SenderWallet": "Sender wallet"
   }
 }
