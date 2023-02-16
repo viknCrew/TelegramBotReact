@@ -1,5 +1,6 @@
 import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import LoaderSkeleton from "../component/loader";
 import { useTelegram } from "../hooks/useTelegram";
@@ -7,6 +8,7 @@ import { GlobalLoader, GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
+  const { t } = useTranslation();
   const { tg } = useTelegram();
   const logo = require("../assets/LOGO.png");
   const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
@@ -50,7 +52,7 @@ export default function Wallet() {
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
-            Wallet
+            {t("HomePage.Wallet")}
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
             {address}
