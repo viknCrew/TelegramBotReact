@@ -20,6 +20,9 @@
   "Receive": {
     "ReceiveTMY": "Receive TMY",
     "YourWallet": "Your wallet address",
-    "GoBackHome":" Go Back Home"
+    "GoBackHome": " Go Back Home"
+  },
+  "Send": {
+    "Address": "Address or @Nickname"
   }
 }

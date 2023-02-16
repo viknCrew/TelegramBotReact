@@ -105,7 +105,6 @@ export default function Send() {
         />
 
         <span className="absolute  left-0 top-2 -translate-y-1/2 text-xs text-[var(--tg-theme-button-color)] transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-          Address or @Nickname
           {t("Send.Address")}
         </span>
       </label>

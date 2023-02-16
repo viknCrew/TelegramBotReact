@@ -23,6 +23,6 @@
     "GoBackHome": "Вернутья к кошельку"
   },
   "Send": {
-    "Address": "Address or @Nickname"
+    "Address": "Адрес кошелька или @Nickname"
   }
 }
