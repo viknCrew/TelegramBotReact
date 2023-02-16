@@ -39,20 +39,20 @@ export default function Trancsation() {
 
   if (tran.status === statusTransation.send) {
     walet = require("../assets/Send.png");
-    header = t("NumberOfCoins.SendTo");
+    header = t("TransactionPage.SendTo");
     color = "#FF3A3A";
     value = `- ${tran.value}`;
     FromTo = tran.to;
     myWallet = tran.from;
-    WalletHeader = t("NumberOfCoins.Recipient");
+    WalletHeader = t("TransactionPage.Recipient");
   } else {
     walet = require("../assets/Receiving.png");
-    header = t("NumberOfCoins.ReceivingFrom");
+    header = t("TransactionPage.ReceivingFrom");
     color = "#00FCDE";
     value = `+ ${tran.value}`;
     FromTo = tran.from;
     myWallet = tran.to;
-    WalletHeader = t("NumberOfCoins.SenderWallet");
+    WalletHeader = t("TransactionPage.SenderWallet");
   }
 
   useEffect(() => {
@@ -91,7 +91,7 @@ export default function Trancsation() {
         <div className="h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg  w-full">
           <div className="m-8 text-lg font-medium leading-4">
             <p className="text-[#D7D7D7] text-sm font-normal">
-              {t("NumberOfCoins.NumberOfCoins")}
+              {t("TransactionPage.NumberOfCoins")}
             </p>
             <p className="my-4">{value}</p>
           </div>
@@ -99,7 +99,7 @@ export default function Trancsation() {
         <div className="w-full h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="m-8 text-lg font-medium leading-4">
             <p className="text-[#D7D7D7] text-sm font-normal">
-              {t("NumberOfCoins.DataTime")}
+              {t("TransactionPage.DataTime")}
             </p>
             <p className="my-4">{tran.timeStamp}</p>
           </div>
@@ -120,7 +120,7 @@ export default function Trancsation() {
         <div className=" w-full h-[130px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="m-8 text-lg font-medium leading-4">
             <p className="text-[#D7D7D7] text-sm font-normal">
-              {t("NumberOfCoins.Commission")}:
+              {t("TransactionPage.Commission")}:
             </p>
             <p className="my-4">{tran.gas}</p>
           </div>
@@ -129,7 +129,7 @@ export default function Trancsation() {
           <div className="m-8 text-lg font-medium leading-4">
             <p className="text-[#D7D7D7] text-sm font-normal">
               {" "}
-              {t("NumberOfCoins.NumberBlock")}
+              {t("TransactionPage.NumberBlock")}
             </p>
             <p className="my-4">{tran.blockNumber}</p>
           </div>
