@@ -21,5 +21,8 @@
     "ReceiveTMY": "Получить TMY",
     "YourWallet": "Адрес вашего кошелька",
     "GoBackHome": "Вернутья к кошельку"
+  },
+  "Send": {
+    "Address": "Address or @Nickname"
   }
 }
