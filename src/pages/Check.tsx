@@ -94,7 +94,7 @@ export default function Check(props: IProps) {
           <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
             <div className="grid col-span-1">
               {" "}
-              <div className=""> {t("Check.Sender")}</div>
+              <div className="">{t("Check.Sender")}</div>
               <button
                 className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10"
                 onClick={() => copyMyWallet()}
