@@ -50,6 +50,8 @@ const $hashTrancsation = createStore<string | unknown>("").on(
   (_, answer) => answer
 );
 
+export const $loaderWallet = executeFundsTransfer.pending;
+
 sample({
   clock: executeFundsTransfer,
   target: callTransfer,
@@ -58,5 +60,5 @@ sample({
 export const Transfer = {
   store: $hashTrancsation,
   event: executeFundsTransfer,
-  loader: false,
+  loader: $loaderWallet,
 };

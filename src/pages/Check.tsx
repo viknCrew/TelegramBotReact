@@ -2,6 +2,7 @@ import axios from "axios";
 import { useUnit } from "effector-react";
 import { useCallback, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import LoaderCheck from "../component/loaderCheck";
 import Tick from "../component/Tick";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalStore } from "../store";
@@ -24,6 +25,7 @@ export default function Check(props: IProps) {
   const { AddressStore, Modal, Transfer } = GlobalStore();
   const wallet: string = String(useUnit(AddressStore.store));
   const transaction: string = String(useUnit(Transfer.store));
+  const loader = useUnit(Transfer.loader);
   const data = JSON.stringify(tg.initData);
   const id = tg.initDataUnsafe.user.id;
 
@@ -70,6 +72,10 @@ export default function Check(props: IProps) {
   async function closeModal() {
     Modal.event(false);
     navigate("/");
+  }
+
+  if (loader) {
+    return <LoaderCheck />;
   }
 
   return (
