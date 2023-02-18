@@ -34,7 +34,7 @@ export default function LoaderCheck() {
                 {" "}
                 <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-64 my-1"></div>
                 <div className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
-                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.25rem] w-40 my-1"></div>
+                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                   <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                 </div>
               </div>
@@ -44,7 +44,7 @@ export default function LoaderCheck() {
                 {" "}
                 <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-64 my-1"></div>
                 <div className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
-                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.25rem] w-40 my-1"></div>
+                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                   <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function LoaderCheck() {
                 {" "}
                 <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-64 my-1"></div>
                 <div className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
-                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.25rem] w-40 my-1"></div>
+                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                   <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                 </div>
               </div>
@@ -64,7 +64,7 @@ export default function LoaderCheck() {
                 {" "}
                 <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-64 my-1"></div>
                 <div className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
-                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.25rem] w-40 my-1"></div>
+                  <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                   <div className="bg-[var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[0.55rem] w-40 my-1"></div>
                 </div>
               </div>

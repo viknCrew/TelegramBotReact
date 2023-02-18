@@ -24,5 +24,11 @@
   },
   "Send": {
     "Address": "Address or @Nickname"
+  },
+  "Check":{
+    "Sender":"Sender's address",
+    "TokensTransferred":"Tokens transferred to the wallet",
+    "Transaction":"Transaction",
+    "TransferAmount":"Transfer amount"
   }
 }
