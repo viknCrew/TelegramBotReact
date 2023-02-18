@@ -24,5 +24,11 @@
   },
   "Send": {
     "Address": "Адрес кошелька или @Nickname"
+  },
+  "Check": {
+    "Sender": "Адрес отправителя",
+    "TokensTransferred": "Токены переведены на кошелек",
+    "Transaction": "Транзакция",
+    "TransferAmount": "Сумма перевода"
   }
 }
