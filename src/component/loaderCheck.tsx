@@ -6,11 +6,11 @@ export default function LoaderCheck() {
           <div className="grid grid-cols-1 w-80 mt-16 bg-[var(--tg-theme-bg-color)] rounded-xl  shadow-lg">
             <div className=" flex justify-center">
               <div className="trigger w-full flex justify-center ml-2 top-[-12px] ]">
-                <div className="text-center">
+                <div className="text-center mt-3">
                   <div role="status">
                     <svg
                       aria-hidden="true"
-                      className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-[var(--tg-theme-button-color)]"
+                      className="inline w-8 h-8 mr-2 text-[var(--tg-theme-secondary-bg-color)] animate-spin dark:text-gray-600 fill-[var(--tg-theme-button-color)]"
                       viewBox="0 0 100 101"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -29,44 +29,49 @@ export default function LoaderCheck() {
                 </div>
               </div>
             </div>
-            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  shadow-lg rounded-lg ">
+            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex justify-center items-center  shadow-lg rounded-lg ">
               <div className="grid col-span-1">
                 {" "}
-                <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[120px]"></div>
+                <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[350px]"></div>
                 <button className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
-                  <div></div>
-                  <div></div>
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
                 </button>
               </div>
             </div>
-            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center justify-center shadow-lg rounded-lg ">
-              <div className="grid col-span-1 gap-2">
-                {" "}
-                <div className="">Tokens transferred to the wallet</div>
-                <button className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10">
-                  <div></div>
-                  <div></div>
-                </button>
-              </div>
-            </div>
-            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex items-center  justify-center shadow-lg rounded-lg ">
+            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex justify-center items-center  shadow-lg rounded-lg ">
               <div className="grid col-span-1">
                 {" "}
-                <div className="">Transaction</div>
-                <div className="font-normal text-xs text-center text-[var(--tg-theme-link-color)] mx-10">
-                  <div></div>
-                  <div></div>
-                </div>
+                <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[350px]"></div>
+                <button className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                </button>
               </div>
             </div>
-            <div className=" flex justify-center w-full bg-[var(--tg-theme-bg-color)] h-20 items-center rounded-xl shadow-lg text-center text-sm font-medium ">
-              Transfer amount:
+            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex justify-center items-center  shadow-lg rounded-lg ">
+              <div className="grid col-span-1">
+                {" "}
+                <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[350px]"></div>
+                <button className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                </button>
+              </div>
+            </div>
+            <div className="text-center text-sm font-bold bg-[var(--tg-theme-bg-color)] flex justify-center items-center  shadow-lg rounded-lg ">
+              <div className="grid col-span-1">
+                {" "}
+                <div className="bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[350px]"></div>
+                <button className="font-normal text-center text-xs text-[var(--tg-theme-link-color)] mx-10">
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                  <div className="bg-[ var(--tg-theme-link-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] h-[1.25rem] w-[170px]"></div>
+                </button>
+              </div>
             </div>
 
             <div className="flex justify-center">
-              <button className="rounded-lg my-1 mx-6 text-sm  w-56 h-8 mt-3  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] shadow-lg flex  justify-center items-center">
-                Go Back Home
-              </button>
+              <button className="rounded-lg my-1 mx-6 text-sm  w-56 h-8 mt-3  font-bold bg-[var(--tg-theme-link-color)] text-center text-[var(--tg-theme-bg-color)] shadow-lg flex  justify-center items-center"></button>
             </div>
           </div>
         </div>
