@@ -74,7 +74,7 @@ export default function Check(props: IProps) {
     navigate("/");
   }
 
-  if (loader) {
+  if (true) {
     return <LoaderCheck />;
   }
 
