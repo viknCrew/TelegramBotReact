@@ -1,5 +1,6 @@
 import { AddressStore } from "./main/addressStore";
 import { balance } from "./main/coinStore";
+import { CurrencyStore } from "./main/currencyStore";
 import { AddressByNiknameStore } from "./main/getAddressByNikname";
 import { languageStore } from "./main/languageStore";
 import { Modal } from "./main/modalStore";
@@ -20,7 +21,8 @@ export const GlobalStore = () => {
     Transfer,
     PriseStore,
     AddressByNiknameStore,
-    languageStore
+    languageStore,
+    CurrencyStore
   };
 };
 

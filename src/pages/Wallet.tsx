@@ -10,15 +10,23 @@ import { statusTransation } from "../types/transaction";
 export default function Wallet() {
   const { t, i18n } = useTranslation();
   const { tg } = useTelegram();
-  const { balance, TransationList, AddressStore, PriseStore, languageStore } =
-    GlobalStore();
+  const {
+    balance,
+    TransationList,
+    AddressStore,
+    PriseStore,
+    languageStore,
+    CurrencyStore,
+  } = GlobalStore();
 
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address: string = String(useUnit(AddressStore.store));
   const Prise = Number(useUnit(PriseStore.store));
   const language: string = String(useUnit(languageStore.store));
-  console.log("language", language);
+  const currency: string = String(useUnit(CurrencyStore.store));
+
+  const lCurrency = useUnit(CurrencyStore.loader);
   const lBalance = useUnit(balance.loader);
   const lPrise = useUnit(PriseStore.loader);
   const lTransationList = useUnit(TransationList.loader);
@@ -30,6 +38,7 @@ export default function Wallet() {
     tg.MainButton.hide();
 
     languageStore.event(tg.initDataUnsafe.user.id);
+    CurrencyStore.event(tg.initDataUnsafe.user.id);
     AddressStore.event();
     PriseStore.event();
     balance.event(address);
@@ -46,7 +55,7 @@ export default function Wallet() {
     TransationList.event(address);
   }, [address]);
 
-  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
+  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise, lCurrency])) {
     return (
       <div className="flex justify-center w-full">
         <LoaderSkeleton />
@@ -96,7 +105,9 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ {Prise * balanceWallet} USD
+            {currency === "usd"
+              ? `'$' ${Prise * balanceWallet} 'USD'`
+              : `'₽' ${Prise * balanceWallet} 'RUB'`}
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">

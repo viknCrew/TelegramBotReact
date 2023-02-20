@@ -1,10 +1,5 @@
 import axios from "axios";
-import {
-  createEffect,
-  createEvent,
-  createStore,
-  sample,
-} from "effector";
+import { createEffect, createEvent, createStore, sample } from "effector";
 
 const instance = axios.create({
   baseURL: `https://bot.tmychain.org/api/UserSettings/getUserLanguage`,
@@ -36,7 +31,7 @@ const getLanguage = createEffect(async (id: number) => {
 
 const WriteLanguage = createEvent<number>();
 
-export const $price = createStore<string | unknown>(1).on(
+export const $language = createStore<string | unknown>(1).on(
   getLanguage.doneData,
   (_, answer) => answer
 );
@@ -49,7 +44,7 @@ sample({
 });
 
 export const languageStore = {
-  store: $price,
+  store: $language,
   event: getLanguage,
   loader: $loader,
 };
