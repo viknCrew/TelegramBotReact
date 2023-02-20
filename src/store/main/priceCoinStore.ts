@@ -18,9 +18,12 @@ export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);
 }
 
-const getPrice = createEffect(async () => {
+const getPrice = createEffect(async (currency:number) => {
   const answer = await request({
     method: "get",
+    headers: {
+      currency: currency,
+    },
   });
   return answer;
 });

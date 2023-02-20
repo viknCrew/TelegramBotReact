@@ -40,7 +40,6 @@ export default function Wallet() {
     languageStore.event(tg.initDataUnsafe.user.id);
     CurrencyStore.event(tg.initDataUnsafe.user.id);
     AddressStore.event();
-    PriseStore.event();
     balance.event(address);
     TransationList.event(address);
   }, []);
@@ -50,7 +49,14 @@ export default function Wallet() {
   }, [language]);
 
   useEffect(() => {
-    PriseStore.event();
+    if (currency === "usd") {
+      PriseStore.event(0);
+    } else {
+      PriseStore.event(1);
+    }
+  }, [currency]);
+
+  useEffect(() => {
     balance.event(address);
     TransationList.event(address);
   }, [address]);
@@ -106,8 +112,8 @@ export default function Wallet() {
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
             {currency === "usd"
-              ? `'$' ${Prise * balanceWallet} 'USD'`
-              : `'₽' ${Prise * balanceWallet} 'RUB'`}
+              ? `$ ${Prise * balanceWallet} USD`
+              : `₽ ${Prise * balanceWallet} RUB`}
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
