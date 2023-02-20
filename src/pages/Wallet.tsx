@@ -10,13 +10,15 @@ import { statusTransation } from "../types/transaction";
 export default function Wallet() {
   const { t, i18n } = useTranslation();
   const { tg } = useTelegram();
-  const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
+  const { balance, TransationList, AddressStore, PriseStore, languageStore } =
+    GlobalStore();
 
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address: string = String(useUnit(AddressStore.store));
   const Prise = Number(useUnit(PriseStore.store));
-
+  const language: string = String(useUnit(languageStore.store));
+  console.log("language", language);
   const lBalance = useUnit(balance.loader);
   const lPrise = useUnit(PriseStore.loader);
   const lTransationList = useUnit(TransationList.loader);
@@ -26,11 +28,17 @@ export default function Wallet() {
     tg.BackButton.hide();
     tg.expand(true);
     tg.MainButton.hide();
+
+    languageStore.event(tg.initDataUnsafe.user.id);
     AddressStore.event();
     PriseStore.event();
     balance.event(address);
     TransationList.event(address);
   }, []);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language]);
 
   useEffect(() => {
     PriseStore.event();
