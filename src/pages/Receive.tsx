@@ -30,8 +30,9 @@ export default function Receive() {
     //   });
 
     try {
+      tg.showAlert("Address copied: "+walet);
       copy(walet);
-      tg.showAlert("Address copied: "+value);
+      
     } catch (err) {
       tg.showAlert("Не удалось скопировать: " + err);
     }
