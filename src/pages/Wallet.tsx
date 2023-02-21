@@ -112,8 +112,8 @@ export default function Wallet() {
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
             {currency === "usd"
-              ? `$ ${Prise * balanceWallet} USD`
-              : `₽ ${Prise * balanceWallet} RUB`}
+              ? `$ ${(Prise * balanceWallet).toFixed(4)} USD`
+              : `₽ ${(Prise * balanceWallet).toFixed(4)} RUB`}
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
