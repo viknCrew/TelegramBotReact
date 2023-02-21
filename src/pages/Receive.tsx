@@ -4,6 +4,7 @@ import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { QRCode } from "react-qrcode-logo";
 import { Link, useNavigate } from "react-router-dom";
+import { useCopyToClipboard } from "usehooks-ts";
 import { useTelegram } from "../hooks/useTelegram";
 import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
@@ -13,6 +14,7 @@ export default function Receive() {
   const { tg } = useTelegram();
   const { AddressStore } = GlobalStore();
   const { t } = useTranslation();
+  const [value, copy] = useCopyToClipboard();
   const walet = web3.utils.toChecksumAddress(
     String(useUnit(AddressStore.store))
   );
@@ -24,20 +26,14 @@ export default function Receive() {
     //     tg.showAlert("Address copied");
     //   })
     //   .catch((err) => {
-
     //     tg.showAlert("Не удалось скопировать: " + err);
     //   });
+
     try {
-      await navigator.clipboard.writeText(walet);
-      tg.showAlert("Address copied");
-    } catch {
-      try {
-        // @ts-ignore
-        await window.clipboardData.setData("Text", walet);
-        tg.showAlert("Address copied");
-      } catch {
-        tg.showAlert("Не удалось скопировать: ");
-      }
+      copy(walet);
+      tg.showAlert("Address copied: "+value);
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: " + err);
     }
   }
 
