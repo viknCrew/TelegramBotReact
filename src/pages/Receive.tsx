@@ -18,14 +18,27 @@ export default function Receive() {
   );
 
   async function copyPageUrl() {
-    await navigator.clipboard
-      .writeText(walet)
-      .then(() => {
+    // await navigator.clipboard
+    //   .writeText(walet)
+    //   .then(() => {
+    //     tg.showAlert("Address copied");
+    //   })
+    //   .catch((err) => {
+
+    //     tg.showAlert("Не удалось скопировать: " + err);
+    //   });
+    try {
+      await navigator.clipboard.writeText(walet);
+      tg.showAlert("Address copied");
+    } catch {
+      try {
+        // @ts-ignore
+        await window.clipboardData.setData("Text", walet);
         tg.showAlert("Address copied");
-      })
-      .catch((err) => {
-        tg.showAlert("Не удалось скопировать: " + err);
-      });
+      } catch {
+        tg.showAlert("Не удалось скопировать: ");
+      }
+    }
   }
 
   function placeInCenter(str: string, substr: string) {
