@@ -25,7 +25,7 @@ const getLanguage = createEffect(async (id: number) => {
     code = "en";
   }
 
-  console.log("language", code);
+  
   return code;
 });
 

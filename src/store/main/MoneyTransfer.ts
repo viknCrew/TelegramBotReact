@@ -41,7 +41,7 @@ const executeFundsTransfer = createEffect(
 );
 
 executeFundsTransfer.failData.watch((error) => {
-  console.log(`Вызов завершился с ошибкой ${error}`);
+  console.error(`Вызов завершился с ошибкой ${error}`);
 });
 const callTransfer = createEvent<IExecuteFundsTransfer>();
 
