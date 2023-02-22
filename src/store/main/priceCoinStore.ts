@@ -7,19 +7,23 @@ import {
   sample,
 } from "effector";
 
-const server = "https://bot.tmychain.org/api/Wallet/getPrice";
+const service = "/getPrice";
 
 const instance = axios.create({
-  baseURL: `${server}`,
+  baseURL: `${process.env.REACT_APP_SEVER}${service} `,
 });
+
 
 export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);
 }
 
-const getPrice = createEffect(async () => {
+const getPrice = createEffect(async (currency:number) => {
   const answer = await request({
     method: "get",
+    headers: {
+      currency: currency,
+    },
   });
   return answer;
 });

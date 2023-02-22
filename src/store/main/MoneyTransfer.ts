@@ -7,10 +7,10 @@ import {
   sample,
 } from "effector";
 
-const server = "https://bot.tmychain.org/api/Wallet/sendTransaction";
+const service = "/sendTransaction";
 
 const instance = axios.create({
-  baseURL: `${server}`,
+  baseURL: `${process.env.REACT_APP_SEVER}${service} `,
 });
 
 interface IExecuteFundsTransfer {
@@ -41,7 +41,7 @@ const executeFundsTransfer = createEffect(
 );
 
 executeFundsTransfer.failData.watch((error) => {
-  console.log(`Вызов завершился с ошибкой ${error}`);
+  console.error(`Вызов завершился с ошибкой ${error}`);
 });
 const callTransfer = createEvent<IExecuteFundsTransfer>();
 
@@ -49,6 +49,8 @@ const $hashTrancsation = createStore<string | unknown>("").on(
   executeFundsTransfer.doneData,
   (_, answer) => answer
 );
+
+export const $loaderWallet = executeFundsTransfer.pending;
 
 sample({
   clock: executeFundsTransfer,
@@ -58,5 +60,5 @@ sample({
 export const Transfer = {
   store: $hashTrancsation,
   event: executeFundsTransfer,
-  loader: false,
+  loader: $loaderWallet,
 };

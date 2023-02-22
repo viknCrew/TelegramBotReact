@@ -1,8 +1,10 @@
 import { useUnit } from "effector-react";
 import * as React from "react";
 import { useCallback, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { QRCode } from "react-qrcode-logo";
 import { Link, useNavigate } from "react-router-dom";
+import { useCopyToClipboard } from "usehooks-ts";
 import { useTelegram } from "../hooks/useTelegram";
 import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
@@ -11,19 +13,29 @@ export default function Receive() {
   const coin = require("../assets/Coin.png");
   const { tg } = useTelegram();
   const { AddressStore } = GlobalStore();
+  const { t } = useTranslation();
+  const [value, copy] = useCopyToClipboard();
   const walet = web3.utils.toChecksumAddress(
     String(useUnit(AddressStore.store))
   );
 
   async function copyPageUrl() {
-    await navigator.clipboard
-      .writeText(walet)
-      .then(() => {
-        tg.showAlert("Address copied");
-      })
-      .catch((err) => {
-        tg.showAlert("Не удалось скопировать: " + err);
-      });
+    // await navigator.clipboard
+    //   .writeText(walet)
+    //   .then(() => {
+    //     tg.showAlert("Address copied");
+    //   })
+    //   .catch((err) => {
+    //     tg.showAlert("Не удалось скопировать: " + err);
+    //   });
+
+    try {
+      tg.showAlert("Address copied: "+walet);
+      copy(walet);
+      
+    } catch (err) {
+      tg.showAlert("Не удалось скопировать: " + err);
+    }
   }
 
   function placeInCenter(str: string, substr: string) {
@@ -50,7 +62,9 @@ export default function Receive() {
   return (
     <div className="flex justify-center pt-10 h-[100vh] bg-[--tg-theme-bg-color]">
       <div className="grid grid-cols-1  h-[150px] w-full ">
-        <div className="text-xl font-bold  text-center">Receive TMY</div>
+        <div className="text-xl font-bold  text-center">
+          {t("Receive.ReceiveTMY")}
+        </div>
         <div className="flex justify-center items-center my-10">
           {tg.colorScheme === "dark" ? (
             <QRCode
@@ -78,13 +92,15 @@ export default function Receive() {
         >
           <p>{placeInCenter(walet, "\n")}</p>
         </button>
-        <p className="font-normal text-center mt-5 ">Your wallet address</p>
+        <p className="font-normal text-center mt-5 ">
+          {t("Receive.YourWallet")}
+        </p>
         <div className="flex justify-center">
           <Link
             to="/"
             className="rounded-xl w-6/12 py-3 mt-10 text-sm font-medium bg-[var(--tg-theme-link-color)] text-center text-[ var(--tg-theme-secondary-bg-color)] "
           >
-            Go Back Home
+            {t("Receive.GoBackHome")}
           </Link>
         </div>
       </div>

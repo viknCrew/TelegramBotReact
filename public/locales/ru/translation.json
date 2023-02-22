@@ -1,0 +1,34 @@
+{
+  "HomePage": {
+    "Wallet": "Кошелек",
+    "Send": "Отправить",
+    "Receive": "Получить",
+    "History": "История",
+    "SendTo": "Отправил",
+    "ReceivingFrom": "Получил от"
+  },
+  "TransactionPage": {
+    "NumberOfCoins": "Количество полученных монет:",
+    "DataTime": "Дата и время ",
+    "Commission": "Комиссия",
+    "NumberBlock:": "Номер блока:",
+    "SendTo": "Отправлено по адресу",
+    "Recipient": "Кошелек получателя",
+    "ReceivingFrom": "Получение от",
+    "SenderWallet": "Кошелек отправителя"
+  },
+  "Receive": {
+    "ReceiveTMY": "Получить TMY",
+    "YourWallet": "Адрес вашего кошелька",
+    "GoBackHome": "Вернутья к кошельку"
+  },
+  "Send": {
+    "Address": "Адрес кошелька или @Nickname"
+  },
+  "Check": {
+    "Sender": "Адрес отправителя",
+    "TokensTransferred": "Токены переведены на кошелек",
+    "Transaction": "Транзакция",
+    "TransferAmount": "Сумма перевода"
+  }
+}

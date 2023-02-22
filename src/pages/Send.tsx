@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useUnit } from "effector-react";
 import React, { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
 import { web3 } from "../service/getWeb3";
@@ -9,6 +10,7 @@ import { GlobalStore } from "../store";
 export default function Send() {
   const { tg } = useTelegram();
   const { translationAddress, AddressByNiknameStore } = GlobalStore();
+  const { t } = useTranslation();
   const [text, setText] = useState<string>("");
 
   const navigate = useNavigate();
@@ -16,10 +18,11 @@ export default function Send() {
     navigate("/");
   }, []);
 
-  const server = "https://bot.tmychain.org/api/Wallet/getAddressByNickname";
 
+  const service = "/getAddressByNickname";
+  
   const instance = axios.create({
-    baseURL: `${server}`,
+    baseURL: `${process.env.REACT_APP_SEVER}${service} `,
   });
 
   async function request<Done>(config: any): Promise<Done> {
@@ -102,7 +105,7 @@ export default function Send() {
         />
 
         <span className="absolute  left-0 top-2 -translate-y-1/2 text-xs text-[var(--tg-theme-button-color)] transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs">
-          Address or @Nickname
+          {t("Send.Address")}
         </span>
       </label>
 

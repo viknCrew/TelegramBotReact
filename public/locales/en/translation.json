@@ -1,0 +1,34 @@
+{
+  "HomePage": {
+    "Wallet": "Wallet",
+    "Send": "Send",
+    "Receive": "Receive",
+    "History": "History",
+    "SendTo": "Send to",
+    "ReceivingFrom": "Receiving from"
+  },
+  "TransactionPage": {
+    "NumberOfCoins": " Number of coins received:",
+    "DataTime": "Data and time",
+    "Commission": "Commission",
+    "NumberBlock:": "Number block:",
+    "SendTo": "Sent to address",
+    "Recipient": "Recipient's wallet",
+    "ReceivingFrom": "Receiving from",
+    "SenderWallet": "Sender wallet"
+  },
+  "Receive": {
+    "ReceiveTMY": "Receive TMY",
+    "YourWallet": "Your wallet address",
+    "GoBackHome": " Go Back Home"
+  },
+  "Send": {
+    "Address": "Address or @Nickname"
+  },
+  "Check":{
+    "Sender":"Sender's address",
+    "TokensTransferred":"Tokens transferred to the wallet",
+    "Transaction":"Transaction",
+    "TransferAmount":"Transfer amount"
+  }
+}

@@ -1,5 +1,6 @@
 import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import LoaderSkeleton from "../component/loader";
 import { useTelegram } from "../hooks/useTelegram";
@@ -7,15 +8,25 @@ import { GlobalLoader, GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
+  const { t, i18n } = useTranslation();
   const { tg } = useTelegram();
-  const logo = require("../assets/LOGO.png");
-  const { balance, TransationList, AddressStore, PriseStore } = GlobalStore();
+  const {
+    balance,
+    TransationList,
+    AddressStore,
+    PriseStore,
+    languageStore,
+    CurrencyStore,
+  } = GlobalStore();
 
   const trancsationStore = useUnit(TransationList.store);
   const balanceWallet = useUnit(balance.store);
   const address: string = String(useUnit(AddressStore.store));
   const Prise = Number(useUnit(PriseStore.store));
+  const language: string = String(useUnit(languageStore.store));
+  const currency: string = String(useUnit(CurrencyStore.store));
 
+  const lCurrency = useUnit(CurrencyStore.loader);
   const lBalance = useUnit(balance.loader);
   const lPrise = useUnit(PriseStore.loader);
   const lTransationList = useUnit(TransationList.loader);
@@ -25,19 +36,32 @@ export default function Wallet() {
     tg.BackButton.hide();
     tg.expand(true);
     tg.MainButton.hide();
+
+    languageStore.event(tg.initDataUnsafe.user.id);
+    CurrencyStore.event(tg.initDataUnsafe.user.id);
     AddressStore.event();
-    PriseStore.event();
     balance.event(address);
     TransationList.event(address);
   }, []);
 
   useEffect(() => {
-    PriseStore.event();
+    i18n.changeLanguage(language);
+  }, [language]);
+
+  useEffect(() => {
+    if (currency === "usd") {
+      PriseStore.event(0);
+    } else {
+      PriseStore.event(1);
+    }
+  }, [currency]);
+
+  useEffect(() => {
     balance.event(address);
     TransationList.event(address);
   }, [address]);
 
-  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise])) {
+  if (GlobalLoader([lBalance, lTransationList, lAddress, lPrise, lCurrency])) {
     return (
       <div className="flex justify-center w-full">
         <LoaderSkeleton />
@@ -50,7 +74,7 @@ export default function Wallet() {
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
-            Wallet
+            {t("HomePage.Wallet")}
           </div>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
             {address}
@@ -87,7 +111,9 @@ export default function Wallet() {
             <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
           </div>
           <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
-            $ {Prise * balanceWallet} USD
+            {currency === "usd"
+              ? `$ ${(Prise * balanceWallet).toFixed(4)} USD`
+              : `₽ ${(Prise * balanceWallet).toFixed(4)} RUB`}
           </p>
         </div>
         <div className="grid gap-6 grid-cols-2">
@@ -121,7 +147,10 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-cent er"> Send</p>
+              <p className="mx-auto flex justify-cent er">
+                {" "}
+                {t("HomePage.Send")}
+              </p>
             </div>
           </Link>
           <Link
@@ -154,11 +183,17 @@ export default function Wallet() {
                   />
                 </svg>
               </div>
-              <p className="mx-auto flex justify-center"> Receive</p>
+              <p className="mx-auto flex justify-center">
+                {" "}
+                {t("HomePage.Receive")}
+              </p>
             </div>
           </Link>
         </div>
-        <p className="text-2xl font-bold flex justify-center mt-2]"> History</p>
+        <p className="text-2xl font-bold flex justify-center mt-2]">
+          {" "}
+          {t("HomePage.History")}{" "}
+        </p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className=" gap-3 grid grid-cols-1">
             <div className="h-4 w-[98%]"></div>
@@ -171,13 +206,13 @@ export default function Wallet() {
 
               if (tran.status === statusTransation.send) {
                 walet = require("../assets/Send.png");
-                header = "Send to: ";
+                header = t("HomePage.SendTo");
                 color = "#FF3A3A";
                 value = `- ${tran.value}`;
                 FromTo = tran.to;
               } else {
                 walet = require("../assets/Receiving.png");
-                header = "Receiving from: ";
+                header = t("HomePage.ReceivingFrom");
                 color = "#00FCDE";
                 value = `+ ${tran.value}`;
                 FromTo = tran.from;
