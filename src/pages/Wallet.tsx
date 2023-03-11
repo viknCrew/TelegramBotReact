@@ -195,8 +195,8 @@ export default function Wallet() {
           {t("HomePage.History")}{" "}
         </p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
-          <div className=" gap-3 grid grid-cols-1">
-            <div className="h-4 w-[98%]"></div>
+          <div className="w-[98%]">
+            <div className="h-4 w-[98%] my-3"></div>
             {trancsationStore.map((tran: any) => {
               let walet: any;
               let header: string;
