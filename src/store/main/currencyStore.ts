@@ -16,13 +16,13 @@ const getCurrency = createEffect(async (id: number) => {
       userId: id,
     },
   });
-  console.log("currencyStore", answer);
+  console.log("currencyS", answer);
   return answer;
 });
 
 const WriteCurrency = createEvent<number>();
 
-export const $currency = createStore<string | unknown>(1).on(
+export const $currency = createStore<string | unknown>("").on(
   getCurrency.doneData,
   (_, answer) => answer
 );
@@ -37,6 +37,6 @@ sample({
 
 export const CurrencyStore = {
   store: $currency,
-  event: WriteCurrency,
+  event: getCurrency,
   loader: $loader,
 };
