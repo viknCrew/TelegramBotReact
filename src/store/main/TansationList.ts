@@ -1,11 +1,17 @@
 import axios from "axios";
 import { createEffect, createEvent, createStore, sample } from "effector";
+import { useTranslation } from "react-i18next";
 import { web3 } from "../../service/getWeb3";
 import {
   ITransation,
   statusTransation,
   statusType,
 } from "../../types/transaction";
+import { languageStore } from "./languageStore";
+
+const { t } = useTranslation();
+const resolved = t("key", { returnDetails: true });
+console.log("resolved", resolved.usedLng);
 
 const instance = axios.create({
   baseURL: `https://2.tmyscan.com/api`,
@@ -54,8 +60,10 @@ const trancsationEffect = createEffect(async (address: string) => {
     options.timeZone = "UTC";
     options.timeZoneName = "short";
 
+    const language: string = resolved.usedLng === "ru" ? "ru-RU" : "en-US";
+
     const date = new Date(Number(tran.timeStamp + "000")).toLocaleDateString(
-      "en-US",
+      language,
       options
     );
 

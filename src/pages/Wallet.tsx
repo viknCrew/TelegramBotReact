@@ -9,8 +9,6 @@ import { statusTransation } from "../types/transaction";
 
 export default function Wallet() {
   const { t, i18n } = useTranslation();
-  const resolved = t("key", { returnDetails: true });
-  console.log("resolved", resolved);
   const { tg } = useTelegram();
   const {
     balance,
