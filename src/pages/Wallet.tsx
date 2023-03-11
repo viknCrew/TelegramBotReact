@@ -24,7 +24,7 @@ export default function Wallet() {
   const address: string = String(useUnit(AddressStore.store));
   const Prise = Number(useUnit(PriseStore.store));
   const language: string = String(useUnit(languageStore.store));
-  const currency: string = String(useUnit(CurrencyStore.store));
+  const currency = useUnit(CurrencyStore.store);
 
   const lCurrency = useUnit(CurrencyStore.loader);
   const lBalance = useUnit(balance.loader);
@@ -54,7 +54,7 @@ export default function Wallet() {
     } else {
       PriseStore.event(1);
     }
-    console.log("currency", currency);
+    console.log("Currency", currency);
     console.log("Prise", Prise);
   }, [currency]);
 
