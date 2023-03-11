@@ -16,7 +16,7 @@ const getCurrency = createEffect(async (id: number) => {
       userId: id,
     },
   });
-  console.log("currency",answer);
+  console.log("currency", answer);
   return answer;
 });
 
@@ -27,6 +27,7 @@ export const $currency = createStore<string | unknown>(1).on(
   (_, answer) => answer
 );
 
+getCurrency.watch(console.log);
 const $loader = getCurrency.pending;
 
 sample({
