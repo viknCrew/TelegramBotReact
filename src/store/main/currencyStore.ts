@@ -16,7 +16,7 @@ const getCurrency = createEffect(async (id: number) => {
       userId: id,
     },
   });
-  console.log(answer);
+  console.log("currency",answer);
   return answer;
 });
 
