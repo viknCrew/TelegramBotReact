@@ -13,18 +13,19 @@ const instance = axios.create({
   baseURL: `${process.env.REACT_APP_SEVER}${service} `,
 });
 
-
 export async function request<Done>(config: any): Promise<Done> {
   return instance(config).then((response) => response.data);
 }
 
-const getPrice = createEffect(async (currency:number) => {
+const getPrice = createEffect(async (currency: number) => {
   const answer = await request({
     method: "get",
     headers: {
       currency: currency,
     },
   });
+  console.log("currencyStore", currency);
+  console.log("PriceStore", answer);
   return answer;
 });
 
