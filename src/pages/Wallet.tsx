@@ -54,8 +54,6 @@ export default function Wallet() {
     } else {
       PriseStore.event(1);
     }
-    console.log("Currency", currency);
-    console.log("Prise", Prise);
   }, [currency]);
 
   useEffect(() => {
