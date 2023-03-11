@@ -196,7 +196,7 @@ export default function Wallet() {
         </p>
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
-            <div className="h-4 w-[98%] my-3"></div>
+            <div className="h-4 w-[98%] "></div>
             {trancsationStore.map((tran: any) => {
               let walet: any;
               let header: string;
@@ -221,7 +221,7 @@ export default function Wallet() {
               return (
                 <Link
                   to={`/trancsation/${tran.Hash}`}
-                  className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4"
+                  className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4 my-3"
                 >
                   <div className="flex">
                     <img src={walet} style={{ height: 30 }} className="m-4" />
