@@ -16,7 +16,7 @@
 body {
   margin: 0;
   pading: 0;
-  background-image: url("../src/assets/bg.png");
+  background-image: url("../src/assets/logo_Background.svg");
   background-color: var(--tg-theme-secondary-bg-color);
   /*background-color: #282829;*/
 
