@@ -206,13 +206,13 @@ export default function Wallet() {
               let FromTo: string;
 
               if (tran.status === statusTransation.send) {
-                walet = require("../assets/Send.png");
+                walet = require("../assets/Send.svg");
                 header = t("HomePage.SendTo");
                 color = "#FF3A3A";
                 value = `- ${tran.value}`;
                 FromTo = tran.to;
               } else {
-                walet = require("../assets/Receiving.png");
+                walet = require("../assets/Receiving.svg");
                 header = t("HomePage.ReceivingFrom");
                 color = "#00FCDE";
                 value = `+ ${tran.value}`;
