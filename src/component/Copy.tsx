@@ -25,7 +25,7 @@ export default function Copy(props: { text: string; size: string }) {
   };
   return (
     <button
-      className="text-[var(--tg-theme-link-color)] flex gap-1 hyphens-manual justify-start mr-24 "
+      className="text-[var(--tg-theme-link-color)] flex gap-1 hyphens-manual justify-start "
       onClick={() => {
         Copy();
       }}
