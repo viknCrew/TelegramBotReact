@@ -1,17 +1,16 @@
 import { useTelegram } from "../hooks/useTelegram";
 
-export default function Copy(props: { text: string; size: string }) {
+export default function Copy(props: {
+  text: string;
+  width: string;
+  height: string;
+}) {
   const CopyIMG = require("../assets/Copy.svg");
   const { tg } = useTelegram();
   let text: string = props.text;
-  let size: string = props.size;
 
   if (text === undefined) {
     text = " ";
-  }
-
-  if (size === undefined) {
-    size = "15px";
   }
 
   const Copy = async () => {
@@ -31,9 +30,10 @@ export default function Copy(props: { text: string; size: string }) {
       }}
     >
       <p className="break-all lg:w-full text-start">{text}</p>
+
       <svg
-        width="19"
-        height="22"
+        width={props.width}
+        height={props.height}
         viewBox="0 0 19 22"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

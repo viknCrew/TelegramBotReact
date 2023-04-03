@@ -115,14 +115,14 @@ export default function Wallet() {
               : `₽ ${(Prise * balanceWallet).toFixed(4)} RUB`}
           </p>
           <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            <Copy text={address} size="10px" />
+            <Copy text={address} width="10px" height="11" />
           </div>
         </div>
         <NavigateBar />
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
             {" "}
-            <p className="text-2xl font-bold flex justify-center mt-2]">
+            <p className="text-2xl font-bold flex justify-center mt-4]">
               {" "}
               {t("HomePage.History")}{" "}
             </p>
