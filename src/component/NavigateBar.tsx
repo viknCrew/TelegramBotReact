@@ -10,7 +10,7 @@ export default function NavigateBar() {
         className=" py-[7px] flex items-center justify-center  rounded-md "
       >
         <div className="grid grid-cols-1 m-0 p-0  font-semibold">
-          <div className=" w-[28px] h-[28px] bg-[var(--tg-theme-secondary-bg-color)] flex justify-center items-center rounded-full shadow-lg">
+          <div className="mx-auto w-[28px] h-[28px] rounded-full bg-[var(--tg-theme-secondary-bg-color)] flex justify-center items-center  shadow-lg">
             <svg
               width="20"
               height="20"
