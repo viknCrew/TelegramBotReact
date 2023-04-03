@@ -6,6 +6,7 @@ import LoaderSkeleton from "../component/loader";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalLoader, GlobalStore } from "../store";
 import { statusTransation } from "../types/transaction";
+import Copy from "../component/Copy";
 
 export default function Wallet() {
   const { t, i18n } = useTranslation();
@@ -73,11 +74,8 @@ export default function Wallet() {
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <div className="flex justify-center items-start mt-[15px] font-black text-2xl">
+          <div className="flex justify-center items-start mt-[15px] font-black text-2xl text-[var(--tg-theme-hint-color)]">
             {t("HomePage.Wallet")}
-          </div>
-          <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
-            {address}
           </div>
           <div className="flex items-center ml-[30px]">
             <div className="w-[25px]">
@@ -108,13 +106,16 @@ export default function Wallet() {
                 />
               </svg>
             </div>
-            <p className="font-medium text-lg"> {balanceWallet} TMY ≈</p>
+            <p className="font-semibold text-xl"> {balanceWallet} TMY ≈</p>
           </div>
-          <p className="text-[var(--tg-theme-hint-color)] text-sm ml-[30px]">
+          <p className="text-[var(--tg-theme-hint-color)] text-lg ml-[30px]">
             {currency === "usd"
               ? `$ ${(Prise * balanceWallet).toFixed(4)} USD`
               : `₽ ${(Prise * balanceWallet).toFixed(4)} RUB`}
           </p>
+          <div className="text-[var(--tg-theme-hint-color)] font-smail text-xs ml-[30px]">
+            <Copy text={address} size="20px" />
+          </div>
         </div>
         <div className="grid gap-6 grid-cols-2">
           <Link

@@ -10,7 +10,7 @@ import { web3 } from "../service/getWeb3";
 import { GlobalStore } from "../store";
 
 export default function Receive() {
-  const coin = require("../assets/Coin.png");
+  const coin = require("../assets/Coin.svg");
   const { tg } = useTelegram();
   const { AddressStore } = GlobalStore();
   const { t } = useTranslation();

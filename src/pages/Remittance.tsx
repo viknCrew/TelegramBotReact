@@ -6,7 +6,7 @@ import { GlobalStore } from "../store";
 import Check from "./Check";
 
 export default function Send() {
-  const coin = require("../assets/Coin.png");
+  const coin = require("../assets/Coin.svg");
 
   const navigate = useNavigate();
 
