@@ -38,7 +38,7 @@ export default function Trancsation() {
   }
 
   if (tran.status === statusTransation.send) {
-    walet = require("../assets/Send.png");
+    walet = require("../assets/Send.svg");
     header = t("TransactionPage.SendTo");
     color = "#FF3A3A";
     value = `- ${tran.value}`;
@@ -46,7 +46,7 @@ export default function Trancsation() {
     myWallet = tran.from;
     WalletHeader = t("TransactionPage.Recipient");
   } else {
-    walet = require("../assets/Receiving.png");
+    walet = require("../assets/Receiving.svg");
     header = t("TransactionPage.ReceivingFrom");
     color = "#00FCDE";
     value = `+ ${tran.value}`;
