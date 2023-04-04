@@ -1,13 +1,12 @@
 import { useUnit } from "effector-react";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import LoaderSkeleton from "../component/loader";
 import { useTelegram } from "../hooks/useTelegram";
 import { GlobalLoader, GlobalStore } from "../store";
-import { statusTransation } from "../types/transaction";
 import Copy from "../component/Copy";
 import NavigateBar from "../component/NavigateBar";
+import TxList from "../component/TxList";
 
 export default function Wallet() {
   const { t, i18n } = useTranslation();
@@ -122,58 +121,12 @@ export default function Wallet() {
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
             {" "}
-            <p className="text-2xl font-bold flex justify-center mt-4]">
+            <p className="text-2xl font-bold flex justify-center mt-4] text-[var(--tg-theme-hint-color)]">
               {" "}
               {t("HomePage.History")}{" "}
             </p>
             <div className="h-4 w-[98%] "></div>
-            {trancsationStore.map((tran: any) => {
-              let walet: any;
-              let header: string;
-              let color: string;
-              let value: string;
-              let FromTo: string;
-
-              if (tran.status === statusTransation.send) {
-                walet = require("../assets/Send.svg");
-                header = t("HomePage.SendTo");
-                color = "#FF3A3A";
-                value = `- ${tran.value}`;
-                FromTo = tran.to;
-              } else {
-                walet = require("../assets/Receiving.svg");
-                header = t("HomePage.ReceivingFrom");
-                color = "#00FCDE";
-                value = `+ ${tran.value}`;
-                FromTo = tran.from;
-              }
-
-              return (
-                <Link
-                  to={`/trancsation/${tran.Hash}`}
-                  className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4 my-3"
-                >
-                  <div className="flex">
-                    <img src={walet} style={{ height: 30 }} className="m-4" />
-                    <div>
-                      <p className="text-lg ">{header}</p>
-                      <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
-                        {FromTo}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex justify-between">
-                    <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
-                      {tran.timeStamp}
-                    </p>
-                    <p className={`text-[${color}] items-start`}>
-                      {" "}
-                      {value} TMY{" "}
-                    </p>
-                  </div>
-                </Link>
-              );
-            })}
+            <TxList Tx={trancsationStore}/>
           </div>
         </div>
       </div>

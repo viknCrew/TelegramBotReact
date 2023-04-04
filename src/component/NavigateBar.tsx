@@ -66,7 +66,7 @@ export default function NavigateBar() {
             >
               <path
                 d="M10.8075 9.08169C13.6751 9.08169 15.9997 8.04922 15.9997 6.77559C15.9997 5.50196 13.6751 4.46948 10.8075 4.46948C7.93988 4.46948 5.61523 5.50196 5.61523 6.77559C5.61523 8.04922 7.93988 9.08169 10.8075 9.08169Z"
-                stroke="var(--tg-theme-link-color)3"
+                stroke="var(--tg-theme-link-color)"
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
