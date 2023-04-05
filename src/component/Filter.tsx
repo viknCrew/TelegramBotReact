@@ -108,6 +108,71 @@ export default function Filter() {
             <li>
               <a
                 href="#"
+                className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2"
+              >
+                <span className="relative ">
+                  {" "}
+                  <details className="overflow-hidden rounded border bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between gap-2 p-4 transition cursor-pointer ">
+                      <span className="text-sm font-medium"> Crypto </span>
+
+                      <span className="transition group-open:-rotate-180">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth="1.5"
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                          />
+                        </svg>
+                      </span>
+                    </summary>
+
+                    <div className="border-t bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] ">
+                      <ul className="p-4 space-y-1 border-t border-[var(--tg-theme-text-color)]">
+                        <li>
+                          <label
+                            htmlFor="FilterInStock"
+                            className="inline-flex items-center gap-2"
+                          >
+                            <input
+                              type="checkbox"
+                              id="FilterInStock"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded focus:ring-[var(--tg-theme-secondary-bg-color)]"
+                            />
+
+                            <span className="text-sm font-medium ">TMY</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label
+                            htmlFor="FilterInStock"
+                            className="inline-flex items-center gap-2"
+                          >
+                            <input
+                              type="checkbox"
+                              id="FilterInStock"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded focus:ring-[var(--tg-theme-secondary-bg-color)]"
+                            />
+
+                            <span className="text-sm font-medium ">USDT</span>
+                          </label>
+                        </li>
+                      </ul>
+                    </div>
+                  </details>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
                 className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100"
               >
                 <span className="relative ">
