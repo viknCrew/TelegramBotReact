@@ -37,7 +37,7 @@ export default function Exchanger() {
         </div>
         {advert.map((ad: IAdvert) => {
           return (
-            <div className="w-[90%] bg-[var(--tg-theme-bg-color)] m-5  rounded-xl shadow-lg">
+            <div className="w-full bg-[var(--tg-theme-bg-color)] m-5  rounded-xl shadow-lg">
               <div className="flex gap-3 items-center ">
                 <img
                   src={ad.image}
