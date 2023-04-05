@@ -13,18 +13,14 @@ export default function Filter() {
         htmlFor="hamburger"
         className="peer-checked:hamburger block relative z-20 -mr-6 cursor-pointer lg:hidden"
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="28"
-          viewBox="0 96 960 960"
-          width="28"
-          fill="var(--tg-theme-text-color)"
-        >
-          <path
-            stroke="var(--tg-theme-text-color)"
-            d="M400 816v-60h160v60H400ZM240 606v-60h480v60H240ZM120 396v-60h720v60H120Z"
-          />
-        </svg>
+        <div
+          aria-hidden="true"
+          className="m-auto h-0.5 w-6 rounded bg-[var(--tg-theme-text-color)] transition duration-300"
+        ></div>
+        <div
+          aria-hidden="true"
+          className="m-auto mt-2 h-0.5 w-6 rounded bg-[var(--tg-theme-text-color)]  transition duration-300"
+        ></div>
       </label>
       <div className="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] bg-[var(--tg-theme-bg-color)] border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0">
         <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
@@ -36,12 +32,9 @@ export default function Filter() {
               >
                 <span className="relative ">
                   {" "}
-                  <details className="overflow-hidden rounded border border-gray-300 dark:border-gray-600 [&_summary::-webkit-details-marker]:hidden">
-                    <summary className="flex items-center justify-between gap-2 p-4 text-gray-900 transition cursor-pointer dark:text-white">
-                      <span className="text-sm font-medium">
-                        {" "}
-                        Availability{" "}
-                      </span>
+                  <details className="overflow-hidden rounded border bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between gap-2 p-4 transition cursor-pointer ">
+                      <span className="text-sm font-medium"> Сurrency </span>
 
                       <span className="transition group-open:-rotate-180">
                         <svg
@@ -61,21 +54,17 @@ export default function Filter() {
                       </span>
                     </summary>
 
-                    <div className="bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                    <div className="border-t bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] ">
                       <header className="flex items-center justify-between p-4">
-                        <span className="text-sm text-gray-700 dark:text-gray-200">
-                          0 Selected
-                        </span>
-
                         <button
                           type="button"
-                          className="text-sm text-gray-900 underline underline-offset-4 dark:text-white"
+                          className="text-sm  underline underline-offset-4 "
                         >
-                          Reset
+                          EUR
                         </button>
                       </header>
 
-                      <ul className="p-4 space-y-1 border-t border-gray-200 dark:border-gray-700">
+                      <ul className="p-4 space-y-1 border-t border-[var(--tg-theme-text-color)]">
                         <li>
                           <label
                             htmlFor="FilterInStock"
@@ -84,12 +73,10 @@ export default function Filter() {
                             <input
                               type="checkbox"
                               id="FilterInStock"
-                              className="w-5 h-5 border-gray-300 rounded dark:border-gray-600 dark:bg-gray-900 dark:focus:ring-offset-gray-900"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded"
                             />
 
-                            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                              In Stock (5+)
-                            </span>
+                            <span className="text-sm font-medium ">RUB</span>
                           </label>
                         </li>
 
@@ -101,29 +88,10 @@ export default function Filter() {
                             <input
                               type="checkbox"
                               id="FilterPreOrder"
-                              className="w-5 h-5 border-gray-300 rounded dark:border-gray-600 dark:bg-gray-900 dark:focus:ring-offset-gray-900"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded "
                             />
 
-                            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                              Pre Order (3+)
-                            </span>
-                          </label>
-                        </li>
-
-                        <li>
-                          <label
-                            htmlFor="FilterOutOfStock"
-                            className="inline-flex items-center gap-2"
-                          >
-                            <input
-                              type="checkbox"
-                              id="FilterOutOfStock"
-                              className="w-5 h-5 border-gray-300 rounded dark:border-gray-600 dark:bg-gray-900 dark:focus:ring-offset-gray-900"
-                            />
-
-                            <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-                              Out of Stock (10+)
-                            </span>
+                            <span className="text-sm font-medium ">USD</span>
                           </label>
                         </li>
                       </ul>
@@ -138,8 +106,8 @@ export default function Filter() {
                 className="group relative before:absolute before:inset-x-0 before:bottom-0 before:h-2 before:origin-right before:scale-x-0 before:transition before:duration-200 hover:before:origin-left hover:before:scale-x-100"
               >
                 <span className="relative ">
-                  <details className="overflow-hidden rounded border border-gray-300 dark:border-gray-600 [&_summary::-webkit-details-marker]:hidden">
-                    <summary className="flex items-center justify-between gap-2 p-4 text-gray-900 transition cursor-pointer dark:text-white">
+                  <details className="overflow-hidden rounded border bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] [&_summary::-webkit-details-marker]:hidden">
+                    <summary className="flex items-center justify-between gap-2 p-4 transition cursor-pointer ">
                       <span className="text-sm font-medium"> Price </span>
 
                       <span className="transition group-open:-rotate-180">
@@ -160,35 +128,29 @@ export default function Filter() {
                       </span>
                     </summary>
 
-                    <div className="bg-white border-t border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                    <div className="border-[var(--tg-theme-text-color)] bg-[var(--tg-theme-secondary-bg-color)]">
                       <header className="flex items-center justify-between p-4">
-                        <span className="text-sm text-gray-700 dark:text-gray-200">
-                          The highest price is $600
-                        </span>
-
                         <button
                           type="button"
-                          className="text-sm text-gray-900 underline underline-offset-4 dark:text-white"
+                          className="text-sm underline underline-offset-4"
                         >
                           Reset
                         </button>
                       </header>
 
-                      <div className="p-4 border-t border-gray-200 dark:border-gray-700">
+                      <div className="p-4 border-t">
                         <div className="flex justify-between gap-4">
                           <label
                             htmlFor="FilterPriceFrom"
                             className="flex items-center gap-2"
                           >
-                            <span className="text-sm text-gray-600 dark:text-gray-300">
-                              $
-                            </span>
+                            <span className="text-sm">$</span>
 
                             <input
                               type="number"
                               id="FilterPriceFrom"
                               placeholder="From"
-                              className="w-full border-gray-200 rounded-md shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-900 sm:text-sm"
+                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm sm:text-sm"
                             />
                           </label>
 
@@ -196,15 +158,13 @@ export default function Filter() {
                             htmlFor="FilterPriceTo"
                             className="flex items-center gap-2"
                           >
-                            <span className="text-sm text-gray-600 dark:text-gray-300">
-                              $
-                            </span>
+                            <span className="text-sm">$</span>
 
                             <input
                               type="number"
                               id="FilterPriceTo"
                               placeholder="To"
-                              className="w-full border-gray-200 rounded-md shadow-sm dark:border-gray-700 dark:bg-gray-900 dark:text-white dark:focus:ring-offset-gray-900 sm:text-sm"
+                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm  sm:text-sm"
                             />
                           </label>
                         </div>
