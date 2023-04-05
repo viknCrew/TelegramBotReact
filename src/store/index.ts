@@ -1,4 +1,5 @@
 import { AddressStore } from "./main/addressStore";
+import { AdvertStore } from "./main/advert";
 import { balance } from "./main/coinStore";
 import { CurrencyStore } from "./main/currencyStore";
 import { AddressByNiknameStore } from "./main/getAddressByNikname";
@@ -22,7 +23,8 @@ export const GlobalStore = () => {
     PriseStore,
     AddressByNiknameStore,
     languageStore,
-    CurrencyStore
+    CurrencyStore, 
+    AdvertStore
   };
 };
 
