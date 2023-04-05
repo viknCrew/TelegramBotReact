@@ -12,6 +12,7 @@ export default function Exchanger() {
   const { tg } = useTelegram();
 
   useEffect(() => {
+    tg.BackButton.show();
     AdvertStore.store;
   }, []);
 

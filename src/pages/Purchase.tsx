@@ -1,29 +1,11 @@
-import { useUnit } from "effector-react";
-import { GlobalStore } from "../store";
-import { IAdvert } from "../types/advert";
-import { useTelegram } from "../hooks/useTelegram";
-import { useCallback, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
 export default function Purchase() {
-  const { AdvertStore } = GlobalStore();
-  const advert: IAdvert[] = useUnit(AdvertStore.store);
-  const { tg } = useTelegram();
-
-  useEffect(() => {
-    AdvertStore.store;
-  }, []);
-
-  const navigate = useNavigate();
-  const onBack = useCallback(() => {
-    navigate("/exchanger");
-  }, []);
-
-  useEffect(() => {
-    tg.onEvent("backButtonClicked", onBack);
-    return () => {
-      tg.offEvent("backButtonClicked", onBack);
-    };
-  }, [onBack]);
-  return;
+  return (
+    <div className="flex justify-center">
+      <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
+        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-around sticky top-0">
+          TEST
+        </div>
+      </div>
+    </div>
+  );
 }
