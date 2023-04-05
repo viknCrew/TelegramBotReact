@@ -30,7 +30,7 @@ export default function Exchanger() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
-        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-around">
+        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-around sticky top-0">
           <div className="flex justify-evenly gap-6">
             <div className="bg-[#8F6DD7] py-1 px-3  rounded-full">RUB</div>
             <div className="bg-[#3947C9] py-1 px-3  rounded-full">TMY</div>
