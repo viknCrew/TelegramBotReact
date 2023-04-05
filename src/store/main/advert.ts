@@ -3,7 +3,7 @@ import { IAdvert } from "../../types/advert";
 
 export const advert: IAdvert[] = [
   {
-    image: "blob:https://web.telegram.org/2c8a64d2-3ea5-4b38-9589-1b7070c0ac71",
+    image: "https://sun7-3.userapi.com/impg/CxRej8uPEoxhCkO7FVn1-dJa7bvr76Vh9iRX3Q/WILUyuoWU_g.jpg?size=810x1080&quality=96&sign=a9f3aa5ff4d00182f347b50619655dc7&c_uniq_tag=ZeBOA6fsRFNYonpd1xIqTY3nga9J8L6GM1HBgWsXiFc&type=album",
     nickname: "Tsigulsky Nikita",
     available: 234.442,
     limits: 15.3213,

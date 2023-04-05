@@ -38,12 +38,12 @@ export default function Exchanger() {
         {advert.map((ad: IAdvert) => {
           return (
             <div className="w-full bg-[var(--tg-theme-bg-color)] m-5  rounded-xl shadow-lg">
-              <div className="flex gap-3 items-center ">
+              <div className="flex gap-3 items-center">
                 <img
                   src={ad.image}
                   alt="avatar"
-                  width="30px"
-                  height="30px"
+                  width="50px"
+                  height="50px"
                   className=" rounded-full"
                 />
                 <p className="text-xl font-bold">{ad.nickname}</p>
