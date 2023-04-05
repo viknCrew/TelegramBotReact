@@ -249,9 +249,9 @@ export default function Filter() {
           <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:border-l lg:py-0 lg:pr-0 lg:pl-6">
             <a
               href="#"
-              className="block px-6 py-3 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 text-center text-white"
+              className="block px-6 py-3 rounded-full bg-gradient-to-r  bg-[var(--tg-theme-link-color)] text-center"
             >
-              Get started
+              Save
             </a>
           </div>
         </div>
