@@ -37,12 +37,14 @@ export default function Exchanger() {
         </div>
         {advert.map((ad: IAdvert) => {
           return (
-            <div className="w-[90%] bg-[var(--tg-theme-bg-color)]  rounded-xl shadow-lg">
-              <div className="flex gap-3">
+            <div className="w-[90%] bg-[var(--tg-theme-bg-color)] m-5  rounded-xl shadow-lg">
+              <div className="flex gap-3 items-center ">
                 <img
                   src={ad.image}
                   alt="avatar"
-                  className="w-60 h-60 rounded-full"
+                  width="30px"
+                  height="30px"
+                  className=" rounded-full"
                 />
                 <p className="text-xl font-bold">{ad.nickname}</p>
               </div>
@@ -102,7 +104,7 @@ export default function Exchanger() {
                     </defs>
                   </svg>
                 </button>
-                <button className="bg-[var(--tg-theme-link-color)] font-bold text-xl px-2  rounded-xl">
+                <button className="bg-[var(--tg-theme-link-color)] font-bold text-xl px-6 py-3 rounded-xl">
                   Buy
                 </button>
               </div>
