@@ -55,15 +55,6 @@ export default function Filter() {
                     </summary>
 
                     <div className="border-t bg-[var(--tg-theme-secondary-bg-color)]  border-[var(--tg-theme-text-color)] ">
-                      <header className="flex items-center justify-between p-4">
-                        <button
-                          type="button"
-                          className="text-sm  underline underline-offset-4 "
-                        >
-                          EUR
-                        </button>
-                      </header>
-
                       <ul className="p-4 space-y-1 border-t border-[var(--tg-theme-text-color)]">
                         <li>
                           <label
@@ -73,7 +64,21 @@ export default function Filter() {
                             <input
                               type="checkbox"
                               id="FilterInStock"
-                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded focus:ring-[var(--tg-theme-secondary-bg-color)]"
+                            />
+
+                            <span className="text-sm font-medium ">EUR</span>
+                          </label>
+                        </li>
+                        <li>
+                          <label
+                            htmlFor="FilterInStock"
+                            className="inline-flex items-center gap-2"
+                          >
+                            <input
+                              type="checkbox"
+                              id="FilterInStock"
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded focus:ring-[var(--tg-theme-secondary-bg-color)]"
                             />
 
                             <span className="text-sm font-medium ">RUB</span>
@@ -88,7 +93,7 @@ export default function Filter() {
                             <input
                               type="checkbox"
                               id="FilterPreOrder"
-                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded "
+                              className="w-5 h-5 border-[var(--tg-theme-text-color)] rounded focus:ring-[var(--tg-theme-secondary-bg-color)]"
                             />
 
                             <span className="text-sm font-medium ">USD</span>
@@ -150,7 +155,7 @@ export default function Filter() {
                               type="number"
                               id="FilterPriceFrom"
                               placeholder="From"
-                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm sm:text-sm"
+                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm sm:text-sm focus:ring-[var(--tg-theme-secondary-bg-color)]"
                             />
                           </label>
 
@@ -164,7 +169,7 @@ export default function Filter() {
                               type="number"
                               id="FilterPriceTo"
                               placeholder="To"
-                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm  sm:text-sm"
+                              className="w-full border-[var(--tg-theme-text-color)] rounded-md shadow-sm  sm:text-sm focus:ring-[var(--tg-theme-secondary-bg-color)]"
                             />
                           </label>
                         </div>
