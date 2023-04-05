@@ -24,7 +24,7 @@ export default function Filter() {
       </label>
       <div className="peer-checked:translate-x-0 fixed inset-0 w-[calc(100%-4.5rem)] translate-x-[-100%] bg-[var(--tg-theme-bg-color)] border-r shadow-xl transition duration-300 lg:border-r-0 lg:w-auto lg:static lg:shadow-none lg:translate-x-0">
         <div className="flex flex-col h-full justify-between lg:items-center lg:flex-row">
-          <ul className="px-6 pt-32 space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0">
+          <ul className="px-6 pt-10 space-y-8 md:px-12 lg:space-y-0 lg:flex lg:space-x-12 lg:pt-0">
             <li>
               <a
                 href="#"
@@ -246,7 +246,7 @@ export default function Filter() {
             </li>
           </ul>
 
-          <div className="border-t py-8 px-6 md:px-12 md:py-16 lg:border-t-0 lg:border-l lg:py-0 lg:pr-0 lg:pl-6">
+          <div className="py-8 px-6 md:px-12 md:py-16 lg:border-l lg:py-0 lg:pr-0 lg:pl-6">
             <a
               href="#"
               className="block px-6 py-3 rounded-full bg-gradient-to-r  bg-[var(--tg-theme-link-color)] text-center"
