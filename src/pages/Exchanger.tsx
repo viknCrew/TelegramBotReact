@@ -1,16 +1,31 @@
 import { useUnit } from "effector-react";
 import { GlobalStore } from "../store";
 import { IAdvert } from "../types/advert";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import Filter from "../component/Filter";
+import { Link, useNavigate } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 
 export default function Exchanger() {
   const { AdvertStore } = GlobalStore();
   const advert: IAdvert[] = useUnit(AdvertStore.store);
+  const { tg } = useTelegram();
 
   useEffect(() => {
     AdvertStore.store;
   }, []);
+
+  const navigate = useNavigate();
+  const onBack = useCallback(() => {
+    navigate("/");
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
 
   return (
     <div className="flex justify-center">
@@ -21,7 +36,7 @@ export default function Exchanger() {
             <div className="bg-[#3947C9] py-1 px-3  rounded-full">TMY</div>
             <div className="bg-[#2D8C0B] py-1 px-3  rounded-full">1200</div>
           </div>
-          <Filter/>
+          <Filter />
         </div>
         {advert.map((ad: IAdvert) => {
           return (
@@ -90,9 +105,12 @@ export default function Exchanger() {
                     </defs>
                   </svg>
                 </button>
-                <button className="bg-[var(--tg-theme-link-color)] font-bold text-xl px-6 py-1 rounded-xl">
+                <Link
+                  className="bg-[var(--tg-theme-link-color)] font-bold text-xl px-6 py-1 rounded-xl"
+                  to={`/exchanger/${ad.numberAdventer}`}
+                >
                   Buy
-                </button>
+                </Link>
               </div>
             </div>
           );

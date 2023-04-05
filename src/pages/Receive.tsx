@@ -20,14 +20,6 @@ export default function Receive() {
   );
 
   async function copyPageUrl() {
-    // await navigator.clipboard
-    //   .writeText(walet)
-    //   .then(() => {
-    //     tg.showAlert("Address copied");
-    //   })
-    //   .catch((err) => {
-    //     tg.showAlert("Не удалось скопировать: " + err);
-    //   });
 
     try {
       tg.showAlert("Address copied: "+walet);

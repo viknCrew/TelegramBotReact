@@ -38,4 +38,9 @@ export const router = createBrowserRouter([
     element: <Exchanger />,
     errorElement: <ErrorPage />,
   },
+  {
+    path: "/exchanger/:id",
+    element: <Exchanger />,
+    errorElement: <ErrorPage />,
+  },
 ]);
