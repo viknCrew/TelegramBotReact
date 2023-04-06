@@ -45,14 +45,14 @@ export default function Exchanger() {
                 <img
                   src={ad.image}
                   alt="avatar"
-                  className="h-3 w-3 rounded-full object-cover"
+                  className="h-5 w-5 rounded-full object-cover"
                 />
-                <p className="text-sm font-bold align-text-top flex gap-6">
+                <p className="text-xs font-bold align-text-top flex gap-2">
                   {ad.nickname}
                   <p className="font-light">{ad.static}</p>
                 </p>
               </div>
-              <p className="text-2xl mx-4 font-extrabold">{ad.price}</p>
+              <p className="text-2xl mx-4 font-extrabold">{`${ad.price} ${ad.currency}`}</p>
               <table>
                 <tr>
                   <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
