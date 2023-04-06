@@ -41,18 +41,18 @@ export default function Exchanger() {
         {advert.map((ad: IAdvert) => {
           return (
             <div className="w-full bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-              <div className="flex gap-3 items-center mx-4 mt-1 mb-2 border-b-[var(--tg-theme-text-color)]">
+              <div className="flex gap-3 items-center mx-4 mt-1 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
                 <img
                   src={ad.image}
                   alt="avatar"
                   className="h-5 w-5 rounded-full object-cover"
                 />
-                <p className="text-xs font-bold align-text-top flex gap-2">
+                <p className="text-sm font-bold align-text-top flex gap-2">
                   {ad.nickname}
                   <p className="font-light">{ad.static}</p>
                 </p>
               </div>
-              <p className="text-2xl mx-4 font-extrabold">{`${ad.price} ${ad.currency}`}</p>
+              <p className="text-2xl mx-4 font-bold">{`${ad.price} ${ad.currency}`}</p>
               <table>
                 <tr>
                   <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
