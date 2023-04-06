@@ -52,10 +52,10 @@ export default function Purchase() {
             {advert[0].numberAdventer}
           </div>
         </div>
-        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
+        <div className="w-[90%] py-3  rounded-xl shadow-lg sticky top-0">
           <div className="flex items-center">
             <div className="relative mt-1 rounded-md shadow-sm">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-3xl">
                 ₽
               </div>
               <input
@@ -77,13 +77,14 @@ export default function Purchase() {
               <div className="absolute inset-y-0 right-0 flex items-center">
                 <div
                   id="currency"
-                  className="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
+                  className="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 text-3xl sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
                 >
                   RUB
                 </div>
               </div>
             </div>
           </div>
+          <div className="w-[90%] ">MIN {advert[0].limits} TMY</div>
         </div>
       </div>
     </div>
