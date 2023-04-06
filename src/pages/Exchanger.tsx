@@ -47,7 +47,7 @@ export default function Exchanger() {
                   alt="avatar"
                   className="h-5 w-5 rounded-full object-cover"
                 />
-                <p className="text-xl font-bold align-text-top flex gap-2">
+                <p className="text-xs font-bold align-text-top flex gap-2">
                   {ad.nickname}
                   <p className="font-light">{ad.static}</p>
                 </p>
