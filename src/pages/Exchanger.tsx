@@ -52,24 +52,24 @@ export default function Exchanger() {
               </div>
               <table>
                 <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-[var(--tg-theme-link-color)]">
+                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                     Available
                   </td>
-                  <td className="whitespace-nowrap px-4 py-2">
+                  <td className="whitespace-nowrap px-4 ">
                     {ad.available}
                   </td>
                 </tr>
                 <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-[var(--tg-theme-link-color)]">
+                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                     Limits
                   </td>
-                  <td className="whitespace-nowrap px-4 py-2">{ad.limits}</td>
+                  <td className="whitespace-nowrap px-4 ">{ad.limits}</td>
                 </tr>
                 <tr>
-                  <td className="whitespace-nowrap px-4 py-2 font-medium text-[var(--tg-theme-link-color)]">
+                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                     Payment method
                   </td>
-                  <td className="whitespace-nowrap px-4 py-2">
+                  <td className="whitespace-nowrap px-4 ">
                     {ad.paymentMethod}
                   </td>
                 </tr>

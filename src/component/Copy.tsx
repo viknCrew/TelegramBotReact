@@ -5,7 +5,6 @@ export default function Copy(props: {
   width: string;
   height: string;
 }) {
-  const CopyIMG = require("../assets/Copy.svg");
   const { tg } = useTelegram();
   let text: string = props.text;
 
@@ -14,7 +13,6 @@ export default function Copy(props: {
   }
 
   const Copy = async () => {
-    navigator.clipboard.writeText(text);
     try {
       await navigator.clipboard.writeText(text);
       tg.showAlert("Address copied");
@@ -22,6 +20,7 @@ export default function Copy(props: {
       tg.showAlert("Не удалось скопировать: " + err);
     }
   };
+
   return (
     <button
       className="text-[var(--tg-theme-link-color)] flex gap-1 hyphens-manual justify-start "

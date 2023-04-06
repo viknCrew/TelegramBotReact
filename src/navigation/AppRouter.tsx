@@ -6,6 +6,7 @@ import Receive from "../pages/Receive";
 import Trancsation from "../pages/transation";
 import Remittance from "../pages/Remittance";
 import Exchanger from "../pages/Exchanger";
+import Purchase from "../pages/Purchase";
 
 export const router = createBrowserRouter([
   {
@@ -39,7 +40,8 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/purchase/:id",
-    element: <Exchanger />,
+    path: "/exchanger/:id",
+    element: <Purchase />,
+    errorElement: <ErrorPage />,
   },
 ]);
