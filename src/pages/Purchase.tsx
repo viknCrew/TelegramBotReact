@@ -73,7 +73,7 @@ export default function Purchase() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className={`w-full border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl   sm:text-sm  mx-4 ${
+                className={` border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl   sm:text-sm  mx-4 ${
                   tg.MainButton.isActive
                     ? "text-[var(--tg-theme-button-color)]"
                     : "text-[#FF3A3A]"
