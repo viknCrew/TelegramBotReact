@@ -55,9 +55,7 @@ export default function Exchanger() {
                   <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                     Available
                   </td>
-                  <td className="whitespace-nowrap px-4 ">
-                    {ad.available}
-                  </td>
+                  <td className="whitespace-nowrap px-4 ">{ad.available}</td>
                 </tr>
                 <tr>
                   <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">

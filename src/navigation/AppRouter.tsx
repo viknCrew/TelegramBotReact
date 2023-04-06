@@ -41,11 +41,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/purchase/:id",
-    element: (
-      <>
-        <p>Test</p>
-      </>
-    ),
+    element: <p>Test</p>,
     errorElement: <ErrorPage />,
   },
 ]);
