@@ -73,7 +73,7 @@ export default function Purchase() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className={`w-full border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl  pr-12 sm:text-sm pl-12 ${
+                className={`w-full border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl   sm:text-sm  mx-4 ${
                   tg.MainButton.isActive
                     ? "text-[var(--tg-theme-button-color)]"
                     : "text-[#FF3A3A]"
@@ -86,14 +86,14 @@ export default function Purchase() {
               <div className="absolute inset-y-0 right-0 flex items-center">
                 <div
                   id="currency"
-                  className="h-full rounded-md border-transparent bg-transparent py-0 pl-2 pr-7 text-3xl sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
+                  className="h-full rounded-md border-transparent bg-transparent py-0 ml-2 mr-7 text-3xl sm:text-sm flex items-center text-[var(--tg-theme-button-color)]"
                 >
                   RUB
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-full font-bold ">MIN {advert[0].limits} TMY</div>
+          <div className="w-full font-bold  mx-4">MIN {advert[0].limits} TMY</div>
         </div>
         <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
           <table>
