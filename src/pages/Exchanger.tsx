@@ -49,6 +49,7 @@ export default function Exchanger() {
                   className="h-10 w-10 rounded-full object-cover"
                 />
                 <p className="text-xl font-bold">{ad.nickname}</p>
+                {ad.numberAdventer}
               </div>
               <table>
                 <tr>
