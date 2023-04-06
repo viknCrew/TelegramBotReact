@@ -49,7 +49,7 @@ export default function Exchanger() {
                 />
                 <p className="text-sm font-bold align-text-top flex gap-6">
                   {ad.nickname}
-                  <p className="font-light">{ad.nickname}</p>
+                  <p className="font-light">{ad.static}</p>
                 </p>
               </div>
               <p className="text-2xl mx-4 font-extrabold">{ad.price}</p>
