@@ -18,9 +18,8 @@ export default function Send() {
     navigate("/");
   }, []);
 
-
   const service = "/getAddressByNickname";
-  
+
   const instance = axios.create({
     baseURL: `${process.env.REACT_APP_SEVER}${service} `,
   });
@@ -99,7 +98,7 @@ export default function Send() {
         <textarea
           id="UserEmail"
           placeholder="Email"
-          className="peer w-full h-10 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-sm"
+          className="peer w-full h-10 border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 text-sm align-middle"
           value={text}
           onChange={(e) => setTextInput(e)}
         />

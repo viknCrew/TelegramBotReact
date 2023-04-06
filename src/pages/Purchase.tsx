@@ -44,28 +44,9 @@ export default function Purchase() {
           </div>
           {advert[0].numberAdventer}
         </div>
-        <table>
-                <tr>
-                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                    Price for 1 TMY  
-                  </td>
-                  <td className="whitespace-nowrap px-4 ">{advert[0].price}</td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                    Limits
-                  </td>
-                  <td className="whitespace-nowrap px-4 ">{advert[0].limits}</td>
-                </tr>
-                <tr>
-                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                    Payment method
-                  </td>
-                  <td className="whitespace-nowrap px-4 ">
-                    {advert[0].paymentMethod}
-                  </td>
-                </tr>
-              </table>
+        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
+          
+        </div>
       </div>
     </div>
   );
