@@ -19,6 +19,9 @@ export default function Purchase() {
 
   useEffect(() => {
     AddressStore.event();
+    tg.MainButton.setParams({
+      text: "Buy",
+    });
     AdvertStore.event(String(params.id));
     tg.BackButton.show();
   }, []);
@@ -41,6 +44,14 @@ export default function Purchase() {
       tg.offEvent("backButtonClicked", onBack);
     };
   }, [onBack]);
+
+  useEffect(() => {
+    if (!text) {
+      tg.MainButton.hide();
+    } else {
+      tg.MainButton.show();
+    }
+  }, [text]);
 
   return (
     <div className="flex justify-center">
@@ -93,7 +104,9 @@ export default function Purchase() {
               </div>
             </div>
           </div>
-          <div className="w-full font-bold  mx-4">MIN {advert[0].limits} TMY</div>
+          <div className="w-full font-bold  mx-4">
+            MIN {advert[0].limits} TMY
+          </div>
         </div>
         <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
           <table>
