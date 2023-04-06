@@ -41,7 +41,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/purchase/:id",
-    element: <Purchase />,
+    element: (
+      <>
+        <p>Test</p>
+      </>
+    ),
     errorElement: <ErrorPage />,
   },
 ]);
