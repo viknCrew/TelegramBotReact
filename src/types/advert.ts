@@ -1,5 +1,6 @@
 
 export interface IAdvert{
+  price:number,
   image:string,
   nickname:string,
   available:number,
@@ -10,4 +11,6 @@ export interface IAdvert{
   numberAdventer:string,
   payWithin:string,   
   comment:string,    
+  static:string
+
 }
