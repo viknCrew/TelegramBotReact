@@ -72,10 +72,10 @@ export default function Purchase() {
             {advert[0].numberAdventer}
           </div>
         </div>
-        <div className="w-full bg-[var(--tg-theme-bg-color)] py-3 rounded-xl shadow-lg sticky top-0  mx-4">
+        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
           <div className="flex items-center">
             <div className="relative mt-1 rounded-md shadow-sm">
-              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-3xl">
+              <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center  text-3xl">
                 ₽
               </div>
               <input
@@ -84,7 +84,7 @@ export default function Purchase() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className={` border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl   sm:text-sm  mx-4 ${
+                className={` border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl  sm:text-sm  mx-4 ${
                   tg.MainButton.isActive
                     ? "text-[var(--tg-theme-button-color)]"
                     : "text-[#FF3A3A]"
