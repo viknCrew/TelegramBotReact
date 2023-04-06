@@ -73,7 +73,7 @@ export default function Purchase() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className={`w-full border-none focus:border-none text-3xl  pr-12 sm:text-sm pl-12 ${
+                className={`w-full border-none bg-[var(--tg-theme-bg-color)] focus:border-none text-3xl  pr-12 sm:text-sm pl-12 ${
                   tg.MainButton.isActive
                     ? "text-[var(--tg-theme-button-color)]"
                     : "text-[#FF3A3A]"
@@ -121,9 +121,9 @@ export default function Purchase() {
               <td className="whitespace-nowrap px-4 ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  height="48"
+                  height="20"
                   viewBox="0 96 960 960"
-                  width="48"
+                  width="20"
                   fill="var(--tg-theme-text-color)"
                 >
                   <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
