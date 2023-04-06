@@ -52,7 +52,7 @@ export default function Purchase() {
             {advert[0].numberAdventer}
           </div>
         </div>
-        <div className="w-[90%] py-3  rounded-xl shadow-lg sticky top-0">
+        <div className="w-full bg-[var(--tg-theme-bg-color)] py-3 rounded-xl shadow-lg sticky top-0">
           <div className="flex items-center">
             <div className="relative mt-1 rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-3xl">
@@ -84,7 +84,7 @@ export default function Purchase() {
               </div>
             </div>
           </div>
-          <div className="w-[90%] ">MIN {advert[0].limits} TMY</div>
+          <div className="w-full ">MIN {advert[0].limits} TMY</div>
         </div>
       </div>
     </div>
