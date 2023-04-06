@@ -40,7 +40,7 @@ export const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/exchanger/:id",
+    path: "/purchase/:id",
     element: <Purchase />,
     errorElement: <ErrorPage />,
   },
