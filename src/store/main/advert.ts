@@ -1,4 +1,4 @@
-import { createEvent, createStore } from "effector";
+import { createEffect, createEvent, createStore } from "effector";
 import { IAdvert } from "../../types/advert";
 
 export const advert: IAdvert[] = [
@@ -42,7 +42,13 @@ export const advert: IAdvert[] = [
   },
 ];
 
-const getAdvert = createEvent<IAdvert[]>();
+const getAdvert = createEffect((id: string) => {
+  var result = advert.filter((obj) => {
+    return obj.numberAdventer === id;
+  });
+
+  return result;
+});
 const $advertStore = createStore<IAdvert[]>(advert);
 
 export const AdvertStore = {

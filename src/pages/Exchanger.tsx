@@ -13,7 +13,6 @@ export default function Exchanger() {
 
   useEffect(() => {
     tg.BackButton.show();
-    AdvertStore.store;
   }, []);
 
   const navigate = useNavigate();

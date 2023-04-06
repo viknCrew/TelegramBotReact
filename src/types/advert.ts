@@ -5,9 +5,9 @@ export interface IAdvert{
   available:number,
   limits:number,
   paymentMethod:string,
-  currency:string
-  crypto:string
-  numberAdventer:string
-  payWithin:string   
-  comment:string    
+  currency:string,
+  crypto:string,
+  numberAdventer:string,
+  payWithin:string,   
+  comment:string,    
 }
