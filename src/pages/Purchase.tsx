@@ -7,16 +7,25 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 export default function Purchase() {
   const params = useParams();
-  const { AdvertStore } = GlobalStore();
+  const { AdvertStore, balance, AddressStore } = GlobalStore();
+
   const advert: IAdvert[] = useUnit(AdvertStore.store);
+  const balanceWallet = useUnit(balance.store);
+  const addressStore: string = String(AddressStore.store);
+
   const { tg } = useTelegram();
   const [text, setText] = useState<string>("");
   const searchInput: React.MutableRefObject<any> = useRef<any>();
 
   useEffect(() => {
+    AddressStore.event();
     AdvertStore.event(String(params.id));
     tg.BackButton.show();
   }, []);
+
+  useEffect(() => {
+    balance.event(addressStore);
+  }, [addressStore]);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const limit: number = 6;
     setText(e.target.value.slice(0, limit));
@@ -52,7 +61,7 @@ export default function Purchase() {
             {advert[0].numberAdventer}
           </div>
         </div>
-        <div className="w-full bg-[var(--tg-theme-bg-color)] py-3 rounded-xl shadow-lg sticky top-0">
+        <div className="w-full bg-[var(--tg-theme-bg-color)] py-3 rounded-xl shadow-lg sticky top-0  mx-4">
           <div className="flex items-center">
             <div className="relative mt-1 rounded-md shadow-sm">
               <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-3xl">
@@ -64,7 +73,7 @@ export default function Purchase() {
                 maxLength={6}
                 name="price"
                 id="price"
-                className={`w-full border-none focus:border-none text-3xl bg-[var(--tg-theme-secondary-bg-color)] pr-12 sm:text-sm pl-12 ${
+                className={`w-full border-none focus:border-none text-3xl  pr-12 sm:text-sm pl-12 ${
                   tg.MainButton.isActive
                     ? "text-[var(--tg-theme-button-color)]"
                     : "text-[#FF3A3A]"
@@ -84,7 +93,44 @@ export default function Purchase() {
               </div>
             </div>
           </div>
-          <div className="w-full ">MIN {advert[0].limits} TMY</div>
+          <div className="w-full font-bold ">MIN {advert[0].limits} TMY</div>
+        </div>
+        <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg sticky top-0">
+          <table>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Balance
+              </td>
+              <td className="whitespace-nowrap px-4 ">
+                {" "}
+                {`${balanceWallet} TMY`}
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Payment method
+              </td>
+              <td className="whitespace-nowrap px-4 text-[var(--tg-theme-link-color)] ">
+                ADD
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Details
+              </td>
+              <td className="whitespace-nowrap px-4 ">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="48"
+                  viewBox="0 96 960 960"
+                  width="48"
+                  fill="var(--tg-theme-text-color)"
+                >
+                  <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z" />
+                </svg>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
