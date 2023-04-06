@@ -108,7 +108,7 @@ export default function Exchanger() {
                 </button>
                 <Link
                   className="bg-[var(--tg-theme-link-color)] font-bold text-xl px-6 py-1 rounded-xl"
-                  to={`/purchase//${ad.numberAdventer}`}
+                  to={`/exchanger/${ad.numberAdventer}`}
                 >
                   Buy
                 </Link>

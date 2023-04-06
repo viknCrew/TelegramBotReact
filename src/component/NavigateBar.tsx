@@ -7,7 +7,7 @@ export default function NavigateBar() {
     <div className="grid gap-3 grid-cols-3 bg-[var(--tg-theme-bg-color)] rounded-xl text-sm ">
       <Link
         to={"/send"}
-        className=" py-[7px] flex items-center justify-center  rounded-md "
+        className=" ml-7 flex items-center justify-center  rounded-md "
       >
         <div className="grid grid-cols-1 m-0 p-0  font-semibold">
           <div className="mx-auto p-4 rounded-full bg-[var(--tg-theme-secondary-bg-color)] flex justify-center items-center  shadow-lg">
@@ -116,7 +116,7 @@ export default function NavigateBar() {
       </Link>
       <Link
         to={"/exchanger"}
-        className="py-[7px] flex items-center justify-center rounded-md"
+        className="mr-7 flex items-center justify-center rounded-md"
       >
         <div className="grid grid-cols-1 m-0 p-0  font-semibold">
           <div className="mx-auto p-4 rounded-full bg-[var(--tg-theme-secondary-bg-color)] flex justify-center items-center  shadow-lg">
