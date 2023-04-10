@@ -1,6 +1,6 @@
 export default function LoaderSkeleton() {
   return (
-    <div className="bg-[var(--tg-theme-secondary-bg-color)]">
+    <div className="bg-[var(--tg-theme-secondary-bg-color)] w-full">
       <div className="flex h-screen items-center justify-center">
         <div className="animation-pulse flex h-40 w-40 items-center justify-center rounded-full bg-[#6D00F3]">
           <svg
