@@ -117,7 +117,7 @@ export default function P2P() {
             </div>
           </Link>
           <Link
-            to={"/exchanger"}
+            to={"/createorder"}
             className="mr-7 flex items-center justify-center rounded-md"
           >
             <div className="grid grid-cols-1 m-0 p-0  font-semibold">
@@ -164,7 +164,7 @@ export default function P2P() {
             <div className="h-4 w-[98%] ">
               <Link
                 to={`/`}
-                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl p-2 grid grid-cols-1 px-4 mx-4  my-3"
+                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl p-2 grid grid-cols-1 mx-2  my-3"
               >
                 <div className="flex gap-3 items-center mx-4 mt-2 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
                   <p className="text-xs font-bold align-text-top flex gap-2 bg-[00FCDE]">
@@ -172,7 +172,7 @@ export default function P2P() {
                   </p>
                   <p className="font-light"> #AS-0002343</p>
                 </div>
-                <p className="font-bold text-xl">Sold 14 TMY for 2600 RUB</p>
+                <p className="font-bold text-lg">Sold 14 TMY for 2600 RUB</p>
                 <table className="min-w-full divide-y divide-[var(--tg-theme-secondary-bg-color)] text-sm">
                   <tr>
                     <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">

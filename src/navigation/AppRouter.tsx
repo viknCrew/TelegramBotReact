@@ -8,6 +8,7 @@ import Remittance from "../pages/Remittance";
 import Exchanger from "../pages/Exchanger";
 import Purchase from "../pages/Purchase";
 import P2P from "../pages/P2P";
+import CreateOrder from "../pages/CreateOrder";
 
 export const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
   {
     path: "/p2p",
     element: <P2P />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/createorder",
+    element: <CreateOrder />,
     errorElement: <ErrorPage />,
   },
 ]);
