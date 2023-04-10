@@ -4,7 +4,7 @@ export default function P2P() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
-        <div className="w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
+        <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <div className="flex justify-center items-start mt-[15px] font-black text-2xl text-[var(--tg-theme-hint-color)]">
             P2P Маркет
           </div>
@@ -138,6 +138,22 @@ export default function P2P() {
               <p className="mx-auto flex justify-center"> Создать</p>
             </div>
           </Link>
+        </div>
+        <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
+          <table>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Amount of deals
+              </td>
+              <td className="whitespace-nowrap px-4 ">23</td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Completed deals
+              </td>
+              <td className="whitespace-nowrap px-4 ">97,32%</td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
