@@ -158,10 +158,45 @@ export default function P2P() {
 
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
-            <p className="text-2xl font-bold flex justify-center mt-4] text-[var(--tg-theme-hint-color)]">
+            <p className="text-2xl font-bold flex justify-center mt-4 text-[var(--tg-theme-hint-color)]">
               История сделок
             </p>
-            <div className="h-4 w-[98%] "></div>
+            <div className="h-4 w-[98%] ">
+              <Link
+                to={`/`}
+                className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4 my-3"
+              >
+                <div className="flex gap-3 items-center mx-4 mt-2 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
+                  <p className="text-xs font-bold align-text-top flex gap-2 bg-[00FCDE]">
+                    Сompleted
+                  </p>
+                  <p className="font-light"> #AS-0002343</p>
+                </div>
+                <p className="font-bold text-2xl">Sold 14 TMY for 2600 RUB</p>
+                <table className="min-w-full divide-y divide-[var(--tg-theme-secondary-bg-color)] text-sm">
+                  <tr>
+                    <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                      Buyer
+                    </td>
+                    <td className="whitespace-nowrap px-4 ">
+                      {" "}
+                      Tsigulsky Nikita{" "}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                      Payment method
+                    </td>
+                    <td className="whitespace-nowrap px-4 text-[#10936C]">
+                      СБЕР
+                    </td>
+                  </tr>
+                </table>
+                <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
+                  December 31 at 18:43
+                </p>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
