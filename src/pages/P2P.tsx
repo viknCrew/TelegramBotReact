@@ -5,7 +5,7 @@ export default function P2P() {
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <div className="flex justify-center items-start mt-[15px] font-black text-2xl text-[var(--tg-theme-hint-color)]">
+          <div className="flex justify-center items-start font-black text-2xl text-[var(--tg-theme-hint-color)]">
             P2P Маркет
           </div>
         </div>
@@ -140,7 +140,7 @@ export default function P2P() {
           </Link>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <table className="min-w-full divide-y-1 divide-[var(--tg-theme-hint-color)] text-sm">
+          <table className="min-w-full divide-y divide-[var(--tg-theme-hint-color)] text-sm">
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Amount of deals
