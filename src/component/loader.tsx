@@ -1,31 +1,34 @@
 export default function LoaderSkeleton() {
   return (
-    <div className="w-[90%] animate-pulse" role="status">
-      <div className="grid grid-col-1 mt-10 gap-6  ">
-        <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <div className="flex justify-center items-start mt-[15px] font-black text-2xl h-[2rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-48 mb-4"></div>
-          <div className="font-smail text-xs ml-[30px] h-[1rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-148 mb-4"></div>
-          <div className="flex items-center ml-[30px] h-[1.75rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-48 mb-4"></div>
-        </div>
-        <div className="grid gap-6 grid-cols-2">
-          <div className="bg-[var(--tg-theme-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md">
-            <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-              <div className="mx-auto w-[28px] h-[28px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center"></div>
-              <p className="mx-auto flex justify-cent h-[1rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-28 mb-4"></p>
-            </div>
-          </div>
-          <div className="bg-[var(--tg-theme-bg-color)] text-[var(--tg-theme-link-color)] py-[7px] flex items-center justify-center shadow-lg rounded-md">
-            <div className="grid grid-cols-1 m-0 p-0 text-xl font-semibold">
-              <div className="mx-auto w-[28px] h-[28px] rounded-full bg-[var(--tg-theme-button-color)] flex justify-center items-center"></div>
-              <p className="mx-auto flex justify-cent h-[1rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-28 mb-4">
-                {" "}
-              </p>
-            </div>
-          </div>
-        </div>
-        <p className="flex justify-center items-start mt-[15px] font-black text-2xl h-[2rem] bg-[var(--tg-theme-hint-color)]  rounded-full dark:bg-[var(--tg-theme-secondary-bg-color)] w-48 mb-4]"></p>
-        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
-          <div className=" gap-3 grid grid-cols-1"></div>
+    <div className="bg-[var(--tg-theme-secondary-bg-color)]">
+      <div className="flex h-screen items-center justify-center">
+        <div className="animation-pulse flex h-40 w-40 items-center justify-center rounded-full bg-[#6D00F3]">
+          <svg
+            width="38"
+            height="37"
+            viewBox="0 0 38 37"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M20.9 4.03231H17.138V11.9053L19.038 13.0288L20.8962 11.9053V4.03231H20.9ZM0 0V4.03231H38V0H0Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19 16.4558L34.5534 6.9585H38V36.8133H34.5534V11.6396L19 21.1369L3.5644 11.6396V36.8133H0V6.9585H3.4656L19 16.4558Z"
+              fill="white"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M19.0234 25.9744L31.6622 18.1057L31.6888 22.7694L20.912 29.4754V36.8172H17.1538V29.4885L6.30859 22.739L6.33899 18.0796L19.0234 25.9744Z"
+              fill="white"
+            />
+          </svg>
         </div>
       </div>
     </div>
