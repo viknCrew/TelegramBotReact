@@ -156,7 +156,7 @@ export default function P2P() {
           </table>
         </div>
 
-        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
+        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full py-2 overflow-auto flex justify-center">
           <div className="w-[98%]">
             <p className="text-2xl font-bold flex justify-center mt-4 text-[var(--tg-theme-hint-color)]">
               История сделок
