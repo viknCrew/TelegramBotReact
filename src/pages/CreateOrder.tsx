@@ -10,7 +10,7 @@ export default function CreateOrder() {
           </div>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <fieldset className="flex flex-wrap gap-3">
+          <fieldset className="grid grid-cols-1 gap-3">
             <legend className="sr-only">Color</legend>
 
             <div>
