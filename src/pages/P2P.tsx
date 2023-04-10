@@ -156,7 +156,7 @@ export default function P2P() {
           </table>
         </div>
 
-        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full py-2 overflow-auto flex justify-center">
+        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
             <p className="text-2xl font-bold flex justify-center mt-4 text-[var(--tg-theme-hint-color)]">
               История сделок
@@ -164,7 +164,7 @@ export default function P2P() {
             <div className="h-4 w-[98%] ">
               <Link
                 to={`/`}
-                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-[98%] h-[100px] grid grid-cols-1 px-4 my-3"
+                className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl w-[98%] p-2 grid grid-cols-1 px-4 my-3"
               >
                 <div className="flex gap-3 items-center mx-4 mt-2 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
                   <p className="text-xs font-bold align-text-top flex gap-2 bg-[00FCDE]">
