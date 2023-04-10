@@ -140,7 +140,7 @@ export default function P2P() {
           </Link>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <table className="min-w-full divide-y divide-[var(--tg-theme-hint-color)] text-sm">
+          <table className="min-w-full divide-y divide-[var(--tg-theme-secondary-bg-color)] text-sm">
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Amount of deals
@@ -154,6 +154,15 @@ export default function P2P() {
               <td className="whitespace-nowrap px-4 ">97,32%</td>
             </tr>
           </table>
+        </div>
+
+        <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
+          <div className="w-[98%]">
+            <p className="text-2xl font-bold flex justify-center mt-4] text-[var(--tg-theme-hint-color)]">
+              История сделок
+            </p>
+            <div className="h-4 w-[98%] "></div>
+          </div>
         </div>
       </div>
     </div>
