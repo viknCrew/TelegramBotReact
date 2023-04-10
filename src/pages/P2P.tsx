@@ -140,7 +140,7 @@ export default function P2P() {
           </Link>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <table>
+          <table className="min-w-full divide-y-2 divide-[var(--tg-theme-hint-color)] text-sm">
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Amount of deals
