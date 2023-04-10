@@ -115,7 +115,7 @@ export default function NavigateBar() {
         </div>
       </Link>
       <Link
-        to={"/exchanger"}
+        to={"/p2p"}
         className="mr-7 flex items-center justify-center rounded-md"
       >
         <div className="grid grid-cols-1 m-0 p-0  font-semibold">

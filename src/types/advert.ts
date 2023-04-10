@@ -11,6 +11,6 @@ export interface IAdvert{
   numberAdventer:string,
   payWithin:string,   
   comment:string,    
-  static:string
+  static:string,
 
 }
