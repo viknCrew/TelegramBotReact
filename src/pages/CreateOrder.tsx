@@ -10,7 +10,9 @@ export default function CreateOrder() {
           </div>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <fieldset className="grid grid-cols-1 gap-3">
+          <fieldset className="flex flex-wrap gap-3">
+            <legend className="sr-only">Color</legend>
+
             <div>
               <input
                 type="radio"
@@ -23,9 +25,9 @@ export default function CreateOrder() {
 
               <label
                 htmlFor="ColorBlack"
-                className="flex cursor-pointer items-center justify-center rounded-md border border-[var(--tg-theme-bg-color)] py-2 px-3  hover:border-[var(--tg-theme-link-color)] peer-checked:border-[var(--tg-theme-link-color)] peer-checked:bg-[var(--tg-theme-link-color) ] "
+                className="flex cursor-pointer items-center justify-center rounded-md border border-gray-100 py-2 px-3 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white dark:border-gray-800 dark:text-white dark:hover:border-gray-700"
               >
-                <p className="text-sm font-medium">Buy</p>
+                <p className="text-2xl font-bold">Buy</p>
               </label>
             </div>
 
@@ -40,9 +42,9 @@ export default function CreateOrder() {
 
               <label
                 htmlFor="ColorRed"
-                className="flex cursor-pointer items-center py-2 px-3   justify-center rounded-md border border-[var(--tg-theme-bg-color)] hover:border-[var(--tg-theme-link-color)] peer-checked:border-[var(--tg-theme-link-color)] peer-checked:bg-[var(--tg-theme-link-color) ] "
+                className="flex cursor-pointer items-center justify-center rounded-md border border-gray-100 py-2 px-3 text-gray-900 hover:border-gray-200 peer-checked:border-blue-500 peer-checked:bg-blue-500 peer-checked:text-white dark:border-gray-800 dark:text-white dark:hover:border-gray-700"
               >
-                <p className="text-sm font-medium">Sell</p>
+                <p className="text-2xl font-bold">Sell</p>
               </label>
             </div>
           </fieldset>

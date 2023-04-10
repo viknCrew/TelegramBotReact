@@ -172,7 +172,9 @@ export default function P2P() {
                   </p>
                   <p className="font-light"> #AS-0002343</p>
                 </div>
-                <p className="font-bold text-lg">Sold 14 TMY for 2600 RUB</p>
+                <p className="font-bold text-lg mx-4">
+                  Sold 14 TMY for 2600 RUB
+                </p>
                 <table className="min-w-full divide-y divide-[var(--tg-theme-secondary-bg-color)] text-sm">
                   <tr>
                     <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
