@@ -14,6 +14,13 @@ export default function CreateOrder() {
   }, []);
 
   useEffect(() => {
+    tg.BackButton.show();
+    tg.MainButton.setParams({
+      text: "Post",
+    });
+  }, []);
+
+  useEffect(() => {
     tg.onEvent("backButtonClicked", onBack);
     return () => {
       tg.offEvent("backButtonClicked", onBack);
@@ -81,7 +88,7 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Cryptocurrency
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2">
+              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
                 TMY{" "}
                 <svg
                   width="10"
@@ -101,7 +108,7 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Fiat currency
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2">
+              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
                 RUB{" "}
                 <svg
                   width="10"
@@ -121,11 +128,11 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Limit
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2">
+              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
                 12,323{" "}
                 <svg
-                 width="10"
-                 height="10"
+                  width="10"
+                  height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +148,7 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)] ">
                 Amount
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2">
+              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
                 103{" "}
                 <svg
                   width="10"
@@ -161,7 +168,7 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Payment method
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2">
+              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
                 {" "}
                 ADD{" "}
                 <svg
