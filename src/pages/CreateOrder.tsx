@@ -88,106 +88,55 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Cryptocurrency
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
-                TMY{" "}
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
-                    fill="white"
-                  />
-                </svg>
-              </td>
+              <DropdownTabel text="TMY" />
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Fiat currency
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
-                RUB{" "}
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
-                    fill="white"
-                  />
-                </svg>
-              </td>
+              <DropdownTabel text="RUB" />
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Limit
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
-                12,323{" "}
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
-                    fill="white"
-                  />
-                </svg>
-              </td>
+              <DropdownTabel text="12,32" />
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)] ">
                 Amount
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
-                103{" "}
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
-                    fill="white"
-                  />
-                </svg>
-              </td>
+              <DropdownTabel text="103" />
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Payment method
               </td>
-              <td className="whitespace-nowrap px-4 flex gap-2 items-center">
-                {" "}
-                ADD{" "}
-                <svg
-                  width="10"
-                  height="10"
-                  viewBox="0 0 19 19"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
-                    fill="white"
-                  />
-                </svg>
-              </td>
+              <DropdownTabel text="ADD" />
             </tr>
           </table>
         </div>
       </div>
     </div>
+  );
+}
+
+function DropdownTabel(props: { text: string }) {
+  return (
+    <td className="whitespace-nowrap px-4 flex gap-2 items-center">
+      TMY{" "}
+      <svg
+        width="10"
+        height="10"
+        viewBox="0 0 19 19"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+          fill="white"
+        />
+      </svg>
+    </td>
   );
 }
