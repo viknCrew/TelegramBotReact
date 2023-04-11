@@ -10,7 +10,7 @@ export default function CreateOrder() {
           </div>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <fieldset className="grid grid-cols-1 gap-3">
+          <fieldset className="grid grid-cols-1 gap-3 mx-10">
             <legend className="sr-only">Color</legend>
 
             <div>
@@ -55,25 +55,102 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Cryptocurrency
               </td>
-              <td className="whitespace-nowrap px-4 ">TMY</td>
+              <td className="whitespace-nowrap px-4 ">
+                TMY{" "}
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+                    fill="white"
+                  />
+                </svg>
+              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Fiat currency
               </td>
-              <td className="whitespace-nowrap px-4 ">RUB</td>
+              <td className="whitespace-nowrap px-4 ">
+                RUB{" "}
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+                    fill="white"
+                  />
+                </svg>
+              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Limit
               </td>
-              <td className="whitespace-nowrap px-4 ">12,323</td>
+              <td className="whitespace-nowrap px-4 ">
+                12,323{" "}
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+                    fill="white"
+                  />
+                </svg>
+              </td>
             </tr>
             <tr>
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Amount
               </td>
-              <td className="whitespace-nowrap px-4 ">103</td>
+              <td className="whitespace-nowrap px-4 ">
+                103{" "}
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+                    fill="white"
+                  />
+                </svg>
+              </td>
+            </tr>
+            <tr>
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                Payment method
+              </td>
+              <td className="whitespace-nowrap px-4 flex">
+                {" "}
+                ADD{" "}
+                <svg
+                  width="19"
+                  height="19"
+                  viewBox="0 0 19 19"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M1.62297 6.01666L2.75109 4.90833L9.53963 11.6969L16.3282 4.90833L17.4563 6.01666L9.53963 13.9333L1.62297 6.01666Z"
+                    fill="white"
+                  />
+                </svg>
+              </td>
             </tr>
           </table>
         </div>

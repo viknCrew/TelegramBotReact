@@ -194,7 +194,7 @@ export default function P2P() {
                     </td>
                   </tr>
                 </table>
-                <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin">
+                <p className="text-[10px] text-[var(--tg-theme-hint-color)] font-thin mx-4">
                   December 31 at 18:43
                 </p>
               </Link>
