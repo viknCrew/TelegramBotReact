@@ -81,11 +81,11 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Cryptocurrency
               </td>
-              <td className="whitespace-nowrap px-4 ">
+              <td className="whitespace-nowrap px-4 flex gap-2">
                 TMY{" "}
                 <svg
-                  width="19"
-                  height="19"
+                  width="10"
+                  height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -101,11 +101,11 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Fiat currency
               </td>
-              <td className="whitespace-nowrap px-4 ">
+              <td className="whitespace-nowrap px-4 flex gap-2">
                 RUB{" "}
                 <svg
-                  width="19"
-                  height="19"
+                  width="10"
+                  height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,11 +121,11 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Limit
               </td>
-              <td className="whitespace-nowrap px-4 ">
+              <td className="whitespace-nowrap px-4 flex gap-2">
                 12,323{" "}
                 <svg
-                  width="19"
-                  height="19"
+                 width="10"
+                 height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -138,14 +138,14 @@ export default function CreateOrder() {
               </td>
             </tr>
             <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)] ">
                 Amount
               </td>
-              <td className="whitespace-nowrap px-4 ">
+              <td className="whitespace-nowrap px-4 flex gap-2">
                 103{" "}
                 <svg
-                  width="19"
-                  height="19"
+                  width="10"
+                  height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -161,12 +161,12 @@ export default function CreateOrder() {
               <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
                 Payment method
               </td>
-              <td className="whitespace-nowrap px-4 flex">
+              <td className="whitespace-nowrap px-4 flex gap-2">
                 {" "}
                 ADD{" "}
                 <svg
-                  width="19"
-                  height="19"
+                  width="10"
+                  height="10"
                   viewBox="0 0 19 19"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
