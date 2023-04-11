@@ -1,6 +1,32 @@
-import { Link } from "react-router-dom";
+import { useCallback, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 
 export default function CreateOrder() {
+  const { tg } = useTelegram();
+  const navigate = useNavigate();
+  const onBack = useCallback(() => {
+    navigate("/");
+  }, []);
+
+  const onSendData = useCallback(async () => {
+    navigate("/createorder");
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
+
+  useEffect(() => {
+    tg.onEvent("mainButtonClicked", onSendData);
+    return () => {
+      tg.offEvent("mainButtonClicked", onSendData);
+    };
+  }, [onSendData, tg]);
+
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
@@ -10,7 +36,7 @@ export default function CreateOrder() {
           </div>
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
-          <fieldset className="grid grid-cols-1 gap-3 mx-10">
+          <fieldset className="grid grid-cols-1 gap-3 mx-24">
             <legend className="sr-only">Color</legend>
 
             <div>
