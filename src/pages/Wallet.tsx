@@ -7,6 +7,7 @@ import { GlobalLoader, GlobalStore } from "../store";
 import Copy from "../component/Copy";
 import NavigateBar from "../component/NavigateBar";
 import TxList from "../component/TxList";
+import USDS from "../component/USDS";
 
 export default function Wallet() {
   const { t, i18n } = useTranslation();
@@ -33,7 +34,6 @@ export default function Wallet() {
   const lTransationList = useUnit(TransationList.loader);
   const lAddress = useUnit(AddressStore.loader);
 
-  const USDS = require("../assets/USDS.svg");
 
   useEffect(() => {
     tg.BackButton.hide();
