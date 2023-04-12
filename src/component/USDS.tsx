@@ -1,6 +1,6 @@
 export default function USDS() {
   return (
-    <div className="w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-between mx-4">
+    <div className="w-full py-3 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-between ">
       <div className="flex gap-2  mx-4">
         {" "}
         <svg
@@ -122,12 +122,12 @@ export default function USDS() {
         </svg>
         <p className="text-[var(--tg-theme-hint-color)] font-bold text-lg">
           USDS{" "}
-          <p className="text-[var(--tg-theme-text-color)] font-normal text-xs">
-            105
+          <p className="text-[var(--tg-theme-hint-color)] font-normal text-xs">
+            105.9277901
           </p>
         </p>
       </div>
-      <p className="text-lg font-bold  mx-4">7300.00 RUB</p>
+      <p className="text-lg font-bold  mx-4">7321.83 RUB</p>
     </div>
   );
 }
