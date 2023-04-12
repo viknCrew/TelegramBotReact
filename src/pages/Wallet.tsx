@@ -119,17 +119,7 @@ export default function Wallet() {
             <Copy text={address} width="10px" height="11" />
           </div>
         </div>
-        <div className="Wallet w-full h-[150px] bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg flex justify-between mx-4">
-          <div className="flex gap-2  mx-4">
-            {" "}
-            <img src={USDS} alt="USDS" width="50px" />
-            <p className="text-[var(--tg-theme-hint-color)] font-bold text-lg">
-              USDS{" "}
-              <p className="text-[var(--tg-theme-text-color)] font-normal text-xs"></p>
-            </p>
-          </div>
-          <p className="text-lg font-bold  mx-4"></p>
-        </div>
+        <USDS />
         <NavigateBar />
         <div className="bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg w-full h-[400px] overflow-auto flex justify-center">
           <div className="w-[98%]">
