@@ -120,14 +120,14 @@ export default function USDS() {
             </filter>
           </defs>
         </svg>
-        <p className="text-[var(--tg-theme-hint-color)] font-bold text-lg">
+        <p className="text-[var(--tg-theme-link-color)] font-bold text-lg">
           USDS{" "}
           <p className="text-[var(--tg-theme-hint-color)] font-normal text-xs">
             105.9277901
           </p>
         </p>
       </div>
-      <p className="text-lg font-bold  mx-4">7321.83 RUB</p>
+      <p className="text-lg font-bold flex items-center mx-4">7321.83 RUB</p>
     </div>
   );
 }
