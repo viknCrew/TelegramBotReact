@@ -128,10 +128,10 @@ const DropdownTabel = (props: { text: string }) => {
     <div className="relative">
       {/* Trigger Button */}
       <button
-        className="block bg-gray-200 text-gray-700 font-semibold py-2 px-4 rounded-md"
+        className="block  text-gray-700 font-semibold py-2 px-4 rounded-md"
         onClick={() => setIsOpen(!isOpen)}
       >
-        Dropdown
+        text
       </button>
 
       {/* Dropdown Menu */}
@@ -139,19 +139,19 @@ const DropdownTabel = (props: { text: string }) => {
         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
           <a
             href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+            className="absolute px-4 py-2 text-gray-800 hover:bg-gray-100"
           >
             Item 1
           </a>
           <a
             href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+            className="absolute px-4 py-2 text-gray-800 hover:bg-gray-100"
           >
             Item 2
           </a>
           <a
             href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
+            className="absolute px-4 py-2 text-gray-800 hover:bg-gray-100"
           >
             Item 3
           </a>
