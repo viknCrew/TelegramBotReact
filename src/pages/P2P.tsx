@@ -1,6 +1,25 @@
-import { Link } from "react-router-dom";
+import { useCallback, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useTelegram } from "../hooks/useTelegram";
 
 export default function P2P() {
+  const { tg } = useTelegram();
+  const navigate = useNavigate();
+  const onBack = useCallback(() => {
+    navigate("/");
+  }, []);
+
+  useEffect(() => {
+    tg.BackButton.show();
+  }, []);
+
+  useEffect(() => {
+    tg.onEvent("backButtonClicked", onBack);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
+
   return (
     <div className="flex justify-center">
       <div className="grid grid-col-1 mt-10 gap-6 w-[90%] ">
@@ -166,11 +185,11 @@ export default function P2P() {
                 to={`/`}
                 className="bg-[var(--tg-theme-secondary-bg-color)] rounded-xl shadow-2xl p-2 grid grid-cols-1 mx-2  my-3"
               >
-                <div className="flex gap-3 items-center mx-4 mt-2 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
+                <div className="flex justify-between  items-center mx-4 mt-2 mb-2 border-b-2 border-[var(--tg-theme-text-color)]">
                   <p className="text-xs font-bold align-text-top flex gap-2 bg-[00FCDE]">
                     Сompleted
                   </p>
-                  <p className="font-light"> #AS-0002343</p>
+                  <p className="font-light text-xs"> #AS-0002343</p>
                 </div>
                 <p className="font-bold text-lg mx-4">
                   Sold 14 TMY for 2600 RUB
