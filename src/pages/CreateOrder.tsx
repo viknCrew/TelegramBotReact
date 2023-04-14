@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useTelegram } from "../hooks/useTelegram";
+import { DropdownTabel } from "../component/Dropdown";
+import { ContentType, IContent, IInputFields } from "../types/content";
 
 export default function CreateOrder() {
   const { tg } = useTelegram();
@@ -84,36 +86,19 @@ export default function CreateOrder() {
         </div>
         <div className="w-full py-4 bg-[var(--tg-theme-bg-color)] rounded-xl shadow-lg">
           <table className="min-w-full divide-y divide-[var(--tg-theme-secondary-bg-color)] text-sm">
-            <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                Cryptocurrency
-              </td>
-              <DropdownTabel text="TMY" />
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                Fiat currency
-              </td>
-              <DropdownTabel text="RUB" />
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                Limit
-              </td>
-              <DropdownTabel text="12,32" />
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)] ">
-                Amount
-              </td>
-              <DropdownTabel text="103" />
-            </tr>
-            <tr>
-              <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
-                Payment method
-              </td>
-              <DropdownTabel text="ADD" />
-            </tr>
+            {inputFields.map((field) => {
+              return (
+                <tr>
+                  <td className="whitespace-nowrap px-4  font-medium text-[var(--tg-theme-link-color)]">
+                    {field.name}
+                  </td>
+                  <DropdownTabel
+                    text={field.dashboard}
+                    content={field.content}
+                  />
+                </tr>
+              );
+            })}
           </table>
         </div>
       </div>
@@ -121,42 +106,71 @@ export default function CreateOrder() {
   );
 }
 
-const DropdownTabel = (props: { text: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="relative">
-      {/* Trigger Button */}
-      <button
-        className="block  text-gray-700 font-semibold py-2 px-4 rounded-md"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {props.text}
-      </button>
-
-      {/* Dropdown Menu */}
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg">
-          <a
-            href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-          >
-            Item 1
-          </a>
-          <a
-            href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-          >
-            Item 2
-          </a>
-          <a
-            href="#"
-            className="block px-4 py-2 text-gray-800 hover:bg-gray-100"
-          >
-            Item 3
-          </a>
-        </div>
-      )}
-    </div>
-  );
-};
+const inputFields: IInputFields[] = [
+  {
+    name: "Cryptocurrency",
+    dashboard: "TMY",
+    content: [
+      {
+        name: "TMY",
+        type: ContentType.Button,
+      },
+      {
+        name: "USDS",
+        type: ContentType.Button,
+      },
+    ],
+  },
+  {
+    name: "Fiat currency",
+    dashboard: "RUB",
+    content: [
+      {
+        name: "RUB",
+        type: ContentType.Button,
+      },
+      {
+        name: "USD",
+        type: ContentType.Button,
+      },
+    ],
+  },
+  {
+    name: "Limit",
+    dashboard: "Limit",
+    content: [
+      {
+        name: "Limit",
+        type: ContentType.Input,
+      },
+    ],
+  },
+  {
+    name: "Amount",
+    dashboard: "Amount",
+    content: [
+      {
+        name: "Amount",
+        type: ContentType.Input,
+      },
+    ],
+  },
+  {
+    name: "Payment method",
+    dashboard: "Amount",
+    content: [
+      {
+        name: "СБЕР",
+        type: ContentType.Button,
+      },
+      {
+        name: "АЛЬФА БАНК",
+        type: ContentType.Button,
+      },
+      {
+        name: "Тиньков",
+        type: ContentType.Button,
+      },
+    ],
+  },
+];
